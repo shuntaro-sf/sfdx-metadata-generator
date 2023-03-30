@@ -1,0 +1,211 @@
+{
+  "version": "0.0.1",
+  "commands": {
+    "hello:org": {
+      "id": "hello:org",
+      "description": "print a greeting and your org IDs",
+      "strict": true,
+      "usage": "<%= command.id %> [-n <string>] [-f] [-i <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "pluginName": "metadata-generator",
+      "pluginAlias": "metadata-generator",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [
+        "sfdx hello:org --targetusername myOrg@example.com --targetdevhubusername devhub@org.com",
+        "sfdx hello:org --name myname --targetusername myOrg@example.com"
+      ],
+      "flags": {
+        "json": {
+          "name": "json",
+          "type": "boolean",
+          "description": "format output as json",
+          "allowNo": false
+        },
+        "loglevel": {
+          "name": "loglevel",
+          "type": "option",
+          "description": "logging level for this command invocation",
+          "required": false,
+          "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
+          "multiple": false,
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
+          "default": "warn"
+        },
+        "name": {
+          "name": "name",
+          "type": "option",
+          "char": "n",
+          "description": "name to print",
+          "multiple": false
+        },
+        "force": {
+          "name": "force",
+          "type": "boolean",
+          "char": "f",
+          "description": "example boolean flag",
+          "allowNo": false
+        },
+        "inputdir": {
+          "name": "inputdir",
+          "type": "option",
+          "char": "i",
+          "description": "example boolean flag",
+          "multiple": false
+        },
+        "outputdir": {
+          "name": "outputdir",
+          "type": "option",
+          "char": "o",
+          "description": "example boolean flag",
+          "multiple": false
+        }
+      },
+      "args": {
+        "file": {
+          "name": "file"
+        }
+      },
+      "flagsConfig": {
+        "name": {
+          "kind": "string",
+          "char": "n",
+          "description": "name to print",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        },
+        "force": {
+          "kind": "boolean",
+          "char": "f",
+          "description": "example boolean flag",
+          "allowNo": false,
+          "type": "boolean"
+        },
+        "inputdir": {
+          "kind": "string",
+          "char": "i",
+          "description": "example boolean flag",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        },
+        "outputdir": {
+          "kind": "string",
+          "char": "o",
+          "description": "example boolean flag",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        }
+      },
+      "requiresUsername": false,
+      "supportsDevhubUsername": false,
+      "requiresProject": false,
+      "defaultValues": {
+        "Checkbox": {
+          "fullName": "CustomField",
+          "externalId": "false",
+          "label": "CustomField",
+          "required": null,
+          "type": "Checkbox",
+          "trackTrending": "false",
+          "unique": null,
+          "defaultValue": "false",
+          "displayLocationInDecimal": null,
+          "scale": null,
+          "precision": null,
+          "valueSet": null,
+          "visibleLines": null,
+          "length": null,
+          "maskChar": null,
+          "maskType": null
+        },
+        "Currency": {
+          "fullName": "CustomField",
+          "externalId": "false",
+          "label": "CustomField",
+          "required": "false",
+          "type": "Currency",
+          "trackTrending": "false",
+          "unique": null,
+          "defaultValue": null,
+          "displayLocationInDecimal": null,
+          "scale": "0",
+          "precision": "18",
+          "valueSet": null,
+          "visibleLines": null,
+          "length": null,
+          "maskChar": null,
+          "maskType": null
+        },
+        "Date": {
+          "fullName": "CustomField",
+          "externalId": "false",
+          "label": "CustomField",
+          "required": "false",
+          "type": "Date",
+          "trackTrending": "false",
+          "unique": null,
+          "defaultValue": null,
+          "displayLocationInDecimal": null,
+          "scale": null,
+          "precision": null,
+          "valueSet": null,
+          "visibleLines": null,
+          "length": null,
+          "maskChar": null,
+          "maskType": null
+        },
+        "DateTime": {
+          "fullName": "CustomField",
+          "externalId": "false",
+          "label": "CustomField",
+          "required": null,
+          "type": "DateTime",
+          "trackTrending": "false",
+          "unique": null,
+          "defaultValue": "false",
+          "displayLocationInDecimal": null,
+          "scale": null,
+          "precision": null,
+          "valueSet": null,
+          "visibleLines": null,
+          "length": null,
+          "maskChar": null,
+          "maskType": null
+        },
+        "Email": {
+          "fullName": "CustomField",
+          "externalId": "false",
+          "label": "CustomField",
+          "required": "false",
+          "type": "Email",
+          "trackTrending": "false",
+          "unique": null,
+          "defaultValue": null,
+          "displayLocationInDecimal": null,
+          "scale": null,
+          "precision": null,
+          "valueSet": null,
+          "visibleLines": null,
+          "length": null,
+          "maskChar": null,
+          "maskType": null
+        }
+      }
+    }
+  }
+}
