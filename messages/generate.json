@@ -1,0 +1,9 @@
+{
+  "commandDescription": "print a greeting and your generate IDs",
+  "inputdirFlagDescription": "example boolean flag",
+  "outputdirFlagDescription": "example boolean flag",
+  "errorNogenerateResults": "No results found for the generate '%s'.",
+  "examples": [
+    "sfdx metadata:field:generate --inputdir dir/input.csv --outputdir .outputdir"
+  ]
+}
