@@ -86,7 +86,7 @@
       "requiresProject": false,
       "defaultValues": {
         "Checkbox": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": null,
@@ -104,7 +104,7 @@
           "maskType": null
         },
         "Currency": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -122,7 +122,7 @@
           "maskType": null
         },
         "Date": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -140,7 +140,7 @@
           "maskType": null
         },
         "DateTime": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": null,
@@ -158,7 +158,7 @@
           "maskType": null
         },
         "Email": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -176,7 +176,7 @@
           "maskType": null
         },
         "Location": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -194,7 +194,7 @@
           "maskType": null
         },
         "Number": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -212,7 +212,7 @@
           "maskType": null
         },
         "Percent": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -230,7 +230,7 @@
           "maskType": null
         },
         "Phone": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -248,7 +248,7 @@
           "maskType": null
         },
         "Picklist": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -266,7 +266,7 @@
           "maskType": null
         },
         "MultiselectPicklist": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -284,7 +284,7 @@
           "maskType": null
         },
         "Text": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -302,7 +302,7 @@
           "maskType": null
         },
         "TextArea": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -320,7 +320,7 @@
           "maskType": null
         },
         "LongTextArea": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": null,
@@ -338,7 +338,7 @@
           "maskType": null
         },
         "Html": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": null,
@@ -356,7 +356,7 @@
           "maskType": null
         },
         "EncryptedText": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -374,7 +374,7 @@
           "maskType": "all"
         },
         "Time": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -392,7 +392,7 @@
           "maskType": null
         },
         "Url": {
-          "fullName": "CustomField",
+          "fullName": null,
           "externalId": "false",
           "label": "CustomField",
           "required": "false",
@@ -409,7 +409,63 @@
           "maskChar": null,
           "maskType": null
         }
-      }
+      },
+      "options": {
+        "externalId": [
+          "true",
+          "false"
+        ],
+        "required": [
+          "true",
+          "false"
+        ],
+        "type": [
+          "Checkbox",
+          "Currency",
+          "Date",
+          "DateTime",
+          "Email",
+          "Location",
+          "Number",
+          "Percent",
+          "Phone",
+          "Picklist",
+          "MultiselectPicklist",
+          "Text",
+          "TextArea",
+          "LongTextArea",
+          "Html",
+          "EncryptedText",
+          "Time",
+          "Url"
+        ],
+        "trackTrending": [
+          "true",
+          "false"
+        ],
+        "unique": [
+          "true",
+          "false"
+        ],
+        "displayLocationInDecimal": [
+          "true",
+          "false"
+        ],
+        "maskChar": [
+          "asterisk",
+          "X"
+        ],
+        "maskType": [
+          "all",
+          "lastFour",
+          "creditCard",
+          "nino",
+          "ssn",
+          "sin"
+        ]
+      },
+      "validationResults": [],
+      "metaInfo": []
     }
   }
 }
