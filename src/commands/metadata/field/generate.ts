@@ -58,7 +58,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -76,7 +75,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: "0",
       precision: "18",
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -94,7 +92,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -112,7 +109,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -130,7 +126,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -148,7 +143,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: "false",
       scale: "0",
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -166,7 +160,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: "0",
       precision: "18",
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -184,7 +177,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: "0",
       precision: "18",
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -202,7 +194,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -220,7 +211,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -238,7 +228,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: "4",
       length: null,
       maskChar: null,
@@ -256,7 +245,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: "255",
       maskChar: null,
@@ -274,7 +262,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -292,7 +279,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: "3",
       length: "32768",
       maskChar: null,
@@ -310,7 +296,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: "25",
       length: "32768",
       maskChar: null,
@@ -328,7 +313,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: "175",
       maskChar: "asterisk",
@@ -346,7 +330,6 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
@@ -364,11 +347,318 @@ export default class generate extends SfdxCommand {
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
-      valueSet: null,
       visibleLines: null,
       length: null,
       maskChar: null,
       maskType: null,
+    },
+  };
+  private static isRequired = {
+    Checkbox: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: true,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Currency: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: true,
+      precision: true,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Date: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    DateTime: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: null,
+      type: true,
+      trackTrending: false,
+      unique: null,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Email: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Location: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: true,
+      scale: true,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Number: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: true,
+      precision: true,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Percent: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: true,
+      precision: true,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Phone: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Picklist: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    MultiselectPicklist: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: true,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Text: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: true,
+      maskChar: false,
+      maskType: false,
+    },
+    TextArea: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    LongTextArea: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: true,
+      length: true,
+      maskChar: false,
+      maskType: false,
+    },
+    Html: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: true,
+      length: true,
+      maskChar: false,
+      maskType: false,
+    },
+    EncryptedText: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: true,
+      maskChar: true,
+      maskType: true,
+    },
+    Time: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
+    },
+    Url: {
+      fullName: true,
+      externalId: false,
+      label: true,
+      required: false,
+      type: true,
+      trackTrending: false,
+      unique: false,
+      defaultValue: false,
+      displayLocationInDecimal: false,
+      scale: false,
+      precision: false,
+      visibleLines: false,
+      length: false,
+      maskChar: false,
+      maskType: false,
     },
   };
   private static options = {
@@ -377,6 +667,7 @@ export default class generate extends SfdxCommand {
     type: Object.keys(generate.defaultValues),
     trackTrending: ["true", "false"],
     unique: ["true", "false"],
+    defaultValue: ["true", "false"],
     displayLocationInDecimal: ["true", "false"],
     maskChar: ["asterisk", "X"],
     maskType: ["all", "lastFour", "creditCard", "nino", "ssn", "sin"],
@@ -404,6 +695,8 @@ export default class generate extends SfdxCommand {
       if (csv[rowIndex].length < header.length) {
         continue;
       }
+
+      //generates metadata for each row
       let metaStr = this.getMetaStr(csv, rowIndex, header);
 
       if (generate.validationResults.length > 0) {
@@ -429,15 +722,21 @@ export default class generate extends SfdxCommand {
     let tagStrs = [];
     let metaStr = '<?xml version="1.0" encoding="UTF-8"?>\n<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">';
     const type = row[indexOfType];
+    const colIndex = indexOfType + 1;
+
+    if (!generate.options.type.includes(type)) {
+      this.pushValidationResult("Row" + rowIndex + "Col" + colIndex, messages.getMessage("validationTypeOptions") + generate.options.type.toString());
+    }
 
     for (const tag in generate.defaultValues[type]) {
       const idxOfTag = header.indexOf(tag);
 
-      if (generate.defaultValues[type][tag] === null) {
-        continue;
-      }
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
+        continue;
+      }
+
+      if (!generate.isRequired[type][tag] && generate.defaultValues[type][tag] === null) {
         continue;
       }
 
@@ -458,19 +757,24 @@ export default class generate extends SfdxCommand {
     if (row[indexOfType] === "Picklist" || row[indexOfType] === "MultiselectPicklist") {
       const idxOfPicklistFullName = header.indexOf("picklistFullName");
       const idxOfPicklistLabel = header.indexOf("picklistLabel");
-      metaStr += "\n    " + this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel]);
+      metaStr += "\n    " + this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel], header, rowIndex);
     }
 
     metaStr += "\n</CustomField>";
     return metaStr;
   }
-  private getPicklistMetaStr(inputPicklistFullName: string, inputPicklistLabel: string) {
+  private getPicklistMetaStr(inputPicklistFullName: string, inputPicklistLabel: string, header: string[], rowIndex: number) {
     let picklistValueStr = "";
     let picklistMetaStr = "<valueSet>\n        <valueSetDefinition>\n            <sorted>false</sorted>";
     const picklistDefaultStr = "<default>false</default>";
     let picklistValues = [];
     const picklistFullNames = inputPicklistFullName.split(";");
     const picklistLabels = inputPicklistLabel.split(";");
+
+    if (this.isValidInputsForPicklist(picklistFullNames, picklistLabels, header, rowIndex)) {
+      return picklistMetaStr;
+    }
+
     for (let idx = 0; idx < picklistFullNames.length; idx++) {
       let picklistFullNameStr = "<fullName>" + picklistFullNames[idx] + "</fullName>";
       let picklistLabelStr = "<label>" + picklistLabels[idx] + "</label>";
@@ -485,101 +789,176 @@ export default class generate extends SfdxCommand {
   }
 
   private isValidInputs(tag: string, row: string[], header: string[], rowIndex: number): boolean {
+    const indexOfType = header.indexOf("type");
+    const type = row[indexOfType];
     const idxOfTag = header.indexOf(tag);
+
+    const regExp = /^[a-zA-Z][0-9a-zA-Z_]+$/;
     const validationResLenBefore = generate.validationResults.length;
     switch (tag) {
       case "fullName":
+        if (!regExp.test(row[idxOfTag])) {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameFormat"));
+        }
+        if (row[idxOfTag].substring(row[idxOfTag].length - 3, row[idxOfTag].length) !== "__c") {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameTail"));
+        }
         if (row[idxOfTag].length === 0) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationFullNameBlank");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameBlank"));
         }
         if (row[idxOfTag].length > 40) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationFullNameLength");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameLength"));
         }
         break;
       case "externalId":
-        if (!generate.options.externalId.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationExternalIdOptions");
+        if (!generate.options.externalId.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationExternalIdOptions"));
         }
         break;
       case "label":
         if (row[idxOfTag].length === 0) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationLabelBlank");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLabelBlank"));
         }
         if (row[idxOfTag].length > 40) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationLabelLength");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLabelLength"));
         }
         break;
       case "required":
-        if (!generate.options.required.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationRequiredOptions");
+        if (!generate.options.required.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationRequiredOptions"));
         }
         break;
-      case "type":
-        break;
       case "trackTrending":
-        if (!generate.options.trackTrending.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationTrackTrendingOptions");
+        if (!generate.options.trackTrending.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationTrackTrendingOptions"));
         }
         break;
       case "unique":
-        if (!generate.options.unique.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationUniqueOptions");
+        if (!generate.options.unique.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationUniqueOptions"));
         }
         break;
       case "defaultValue":
+        if (type === "Checkbox") {
+          if (!generate.options.defaultValue.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
+            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationDefaultValueOptions"));
+          }
+        }
         break;
       case "displayLocationInDecimal":
-        if (!generate.options.displayLocationInDecimal.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationDefaultValueOptions");
+        if (!generate.options.displayLocationInDecimal.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationDisplayLocationDecimalOptions"));
         }
         break;
       case "scale":
         if (!Number.isInteger(Number(row[idxOfTag]))) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationScaleType");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleType"));
         }
         if (!Number.isInteger(Number(row[header.indexOf("precision")]))) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationPrecisionType");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionType"));
+        }
+        if (Number(row[idxOfTag]) < 0) {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleNegative"));
         }
         if (Number(row[idxOfTag]) + Number(row[header.indexOf("precision")]) > 18) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationScaleSum");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleSum"));
         }
         break;
       case "precision":
         if (!Number.isInteger(Number(row[idxOfTag]))) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationPrecisionType");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionType"));
         }
         if (!Number.isInteger(Number(row[header.indexOf("scale")]))) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationScaleType");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleType"));
+        }
+        if (Number(row[idxOfTag]) < 0) {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionNegative"));
         }
         if (Number(row[header.indexOf("scale")]) + Number(row[idxOfTag]) > 18) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationPrecisionSum");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionSum"));
         }
         break;
       case "visibleLines":
         if (!Number.isInteger(Number(row[header.indexOf(tag)]))) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationVisibleLinesType");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationVisibleLinesType"));
+        }
+        if (Number(row[idxOfTag]) < 0) {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationVisibleLinesNegative"));
         }
         if (Number(row[header.indexOf(tag)]) > 50) {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationScaleNumber");
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationVisibleLinesNumber"));
         }
         break;
       case "length":
+        if (!Number.isInteger(Number(row[header.indexOf(tag)]))) {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthType"));
+        }
+        if (Number(row[idxOfTag]) < 0) {
+          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthNegative"));
+        }
+        if (type === "Text" || type === "TextArea") {
+          if (Number(row[header.indexOf(tag)]) > 255) {
+            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthTextNumber"));
+          }
+        }
+        if (type === "LongTextArea" || type === "Html") {
+          if (Number(row[header.indexOf(tag)]) > 32768) {
+            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthLongTextNumber"));
+          }
+        }
+        if (type === "EncyptedText") {
+          if (Number(row[header.indexOf(tag)]) > 175) {
+            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthEncyptedTextNumber"));
+          }
+        }
         break;
       case "maskChar":
-        if (!generate.options.maskChar.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationMaskCharOptions");
+        if (type === "maskChar") {
+          if (!generate.options.maskChar.includes(row[idxOfTag]) && row[idxOfTag] !== "") {
+            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationMaskCharOptions"));
+          }
         }
         break;
       case "maskType":
-        if (!generate.options.maskType.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] != "") {
-          this.pushValidationResult("Row" + rowIndex + "Col" + idxOfTag, "validationMaskTypeOptions");
+        if (type === "maskType") {
+          if (!generate.options.maskType.includes(row[idxOfTag]) && row[idxOfTag] !== "") {
+            this.pushValidationResult(
+              "Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1),
+              messages.getMessage("validationMaskTypeOptions") + generate.options.maskType.toString()
+            );
+          }
         }
         break;
     }
     return validationResLenBefore == generate.validationResults.length;
   }
-  private pushValidationResult(index: string, errorMessageKey: string) {
-    generate.validationResults.push({ index: index, problem: messages.getMessage(errorMessageKey) });
+  private isValidInputsForPicklist(picklistFullNames: string[], picklistLabels: string[], header: string[], rowIndex: number) {
+    const validationResLenBefore = generate.validationResults.length;
+    const picklistFullNamesColIndex = header.indexOf("picklistFullName");
+    const picklistLabelsColIndex = header.indexOf("picklistLabel");
+    if (picklistFullNames.length !== picklistLabels.length) {
+      this.pushValidationResult(
+        "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1),
+        messages.getMessage("validationPicklistFullNameNumber")
+      );
+      this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1), messages.getMessage("validationPicklistLabelNumber"));
+    }
+    for (let idx = 0; idx < picklistFullNames.length; idx++) {
+      if (picklistFullNames[idx].length === 0) {
+        this.pushValidationResult(
+          "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1),
+          messages.getMessage("validationPicklistFullNameBlank")
+        );
+      }
+      if (picklistLabels[idx].length === 0) {
+        this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1), messages.getMessage("validationPicklistLabelBlank"));
+      }
+    }
+    return validationResLenBefore == generate.validationResults.length;
+  }
+
+  private pushValidationResult(index: string, errorMessage: string) {
+    generate.validationResults.push({ index: index, problem: errorMessage });
   }
   private showValidationErrorMessages() {
     let offset = null;
