@@ -26,9 +26,9 @@ export default class generate extends SfdxCommand {
 
   protected static flagsConfig = {
     // flag with a value (-n, --name=VALUE)
-    inputdir: flags.string({
+    input: flags.string({
       char: "i",
-      description: messages.getMessage("inputdirFlagDescription"),
+      description: messages.getMessage("inputFlagDescription"),
     }),
     outputdir: flags.string({
       char: "o",
@@ -48,7 +48,7 @@ export default class generate extends SfdxCommand {
   private static defaultValues = {
     Checkbox: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: null,
       type: "Checkbox",
@@ -65,7 +65,7 @@ export default class generate extends SfdxCommand {
     },
     Currency: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Currency",
@@ -82,7 +82,7 @@ export default class generate extends SfdxCommand {
     },
     Date: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Date",
@@ -99,13 +99,13 @@ export default class generate extends SfdxCommand {
     },
     DateTime: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: null,
       type: "DateTime",
       trackTrending: "false",
       unique: null,
-      defaultValue: "false",
+      defaultValue: null,
       displayLocationInDecimal: null,
       scale: null,
       precision: null,
@@ -133,7 +133,7 @@ export default class generate extends SfdxCommand {
     },
     Location: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Location",
@@ -167,7 +167,7 @@ export default class generate extends SfdxCommand {
     },
     Percent: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Percent",
@@ -184,7 +184,7 @@ export default class generate extends SfdxCommand {
     },
     Phone: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Phone",
@@ -201,7 +201,7 @@ export default class generate extends SfdxCommand {
     },
     Picklist: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Picklist",
@@ -218,7 +218,7 @@ export default class generate extends SfdxCommand {
     },
     MultiselectPicklist: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "MultiselectPicklist",
@@ -252,7 +252,7 @@ export default class generate extends SfdxCommand {
     },
     TextArea: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "TextArea",
@@ -269,7 +269,7 @@ export default class generate extends SfdxCommand {
     },
     LongTextArea: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: null,
       type: "LongTextArea",
@@ -286,7 +286,7 @@ export default class generate extends SfdxCommand {
     },
     Html: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: null,
       type: "Html",
@@ -303,7 +303,7 @@ export default class generate extends SfdxCommand {
     },
     EncryptedText: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "EncryptedText",
@@ -320,7 +320,7 @@ export default class generate extends SfdxCommand {
     },
     Time: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Time",
@@ -337,7 +337,7 @@ export default class generate extends SfdxCommand {
     },
     Url: {
       fullName: null,
-      externalId: "false",
+      externalId: null,
       label: "CustomField",
       required: "false",
       type: "Url",
@@ -676,13 +676,13 @@ export default class generate extends SfdxCommand {
   private static metaInfo = [];
 
   public async run(): Promise<AnyJson> {
-    if (!existsSync(this.flags.inputdir)) {
-      throw new SfError(messages.getMessage("not specified input-directory"));
+    if (!existsSync(this.flags.input)) {
+      throw new SfError(messages.getMessage("errorPathOfInput") + this.flags.input);
     }
     if (!existsSync(this.flags.outputdir)) {
-      throw new SfError(messages.getMessage("not specified output-directory"));
+      throw new SfError(messages.getMessage("errorPathOfOutput") + this.flags.outputdir);
     }
-    const csv = readFileSync(this.flags.inputdir, {
+    const csv = readFileSync(this.flags.input, {
       encoding: "utf8",
     })
       .toString()
@@ -708,12 +708,12 @@ export default class generate extends SfdxCommand {
     }
     if (generate.validationResults.length > 0) {
       this.showValidationErrorMessages();
+    } else {
+      this.saveMetaData();
     }
 
-    this.showSuccessMessages();
-
     // Return an object to be displayed with --json*/
-    return { inputdir: this.flags.inputdir };
+    return { input: this.flags.input };
   }
 
   private getMetaStr(csv: string[][], rowIndex: number, header: string[]) {
@@ -729,7 +729,7 @@ export default class generate extends SfdxCommand {
     }
 
     for (const tag in generate.defaultValues[type]) {
-      const idxOfTag = header.indexOf(tag);
+      const indexOfTag = header.indexOf(tag);
 
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
@@ -740,9 +740,12 @@ export default class generate extends SfdxCommand {
         continue;
       }
 
+      // convert special characters in the html form
+      row[indexOfTag] = this.convertSpecialChars(row[indexOfTag]);
+
       let tagStr = "";
-      if (row[idxOfTag] != "") {
-        tagStr = "<" + tag + ">" + row[idxOfTag] + "</" + tag + ">";
+      if (row[indexOfTag] != "") {
+        tagStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
       } else {
         if (tag === "label") {
           tagStr = "<" + tag + ">" + generate.defaultValues[type][tag] + row + "</" + tag + ">";
@@ -763,6 +766,7 @@ export default class generate extends SfdxCommand {
     metaStr += "\n</CustomField>";
     return metaStr;
   }
+
   private getPicklistMetaStr(inputPicklistFullName: string, inputPicklistLabel: string, header: string[], rowIndex: number) {
     let picklistValueStr = "";
     let picklistMetaStr = "<valueSet>\n        <valueSetDefinition>\n            <sorted>false</sorted>";
@@ -771,15 +775,17 @@ export default class generate extends SfdxCommand {
     const picklistFullNames = inputPicklistFullName.split(";");
     const picklistLabels = inputPicklistLabel.split(";");
 
-    if (this.isValidInputsForPicklist(picklistFullNames, picklistLabels, header, rowIndex)) {
+    if (!this.isValidInputsForPicklist(picklistFullNames, picklistLabels, header, rowIndex)) {
       return picklistMetaStr;
     }
 
     for (let idx = 0; idx < picklistFullNames.length; idx++) {
+      picklistFullNames[idx] = this.convertSpecialChars(picklistFullNames[idx]);
+      picklistLabels[idx] = this.convertSpecialChars(picklistLabels[idx]);
       let picklistFullNameStr = "<fullName>" + picklistFullNames[idx] + "</fullName>";
       let picklistLabelStr = "<label>" + picklistLabels[idx] + "</label>";
       let eachPicklistMetaStr = "<value>";
-      eachPicklistMetaStr += [eachPicklistMetaStr, picklistFullNameStr, picklistDefaultStr, picklistLabelStr].join("\n                ");
+      eachPicklistMetaStr += [picklistFullNameStr, picklistDefaultStr, picklistLabelStr].join("\n                ");
       eachPicklistMetaStr += "\n            </value>";
       picklistValues[idx] = eachPicklistMetaStr;
     }
@@ -791,167 +797,219 @@ export default class generate extends SfdxCommand {
   private isValidInputs(tag: string, row: string[], header: string[], rowIndex: number): boolean {
     const indexOfType = header.indexOf("type");
     const type = row[indexOfType];
-    const idxOfTag = header.indexOf(tag);
+    const indexOfTag = header.indexOf(tag);
 
-    const regExp = /^[a-zA-Z][0-9a-zA-Z_]+$/;
+    const regExp = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
     const validationResLenBefore = generate.validationResults.length;
+    const errorIndex = "Row" + (rowIndex + 1) + "Col" + (indexOfTag + 1);
+
     switch (tag) {
       case "fullName":
-        if (!regExp.test(row[idxOfTag])) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameFormat"));
+        if (!regExp.test(row[indexOfTag])) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
         }
-        if (row[idxOfTag].substring(row[idxOfTag].length - 3, row[idxOfTag].length) !== "__c") {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameTail"));
+        if (row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) !== "__c") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameTail"));
         }
-        if (row[idxOfTag].length === 0) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameBlank"));
+        if (row[indexOfTag].length === 0) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameBlank"));
         }
-        if (row[idxOfTag].length > 40) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationFullNameLength"));
+        if (row[indexOfTag].length > 43) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameLength"));
         }
         break;
       case "externalId":
-        if (!generate.options.externalId.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationExternalIdOptions"));
+        if ((type === "Number" || type === "Email" || type === "Text") && row[indexOfTag] !== "") {
+          if (!generate.options.externalId.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationExternalIdOptions"));
+          }
         }
         break;
       case "label":
-        if (row[idxOfTag].length === 0) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLabelBlank"));
+        let isEnclosedByDoubleQuotes = false;
+        if (row[indexOfTag][0] === '"' && row[indexOfTag][row[indexOfTag].length - 1] === '"') {
+          isEnclosedByDoubleQuotes = true;
         }
-        if (row[idxOfTag].length > 40) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLabelLength"));
+        if (row[indexOfTag].length === 0) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationLabelBlank"));
+        }
+        if (!isEnclosedByDoubleQuotes) {
+          if (row[indexOfTag].length > 40) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
+          }
+        } else {
+          const dobleQuotesCounter = (row[indexOfTag].match(/""/g) || []).length;
+          if (row[indexOfTag].length > 42 + dobleQuotesCounter) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
+          }
         }
         break;
       case "required":
-        if (!generate.options.required.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationRequiredOptions"));
+        if (!generate.options.required.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationRequiredOptions"));
         }
         break;
       case "trackTrending":
-        if (!generate.options.trackTrending.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationTrackTrendingOptions"));
+        if (!generate.options.trackTrending.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationTrackTrendingOptions"));
         }
         break;
       case "unique":
-        if (!generate.options.unique.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationUniqueOptions"));
+        if (!generate.options.unique.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationUniqueOptions"));
         }
         break;
       case "defaultValue":
-        if (type === "Checkbox") {
-          if (!generate.options.defaultValue.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
-            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationDefaultValueOptions"));
+        if (type === "Checkbox" && row[indexOfTag] !== "") {
+          if (!generate.options.defaultValue.includes(row[indexOfTag].toLowerCase())) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDefaultValueOptions"));
           }
         }
         break;
       case "displayLocationInDecimal":
-        if (!generate.options.displayLocationInDecimal.includes(row[idxOfTag].toLowerCase()) && row[idxOfTag] !== "") {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationDisplayLocationDecimalOptions"));
+        if (type === "Location" && row[indexOfTag] !== "") {
+          if (!generate.options.displayLocationInDecimal.includes(row[indexOfTag].toLowerCase())) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayLocationDecimalOptions"));
+          }
         }
         break;
       case "scale":
-        if (!Number.isInteger(Number(row[idxOfTag]))) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleType"));
-        }
-        if (!Number.isInteger(Number(row[header.indexOf("precision")]))) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionType"));
-        }
-        if (Number(row[idxOfTag]) < 0) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleNegative"));
-        }
-        if (Number(row[idxOfTag]) + Number(row[header.indexOf("precision")]) > 18) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleSum"));
+        if ((type === "Number" || type === "Percent" || type === "Currency" || type === "Location") && row[indexOfTag] !== "") {
+          if (!Number.isInteger(Number(row[indexOfTag]))) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleType"));
+          }
+          if (!Number.isInteger(Number(row[header.indexOf("precision")]))) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionType"));
+          }
+          if (Number(row[indexOfTag]) < 0) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleNegative"));
+          }
+          if (Number(row[indexOfTag]) + Number(row[header.indexOf("precision")]) > 18) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleSum"));
+          }
+          if (Number(row[indexOfTag]) >= 8) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleComarisonPrecision"));
+          }
         }
         break;
       case "precision":
-        if (!Number.isInteger(Number(row[idxOfTag]))) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionType"));
-        }
-        if (!Number.isInteger(Number(row[header.indexOf("scale")]))) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationScaleType"));
-        }
-        if (Number(row[idxOfTag]) < 0) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionNegative"));
-        }
-        if (Number(row[header.indexOf("scale")]) + Number(row[idxOfTag]) > 18) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationPrecisionSum"));
+        if ((type === "Number" || type === "Percent" || type === "Currency") && row[indexOfTag] !== "") {
+          if (!Number.isInteger(Number(row[indexOfTag]))) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionType"));
+          }
+          if (!Number.isInteger(Number(row[header.indexOf("scale")]))) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleType"));
+          }
+          if (Number(row[indexOfTag]) < 0) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionNegative"));
+          }
+          if (Number(row[header.indexOf("scale")]) + Number(row[indexOfTag]) > 18) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionSum"));
+          }
+          if (Number(row[header.indexOf("scale")]) >= 8) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionComarisonScale"));
+          }
         }
         break;
       case "visibleLines":
-        if (!Number.isInteger(Number(row[header.indexOf(tag)]))) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationVisibleLinesType"));
+        if ((type === "MultiselectPicklist" || type === "LongTextArea" || type === "Html") && row[indexOfTag] !== "") {
+          if (!Number.isInteger(Number(row[indexOfTag]))) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesType"));
+          }
+          if (Number(row[indexOfTag]) < 1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesNegativeOrZero"));
+          }
         }
-        if (Number(row[idxOfTag]) < 0) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationVisibleLinesNegative"));
+        if (type === "LongTextArea" && row[indexOfTag] !== "") {
+          if (Number(row[indexOfTag]) < 2) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesLongTextMin"));
+          }
+          if (Number(row[indexOfTag]) > 50) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesLongTextMax"));
+          }
         }
-        if (Number(row[header.indexOf(tag)]) > 50) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationVisibleLinesNumber"));
+        if (type === "Html" && row[indexOfTag] !== "") {
+          if (Number(row[indexOfTag]) < 10) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesHtmlMin"));
+          }
+          if (Number(row[indexOfTag]) > 50) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesLongTextMax"));
+          }
+        }
+        if (type === "MultiselectPicklist" && row[indexOfTag] !== "") {
+          if (Number(row[indexOfTag]) < 3) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesPicklistMin"));
+          }
+          if (Number(row[indexOfTag]) > 10) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesPicklistMax"));
+          }
         }
         break;
       case "length":
-        if (!Number.isInteger(Number(row[header.indexOf(tag)]))) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthType"));
-        }
-        if (Number(row[idxOfTag]) < 0) {
-          this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthNegative"));
-        }
-        if (type === "Text" || type === "TextArea") {
-          if (Number(row[header.indexOf(tag)]) > 255) {
-            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthTextNumber"));
+        if ((type === "Text" || type === "LongTextArea" || type === "Html" || type === "EncyptedText") && row[indexOfTag] !== "") {
+          if (!Number.isInteger(Number(row[indexOfTag]))) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthType"));
           }
         }
-        if (type === "LongTextArea" || type === "Html") {
-          if (Number(row[header.indexOf(tag)]) > 32768) {
-            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthLongTextNumber"));
+        if (type === "Text" && row[indexOfTag] !== "") {
+          if (Number(row[indexOfTag]) < 1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthTextMin"));
+          }
+          if (Number(row[indexOfTag]) > 255) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthTextMax"));
           }
         }
-        if (type === "EncyptedText") {
-          if (Number(row[header.indexOf(tag)]) > 175) {
-            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationLengthEncyptedTextNumber"));
+        if ((type === "LongTextArea" || type === "Html") && row[indexOfTag] !== "") {
+          if (Number(row[indexOfTag]) < 256) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthLongTextMin"));
+          }
+          if (Number(row[indexOfTag]) > 131072) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthLongTextMax"));
+          }
+        }
+        if (type === "EncyptedText" && row[indexOfTag] !== "") {
+          if (Number(row[indexOfTag]) < 1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthTextMin"));
+          }
+          if (Number(row[indexOfTag]) > 175) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthEncyptedTextMax"));
           }
         }
         break;
       case "maskChar":
-        if (type === "maskChar") {
-          if (!generate.options.maskChar.includes(row[idxOfTag]) && row[idxOfTag] !== "") {
-            this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1), messages.getMessage("validationMaskCharOptions"));
+        if (type === "EncryptedText" && row[indexOfTag] !== "") {
+          if (!generate.options.maskChar.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationMaskCharOptions"));
           }
         }
         break;
       case "maskType":
-        if (type === "maskType") {
-          if (!generate.options.maskType.includes(row[idxOfTag]) && row[idxOfTag] !== "") {
-            this.pushValidationResult(
-              "Row" + (rowIndex + 1) + "Col" + (idxOfTag + 1),
-              messages.getMessage("validationMaskTypeOptions") + generate.options.maskType.toString()
-            );
+        if (type === "EncryptedText" && row[indexOfTag] !== "") {
+          if (!generate.options.maskType.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationMaskTypeOptions") + generate.options.maskType.toString());
           }
         }
         break;
     }
     return validationResLenBefore == generate.validationResults.length;
   }
+
   private isValidInputsForPicklist(picklistFullNames: string[], picklistLabels: string[], header: string[], rowIndex: number) {
     const validationResLenBefore = generate.validationResults.length;
     const picklistFullNamesColIndex = header.indexOf("picklistFullName");
     const picklistLabelsColIndex = header.indexOf("picklistLabel");
+    const errorIndexForFullName = "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1);
+    const errorIndexForLabel = "Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1);
     if (picklistFullNames.length !== picklistLabels.length) {
-      this.pushValidationResult(
-        "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1),
-        messages.getMessage("validationPicklistFullNameNumber")
-      );
-      this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1), messages.getMessage("validationPicklistLabelNumber"));
+      this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameMax"));
+      this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelMax"));
     }
     for (let idx = 0; idx < picklistFullNames.length; idx++) {
       if (picklistFullNames[idx].length === 0) {
-        this.pushValidationResult(
-          "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1),
-          messages.getMessage("validationPicklistFullNameBlank")
-        );
+        this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameBlank"));
       }
       if (picklistLabels[idx].length === 0) {
-        this.pushValidationResult("Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1), messages.getMessage("validationPicklistLabelBlank"));
+        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelBlank"));
       }
     }
     return validationResLenBefore == generate.validationResults.length;
@@ -960,6 +1018,24 @@ export default class generate extends SfdxCommand {
   private pushValidationResult(index: string, errorMessage: string) {
     generate.validationResults.push({ index: index, problem: errorMessage });
   }
+
+  private convertSpecialChars(str: string): string {
+    const doubleQuotation = /["]/;
+    const specialChars = /[`&'<>]/;
+    // gets rid of double-quotation on both ends
+    if (specialChars.test(str) && doubleQuotation.test(str)) {
+      str = str.substring(1, str.length - 1);
+    }
+    str = str.replace(/""/g, '"');
+    str = str.replace(/&/g, "&" + "amp;");
+    str = str.replace(/</g, "&" + "lt;");
+    str = str.replace(/>/g, "&" + "gt;");
+    str = str.replace(/"/g, "&" + "quot;");
+    str = str.replace(/'/g, "&" + "#x27;");
+    str = str.replace(/`/g, "&" + "#x60;");
+    return str;
+  }
+
   private showValidationErrorMessages() {
     let offset = null;
     for (const validationResult of generate.validationResults) {
@@ -978,7 +1054,8 @@ export default class generate extends SfdxCommand {
     }
     throw new SfError(messages.getMessage("validation"));
   }
-  private showSuccessMessages() {
+
+  private saveMetaData() {
     let offset = null;
     for (const meta of generate.metaInfo) {
       writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".field-meta.xml", meta.metaStr);
@@ -986,9 +1063,9 @@ export default class generate extends SfdxCommand {
         offset = (meta.fullName + messages.getMessage("fieldExtension")).length;
       }
     }
-    const cyan = "\u001b[36m";
+    const blue = "\u001b[34m";
     const white = "\u001b[37m";
-    console.log(cyan + "=== Generated Source");
+    console.log(blue + "=== Generated Source");
     const fullNameStr = "FULLNAME";
     const pathStr = "PATH";
     console.log(white + fullNameStr + " ".repeat(offset - fullNameStr.length) + "\t" + pathStr);
@@ -1002,7 +1079,6 @@ export default class generate extends SfdxCommand {
         messages.getMessage("fieldExtension") +
         " ".repeat(offset - (meta.fullName + messages.getMessage("fieldExtension")).length) +
         "\t" +
-        messages.getMessage("success") +
         path;
       console.log(message);
     }

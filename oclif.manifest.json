@@ -11,7 +11,7 @@
       "pluginType": "core",
       "aliases": [],
       "examples": [
-        "sfdx metadata:field:generate --inputdir dir/input.csv --outputdir .outputdir"
+        "sfdx metadata:field:generate --input dir/input.csv --outputdir .outputdir"
       ],
       "flags": {
         "json": {
@@ -43,8 +43,8 @@
           ],
           "default": "warn"
         },
-        "inputdir": {
-          "name": "inputdir",
+        "input": {
+          "name": "input",
           "type": "option",
           "char": "i",
           "description": "example boolean flag",
@@ -64,7 +64,7 @@
         }
       },
       "flagsConfig": {
-        "inputdir": {
+        "input": {
           "kind": "string",
           "char": "i",
           "description": "example boolean flag",
@@ -87,7 +87,7 @@
       "defaultValues": {
         "Checkbox": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": null,
           "type": "Checkbox",
@@ -104,7 +104,7 @@
         },
         "Currency": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Currency",
@@ -121,7 +121,7 @@
         },
         "Date": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Date",
@@ -138,13 +138,13 @@
         },
         "DateTime": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": null,
           "type": "DateTime",
           "trackTrending": "false",
           "unique": null,
-          "defaultValue": "false",
+          "defaultValue": null,
           "displayLocationInDecimal": null,
           "scale": null,
           "precision": null,
@@ -172,7 +172,7 @@
         },
         "Location": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Location",
@@ -206,7 +206,7 @@
         },
         "Percent": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Percent",
@@ -223,7 +223,7 @@
         },
         "Phone": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Phone",
@@ -240,7 +240,7 @@
         },
         "Picklist": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Picklist",
@@ -257,7 +257,7 @@
         },
         "MultiselectPicklist": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "MultiselectPicklist",
@@ -291,7 +291,7 @@
         },
         "TextArea": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "TextArea",
@@ -308,7 +308,7 @@
         },
         "LongTextArea": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": null,
           "type": "LongTextArea",
@@ -325,7 +325,7 @@
         },
         "Html": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": null,
           "type": "Html",
@@ -342,7 +342,7 @@
         },
         "EncryptedText": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "EncryptedText",
@@ -359,7 +359,7 @@
         },
         "Time": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Time",
@@ -376,7 +376,7 @@
         },
         "Url": {
           "fullName": null,
-          "externalId": "false",
+          "externalId": null,
           "label": "CustomField",
           "required": "false",
           "type": "Url",

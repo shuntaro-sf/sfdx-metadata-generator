@@ -1,5 +1,4 @@
-metadata-generator
-==================
+# metadata-generator
 
 generate metadata
 
@@ -12,10 +11,11 @@ generate metadata
 [![License](https://img.shields.io/npm/l/metadata-generator.svg)](https://github.com/C:/metadata-generator/blob/master/package.json)
 
 <!-- toc -->
+* [metadata-generator](#metadata-generator)
 * [Debugging your plugin](#debugging-your-plugin)
 <!-- tocstop -->
-<!-- install -->
-<!-- usage -->
+  <!-- install -->
+  <!-- usage -->
 ```sh-session
 $ npm install -g metadata-generator
 $ sfdx COMMAND
@@ -41,7 +41,7 @@ USAGE
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
-  -i, --inputdir=<value>                                                            example boolean flag
+  -i, --input=<value>                                                               example boolean flag
   -o, --outputdir=<value>                                                           example boolean flag
   --json                                                                            format output as json
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
@@ -51,22 +51,27 @@ DESCRIPTION
   print a greeting and your generate IDs
 
 EXAMPLES
-  $ sfdx metadata:field:generate --inputdir dir/input.csv --outputdir .outputdir
+  $ sfdx metadata:field:generate --input dir/input.csv --outputdir .outputdir
 ```
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
+
 # Debugging your plugin
+
 We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
 
 To debug the `generate:generate` command:
+
 1. Start the inspector
 
 If you linked your plugin to the sfdx cli, call your command with the `dev-suspend` switch:
+
 ```sh-session
 $ sfdx generate:generate -u mygenerate@example.com --dev-suspend
 ```
 
 Alternatively, to call your command using the `bin/run` script, set the `NODE_OPTIONS` environment variable to `--inspect-brk` when starting the debugger:
+
 ```sh-session
 $ NODE_OPTIONS=--inspect-brk bin/run generate:generate -u mygenerate@example.com
 ```
@@ -76,5 +81,5 @@ $ NODE_OPTIONS=--inspect-brk bin/run generate:generate -u mygenerate@example.com
 4. In the upper left hand corner of VS Code, verify that the "Attach to Remote" launch configuration has been chosen.
 5. Hit the green play button to the left of the "Attach to Remote" launch configuration window. The debugger should now be suspended on the first line of the program.
 6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
-<br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
-Congrats, you are debugging!
+   <br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
+   Congrats, you are debugging!
