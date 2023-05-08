@@ -88,7 +88,7 @@
         "Checkbox": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": null,
           "type": "Checkbox",
           "trackTrending": "false",
@@ -105,7 +105,7 @@
         "Currency": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Currency",
           "trackTrending": "false",
@@ -122,7 +122,7 @@
         "Date": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Date",
           "trackTrending": "false",
@@ -139,7 +139,7 @@
         "DateTime": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": null,
           "type": "DateTime",
           "trackTrending": "false",
@@ -156,7 +156,7 @@
         "Email": {
           "fullName": null,
           "externalId": "false",
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Email",
           "trackTrending": "false",
@@ -173,7 +173,7 @@
         "Location": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Location",
           "trackTrending": "false",
@@ -190,7 +190,7 @@
         "Number": {
           "fullName": null,
           "externalId": "false",
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Number",
           "trackTrending": "false",
@@ -207,7 +207,7 @@
         "Percent": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Percent",
           "trackTrending": "false",
@@ -224,7 +224,7 @@
         "Phone": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Phone",
           "trackTrending": "false",
@@ -241,7 +241,7 @@
         "Picklist": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Picklist",
           "trackTrending": "false",
@@ -258,7 +258,7 @@
         "MultiselectPicklist": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "MultiselectPicklist",
           "trackTrending": "false",
@@ -275,7 +275,7 @@
         "Text": {
           "fullName": null,
           "externalId": "false",
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Text",
           "trackTrending": "false",
@@ -292,7 +292,7 @@
         "TextArea": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "TextArea",
           "trackTrending": "false",
@@ -309,7 +309,7 @@
         "LongTextArea": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": null,
           "type": "LongTextArea",
           "trackTrending": "false",
@@ -326,7 +326,7 @@
         "Html": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": null,
           "type": "Html",
           "trackTrending": "false",
@@ -343,7 +343,7 @@
         "EncryptedText": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "EncryptedText",
           "trackTrending": "false",
@@ -360,7 +360,7 @@
         "Time": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Time",
           "trackTrending": "false",
@@ -377,7 +377,7 @@
         "Url": {
           "fullName": null,
           "externalId": null,
-          "label": "CustomField",
+          "label": null,
           "required": "false",
           "type": "Url",
           "trackTrending": "false",

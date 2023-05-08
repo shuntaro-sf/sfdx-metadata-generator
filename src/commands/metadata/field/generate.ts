@@ -49,7 +49,7 @@ export default class generate extends SfdxCommand {
     Checkbox: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: null,
       type: "Checkbox",
       trackTrending: "false",
@@ -66,7 +66,7 @@ export default class generate extends SfdxCommand {
     Currency: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Currency",
       trackTrending: "false",
@@ -83,7 +83,7 @@ export default class generate extends SfdxCommand {
     Date: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Date",
       trackTrending: "false",
@@ -100,7 +100,7 @@ export default class generate extends SfdxCommand {
     DateTime: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: null,
       type: "DateTime",
       trackTrending: "false",
@@ -117,7 +117,7 @@ export default class generate extends SfdxCommand {
     Email: {
       fullName: null,
       externalId: "false",
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Email",
       trackTrending: "false",
@@ -134,7 +134,7 @@ export default class generate extends SfdxCommand {
     Location: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Location",
       trackTrending: "false",
@@ -151,7 +151,7 @@ export default class generate extends SfdxCommand {
     Number: {
       fullName: null,
       externalId: "false",
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Number",
       trackTrending: "false",
@@ -168,7 +168,7 @@ export default class generate extends SfdxCommand {
     Percent: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Percent",
       trackTrending: "false",
@@ -185,7 +185,7 @@ export default class generate extends SfdxCommand {
     Phone: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Phone",
       trackTrending: "false",
@@ -202,7 +202,7 @@ export default class generate extends SfdxCommand {
     Picklist: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Picklist",
       trackTrending: "false",
@@ -219,7 +219,7 @@ export default class generate extends SfdxCommand {
     MultiselectPicklist: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "MultiselectPicklist",
       trackTrending: "false",
@@ -236,7 +236,7 @@ export default class generate extends SfdxCommand {
     Text: {
       fullName: null,
       externalId: "false",
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Text",
       trackTrending: "false",
@@ -253,7 +253,7 @@ export default class generate extends SfdxCommand {
     TextArea: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "TextArea",
       trackTrending: "false",
@@ -270,7 +270,7 @@ export default class generate extends SfdxCommand {
     LongTextArea: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: null,
       type: "LongTextArea",
       trackTrending: "false",
@@ -287,7 +287,7 @@ export default class generate extends SfdxCommand {
     Html: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: null,
       type: "Html",
       trackTrending: "false",
@@ -304,7 +304,7 @@ export default class generate extends SfdxCommand {
     EncryptedText: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "EncryptedText",
       trackTrending: "false",
@@ -321,7 +321,7 @@ export default class generate extends SfdxCommand {
     Time: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Time",
       trackTrending: "false",
@@ -338,7 +338,7 @@ export default class generate extends SfdxCommand {
     Url: {
       fullName: null,
       externalId: null,
-      label: "CustomField",
+      label: null,
       required: "false",
       type: "Url",
       trackTrending: "false",
@@ -747,11 +747,7 @@ export default class generate extends SfdxCommand {
       if (row[indexOfTag] != "") {
         tagStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
       } else {
-        if (tag === "label") {
-          tagStr = "<" + tag + ">" + generate.defaultValues[type][tag] + row + "</" + tag + ">";
-        } else {
-          tagStr = "<" + tag + ">" + generate.defaultValues[type][tag] + "</" + tag + ">";
-        }
+        tagStr = "<" + tag + ">" + generate.defaultValues[type][tag] + "</" + tag + ">";
       }
       tagStrs.push(tagStr);
     }
@@ -826,19 +822,16 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "label":
-        let isEnclosedByDoubleQuotes = false;
-        if (row[indexOfTag][0] === '"' && row[indexOfTag][row[indexOfTag].length - 1] === '"') {
-          isEnclosedByDoubleQuotes = true;
-        }
+        const doubleQuotation = /["]/;
         if (row[indexOfTag].length === 0) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationLabelBlank"));
         }
-        if (!isEnclosedByDoubleQuotes) {
+        if (!doubleQuotation.test(row[indexOfTag])) {
           if (row[indexOfTag].length > 40) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
           }
         } else {
-          const dobleQuotesCounter = (row[indexOfTag].match(/""/g) || []).length;
+          const dobleQuotesCounter = row[indexOfTag].match(/""/g).length;
           if (row[indexOfTag].length > 42 + dobleQuotesCounter) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
           }
@@ -869,7 +862,7 @@ export default class generate extends SfdxCommand {
       case "displayLocationInDecimal":
         if (type === "Location" && row[indexOfTag] !== "") {
           if (!generate.options.displayLocationInDecimal.includes(row[indexOfTag].toLowerCase())) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayLocationDecimalOptions"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayLocationInDecimalOptions"));
           }
         }
         break;
@@ -916,9 +909,6 @@ export default class generate extends SfdxCommand {
           if (!Number.isInteger(Number(row[indexOfTag]))) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesType"));
           }
-          if (Number(row[indexOfTag]) < 1) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleLinesNegativeOrZero"));
-          }
         }
         if (type === "LongTextArea" && row[indexOfTag] !== "") {
           if (Number(row[indexOfTag]) < 2) {
@@ -946,7 +936,7 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "length":
-        if ((type === "Text" || type === "LongTextArea" || type === "Html" || type === "EncyptedText") && row[indexOfTag] !== "") {
+        if ((type === "Text" || type === "LongTextArea" || type === "Html" || type === "EncryptedText") && row[indexOfTag] !== "") {
           if (!Number.isInteger(Number(row[indexOfTag]))) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLengthType"));
           }
@@ -967,12 +957,12 @@ export default class generate extends SfdxCommand {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLengthLongTextMax"));
           }
         }
-        if (type === "EncyptedText" && row[indexOfTag] !== "") {
+        if (type === "EncryptedText" && row[indexOfTag] !== "") {
           if (Number(row[indexOfTag]) < 1) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLengthTextMin"));
           }
           if (Number(row[indexOfTag]) > 175) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthEncyptedTextMax"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationLengthEncryptedTextMax"));
           }
         }
         break;
@@ -1021,9 +1011,8 @@ export default class generate extends SfdxCommand {
 
   private convertSpecialChars(str: string): string {
     const doubleQuotation = /["]/;
-    const specialChars = /[`&'<>]/;
     // gets rid of double-quotation on both ends
-    if (specialChars.test(str) && doubleQuotation.test(str)) {
+    if (doubleQuotation.test(str)) {
       str = str.substring(1, str.length - 1);
     }
     str = str.replace(/""/g, '"');

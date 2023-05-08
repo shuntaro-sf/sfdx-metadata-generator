@@ -3,11 +3,10 @@ import * as shell from "shelljs";
 import * as fs from "fs";
 import * as path from "path";
 
-const alias = "sfdxPluginTest";
-const inputFileName = "testInput.csv";
+const inputFileName = "performanceTestInput.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("TestSession", () => {
+describe("PositiveTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test");
@@ -20,12 +19,11 @@ describe("TestSession", () => {
   });
 
   it("generates field-metadata", async (done) => {
+    const startTime = performance.now();
     const input = "../" + inputFileName;
     shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir);
-    done();
-  });
-  it("deploy to a scratch org to confirm the generated metadata are valid", async (done) => {
-    shell.exec("sfdx force:source:deploy -p " + outputDir + " --checkonly -u " + alias);
+    const endTime = performance.now();
+    console.log(endTime - startTime);
     done();
   });
 
