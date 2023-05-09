@@ -14,8 +14,8 @@ SFDX plugin to generate metadata
 * [metadata-generator](#metadata-generator)
 * [How to get started](#how-to-get-started)
 <!-- tocstop -->
-          <!-- install -->
-          <!-- usage -->
+            <!-- install -->
+            <!-- usage -->
 ```sh-session
 $ npm install -g metadata-generator
 $ sfdx COMMAND
@@ -87,13 +87,17 @@ Make sure you have already installed this plugin.
 
 ## Field metadata
 
-To start generating field metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom fields from the second line. Or you can create a template file running the following commnad:
+To start generating field metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom fields from the second line.
+
+Or you can create a template file running the following commnad:
 
 ```
   $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
 
-Then, `sfdx metadata:field:generate` generates custom field metadata of the input-csv-file. The flag `--input` specifies the input-csv-file to be converted to metadata-xml-files and `--outputdir` the directory to save those xml files.
+Then, `sfdx metadata:field:generate` generates custom field metadata of the input-csv-file.
+
+The flag `--input` specifies the input-csv-file to be converted to metadata-xml-files and `--outputdir` the directory to save those xml files.
 
 ```
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
