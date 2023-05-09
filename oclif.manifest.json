@@ -11,7 +11,7 @@
       "pluginType": "core",
       "aliases": [],
       "examples": [
-        "sfdx metadata:field:generate --input dir/input.csv --outputdir .outputdir"
+        "sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"
       ],
       "flags": {
         "json": {
@@ -47,14 +47,14 @@
           "name": "input",
           "type": "option",
           "char": "i",
-          "description": "example boolean flag",
+          "description": "input file to be converted to xml files",
           "multiple": false
         },
         "outputdir": {
           "name": "outputdir",
           "type": "option",
           "char": "o",
-          "description": "example boolean flag",
+          "description": "output directory where metadata are saved",
           "multiple": false
         }
       },
@@ -67,7 +67,7 @@
         "input": {
           "kind": "string",
           "char": "i",
-          "description": "example boolean flag",
+          "description": "input file to be converted to xml files",
           "input": [],
           "multiple": false,
           "type": "option"
@@ -75,7 +75,7 @@
         "outputdir": {
           "kind": "string",
           "char": "o",
-          "description": "example boolean flag",
+          "description": "output directory where metadata are saved",
           "input": [],
           "multiple": false,
           "type": "option"
@@ -777,7 +777,7 @@
       "pluginType": "core",
       "aliases": [],
       "examples": [
-        "sfdx metadata:field:template --outputdir .outputdir"
+        "sfdx metadata:field:template --outputdir ./outputdir/"
       ],
       "flags": {
         "json": {

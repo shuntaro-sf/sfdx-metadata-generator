@@ -1,6 +1,6 @@
 {
   "name": "metadata-generator",
-  "description": "generate metadata",
+  "description": "SFDX plugin to generate metadata",
   "version": "0.0.1",
   "author": "shuntaro.ohtsuka",
   "bugs": "https://github.com/C:/metadata-generator/issues",

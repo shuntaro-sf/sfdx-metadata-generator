@@ -1,9 +1,9 @@
 {
   "commandDescription": "print a greeting and your generate IDs",
-  "inputFlagDescription": "example boolean flag",
-  "outputdirFlagDescription": "example boolean flag",
+  "inputFlagDescription": "input file to be converted to xml files",
+  "outputdirFlagDescription": "output directory where metadata are saved",
   "errorNogenerateResults": "No results found for the generate '%s'.",
-  "examples": ["sfdx metadata:field:generate --input dir/input.csv --outputdir .outputdir"],
+  "examples": ["sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"],
   "errorPathOfInput": "Cannot find the input: ",
   "errorPathOfOutput": "Cannot find the output-directory: ",
   "validation": "Validtion error",

@@ -1,6 +1,6 @@
 # metadata-generator
 
-generate metadata
+SFDX plugin to generate metadata
 
 [![Version](https://img.shields.io/npm/v/metadata-generator.svg)](https://npmjs.generate/package/metadata-generator)
 [![CircleCI](https://circleci.com/gh/C:/metadata-generator/tree/master.svg?style=shield)](https://circleci.com/gh/C:/metadata-generator/tree/master)
@@ -12,10 +12,10 @@ generate metadata
 
 <!-- toc -->
 * [metadata-generator](#metadata-generator)
-* [Debugging your plugin](#debugging-your-plugin)
+* [How to get started](#how-to-get-started)
 <!-- tocstop -->
-    <!-- install -->
-    <!-- usage -->
+          <!-- install -->
+          <!-- usage -->
 ```sh-session
 $ npm install -g metadata-generator
 $ sfdx COMMAND
@@ -42,8 +42,10 @@ USAGE
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
-  -i, --input=<value>                                                               example boolean flag
-  -o, --outputdir=<value>                                                           example boolean flag
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
   --json                                                                            format output as json
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
@@ -52,7 +54,7 @@ DESCRIPTION
   print a greeting and your generate IDs
 
 EXAMPLES
-  $ sfdx metadata:field:generate --input dir/input.csv --outputdir .outputdir
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
@@ -74,13 +76,30 @@ DESCRIPTION
   print a greeting and your template IDs
 
 EXAMPLES
-  $ sfdx metadata:field:template --outputdir .outputdir
+  $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 
-# Debugging your plugin
+# How to get started
 
+Make sure you have already installed this plugin.
+
+## Field metadata
+
+To start generating field metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom fields from the second line. Or you can create a template file running the following commnad:
+
+```
+  $ sfdx metadata:field:template --outputdir ./outputdir/
+```
+
+Then, `sfdx metadata:field:generate` generates custom field metadata of the input-csv-file. The flag `--input` specifies the input-csv-file to be converted to metadata-xml-files and `--outputdir` the directory to save those xml files.
+
+```
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+<!---
 We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
 
 To debug the `generate:generate` command:
@@ -106,3 +125,4 @@ $ NODE_OPTIONS=--inspect-brk bin/run generate:generate -u mygenerate@example.com
 6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
    <br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
    Congrats, you are debugging!
+-->
