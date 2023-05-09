@@ -1,0 +1,8 @@
+{
+  "commandDescription": "print a greeting and your template IDs",
+  "outputdirFlagDescription": "example boolean flag",
+  "errorNogenerateResults": "No results found for the template '%s'.",
+  "examples": ["sfdx metadata:field:template --outputdir .outputdir"],
+  "errorPathOfOutput": "Cannot find the output-directory: ",
+  "success": "Successfully generated a template input-file in "
+}

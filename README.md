@@ -14,8 +14,8 @@ generate metadata
 * [metadata-generator](#metadata-generator)
 * [Debugging your plugin](#debugging-your-plugin)
 <!-- tocstop -->
-  <!-- install -->
-  <!-- usage -->
+    <!-- install -->
+    <!-- usage -->
 ```sh-session
 $ npm install -g metadata-generator
 $ sfdx COMMAND
@@ -30,6 +30,7 @@ USAGE
 <!-- usagestop -->
 <!-- commands -->
 * [`sfdx metadata:field:generate [-i <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldtemplate--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -52,6 +53,28 @@ DESCRIPTION
 
 EXAMPLES
   $ sfdx metadata:field:generate --input dir/input.csv --outputdir .outputdir
+```
+
+## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+print a greeting and your template IDs
+
+```
+USAGE
+  $ sfdx metadata:field:template [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           example boolean flag
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  print a greeting and your template IDs
+
+EXAMPLES
+  $ sfdx metadata:field:template --outputdir .outputdir
 ```
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->

@@ -5,8 +5,8 @@ import * as path from "path";
 
 const invalidInputFileName = "inputNotFound.csv";
 const validInputFileName = "input.csv";
-const validOutputDir = "force-app/main/default/objects/Account/fields//";
-const invalidOutputDir = "force-app/main/default/objects/ObjectNotFound/fields//";
+const validOutputDir = "force-app/main/default/objects/Account/fields/";
+const invalidOutputDir = "force-app/main/default/objects/ObjectNotFound/fields/";
 
 describe("FlagTest", () => {
   //let testSession: TestSession;

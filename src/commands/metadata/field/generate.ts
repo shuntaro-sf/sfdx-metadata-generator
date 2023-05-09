@@ -9,6 +9,8 @@ import { readFileSync, existsSync, writeFileSync } from "fs";
 import { flags, SfdxCommand } from "@salesforce/command";
 import { Messages, SfError } from "@salesforce/core";
 import { AnyJson } from "@salesforce/ts-types";
+//@ts-ignore
+import * as ConfigData from "../../../../src_config/metadata_field_generate.json";
 
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
@@ -45,634 +47,13 @@ export default class generate extends SfdxCommand {
   // Set this to true if your command requires a project workspace; 'requiresProject' is false by default
   protected static requiresProject = false;
 
-  private static defaultValues = {
-    Checkbox: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: null,
-      type: "Checkbox",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: "false",
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Currency: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Currency",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: "0",
-      precision: "18",
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Date: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Date",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    DateTime: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: null,
-      type: "DateTime",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Email: {
-      fullName: null,
-      externalId: "false",
-      label: null,
-      required: "false",
-      type: "Email",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Location: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Location",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: "false",
-      scale: "0",
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Number: {
-      fullName: null,
-      externalId: "false",
-      label: null,
-      required: "false",
-      type: "Number",
-      trackTrending: "false",
-      unique: "false",
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: "0",
-      precision: "18",
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Percent: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Percent",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: "0",
-      precision: "18",
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Phone: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Phone",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Picklist: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Picklist",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    MultiselectPicklist: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "MultiselectPicklist",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: "4",
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Text: {
-      fullName: null,
-      externalId: "false",
-      label: null,
-      required: "false",
-      type: "Text",
-      trackTrending: "false",
-      unique: "false",
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: "255",
-      maskChar: null,
-      maskType: null,
-    },
-    TextArea: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "TextArea",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    LongTextArea: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: null,
-      type: "LongTextArea",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: "3",
-      length: "32768",
-      maskChar: null,
-      maskType: null,
-    },
-    Html: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: null,
-      type: "Html",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: "25",
-      length: "32768",
-      maskChar: null,
-      maskType: null,
-    },
-    EncryptedText: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "EncryptedText",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: "175",
-      maskChar: "asterisk",
-      maskType: "all",
-    },
-    Time: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Time",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-    Url: {
-      fullName: null,
-      externalId: null,
-      label: null,
-      required: "false",
-      type: "Url",
-      trackTrending: "false",
-      unique: null,
-      defaultValue: null,
-      displayLocationInDecimal: null,
-      scale: null,
-      precision: null,
-      visibleLines: null,
-      length: null,
-      maskChar: null,
-      maskType: null,
-    },
-  };
-  private static isRequired = {
-    Checkbox: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: true,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Currency: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: true,
-      precision: true,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Date: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    DateTime: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: null,
-      type: true,
-      trackTrending: false,
-      unique: null,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Email: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Location: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: true,
-      scale: true,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Number: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: true,
-      precision: true,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Percent: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: true,
-      precision: true,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Phone: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Picklist: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    MultiselectPicklist: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: true,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Text: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: true,
-      maskChar: false,
-      maskType: false,
-    },
-    TextArea: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    LongTextArea: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: true,
-      length: true,
-      maskChar: false,
-      maskType: false,
-    },
-    Html: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: true,
-      length: true,
-      maskChar: false,
-      maskType: false,
-    },
-    EncryptedText: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: true,
-      maskChar: true,
-      maskType: true,
-    },
-    Time: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-    Url: {
-      fullName: true,
-      externalId: false,
-      label: true,
-      required: false,
-      type: true,
-      trackTrending: false,
-      unique: false,
-      defaultValue: false,
-      displayLocationInDecimal: false,
-      scale: false,
-      precision: false,
-      visibleLines: false,
-      length: false,
-      maskChar: false,
-      maskType: false,
-    },
-  };
-  private static options = {
-    externalId: ["true", "false"],
-    required: ["true", "false"],
-    type: Object.keys(generate.defaultValues),
-    trackTrending: ["true", "false"],
-    unique: ["true", "false"],
-    defaultValue: ["true", "false"],
-    displayLocationInDecimal: ["true", "false"],
-    maskChar: ["asterisk", "X"],
-    maskType: ["all", "lastFour", "creditCard", "nino", "ssn", "sin"],
-  };
+  private static xmlSetting = ConfigData.xmlSetting;
+  private static defaultValues = ConfigData.defaultValues;
+  private static isRequired = ConfigData.isRequired;
+  private static options = ConfigData.options;
+
   private static validationResults = [];
+  private static successResults = [];
   private static metaInfo = [];
 
   public async run(): Promise<AnyJson> {
@@ -705,6 +86,10 @@ export default class generate extends SfdxCommand {
 
       const indexOfFullName = header.indexOf("fullName");
       generate.metaInfo.push({ fullName: csv[rowIndex][indexOfFullName], metaStr: metaStr });
+      generate.successResults.push({
+        FULLNAME: csv[rowIndex][indexOfFullName] + messages.getMessage("fieldExtension"),
+        PATH: (this.flags.outputdir + "/" + csv[rowIndex][indexOfFullName] + messages.getMessage("fieldExtension")).replace("//", "/"),
+      });
     }
     if (generate.validationResults.length > 0) {
       this.showValidationErrorMessages();
@@ -720,7 +105,14 @@ export default class generate extends SfdxCommand {
     let row = csv[rowIndex];
     const indexOfType = header.indexOf("type");
     let tagStrs = [];
-    let metaStr = '<?xml version="1.0" encoding="UTF-8"?>\n<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">';
+    let metaStr =
+      '<?xml version="' +
+      generate.xmlSetting.version +
+      '" encoding="' +
+      generate.xmlSetting.encoding +
+      '"?>\n<CustomField xmlns="' +
+      generate.xmlSetting.xmlns +
+      '">';
     const type = row[indexOfType];
     const colIndex = indexOfType + 1;
 
@@ -1006,7 +398,7 @@ export default class generate extends SfdxCommand {
   }
 
   private pushValidationResult(index: string, errorMessage: string) {
-    generate.validationResults.push({ index: index, problem: errorMessage });
+    generate.validationResults.push({ INDEX: index, PROBLEM: errorMessage });
   }
 
   private convertSpecialChars(str: string): string {
@@ -1026,50 +418,68 @@ export default class generate extends SfdxCommand {
   }
 
   private showValidationErrorMessages() {
-    let offset = null;
-    for (const validationResult of generate.validationResults) {
-      if (offset < validationResult.index.length || offset === null) {
-        offset = validationResult.index.length;
-      }
-    }
-    const indexStr = "INDEX";
-    const problemStr = "PROBLEM";
-    console.log(indexStr + " ".repeat(offset - indexStr.length) + "\t" + problemStr);
-    console.log(
-      "─".repeat(offset) + "\t───────────────────────────────────────────────────────────────────────────────────────────────────────────────────"
-    );
-    for (const validationResult of generate.validationResults) {
-      console.log(validationResult.index + "\t" + validationResult.problem);
-    }
+    const logLengths = this.getLogLenghts(generate.validationResults);
+    this.showLogHeader(logLengths);
+    this.showLogBody(generate.validationResults, logLengths);
     throw new SfError(messages.getMessage("validation"));
   }
 
   private saveMetaData() {
-    let offset = null;
+    const logLengths = this.getLogLenghts(generate.successResults);
+    this.showLogHeader(logLengths);
     for (const meta of generate.metaInfo) {
-      writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".field-meta.xml", meta.metaStr);
-      if (offset < (meta.fullName + messages.getMessage("fieldExtension")).length || offset === null) {
-        offset = (meta.fullName + messages.getMessage("fieldExtension")).length;
-      }
+      writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".field-meta.xml", meta.metaStr, "utf8");
     }
     const blue = "\u001b[34m";
     const white = "\u001b[37m";
-    console.log(blue + "=== Generated Source");
-    const fullNameStr = "FULLNAME";
-    const pathStr = "PATH";
-    console.log(white + fullNameStr + " ".repeat(offset - fullNameStr.length) + "\t" + pathStr);
-    console.log(
-      "─".repeat(offset) + "\t───────────────────────────────────────────────────────────────────────────────────────────────────────────────────"
-    );
-    for (const meta of generate.metaInfo) {
-      const path = (this.flags.outputdir + "/" + meta.fullName + messages.getMessage("fieldExtension")).replace("//", "/");
-      const message =
-        meta.fullName +
-        messages.getMessage("fieldExtension") +
-        " ".repeat(offset - (meta.fullName + messages.getMessage("fieldExtension")).length) +
-        "\t" +
-        path;
-      console.log(message);
+    console.log(blue + "=== Generated Source" + white);
+    this.showLogBody(generate.successResults, logLengths);
+  }
+
+  private getLogLenghts(logs: any[]) {
+    let logLengths = {};
+    for (const log of logs) {
+      for (const logName in log) {
+        if (logLengths[logName] < log[logName].length || logLengths[logName] === undefined) {
+          logLengths[logName] = log[logName].length;
+        }
+      }
+    }
+    return logLengths;
+  }
+
+  private showLogHeader(logLengths: any) {
+    let header = "";
+    let line = "";
+    const whiteSpace = " ";
+    const lineChar = "─";
+
+    let counter = 0;
+    for (const logName in logLengths) {
+      counter++;
+      header += logName;
+      if (counter < Object.keys(logLengths).length) {
+        header += whiteSpace.repeat(logLengths[logName] - logName.length) + "\t";
+      }
+      line += lineChar.repeat(logLengths[logName]) + "\t";
+    }
+    console.log(header);
+    console.log(line);
+  }
+
+  private showLogBody(logs: any[], logLengths: any) {
+    const whiteSpace = " ";
+    for (const log of logs) {
+      let logMessage = "";
+      let counter = 0;
+      for (const logName in log) {
+        counter++;
+        logMessage += log[logName];
+        if (counter < Object.keys(log).length) {
+          logMessage += whiteSpace.repeat(logLengths[logName] - log[logName].length) + "\t";
+        }
+      }
+      console.log(logMessage);
     }
   }
 }

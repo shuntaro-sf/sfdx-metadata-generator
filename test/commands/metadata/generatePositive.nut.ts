@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "testInput.csv";
+const inputFileName = "positiveTestInput.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
 describe("PositiveTest", () => {
