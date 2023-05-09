@@ -36,7 +36,7 @@ jobs:
 
 workflows:
   version: 2
-  "metadata-generator":
+  "sfdx-metadata-generator":
     jobs:
       - node-latest
       - cache:

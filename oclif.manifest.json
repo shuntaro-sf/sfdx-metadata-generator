@@ -1,13 +1,13 @@
 {
-  "version": "0.0.1",
+  "version": "1.0.0",
   "commands": {
     "metadata:field:generate": {
       "id": "metadata:field:generate",
       "description": "print a greeting and your generate IDs",
       "strict": true,
       "usage": "<%= command.id %> [-i <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
-      "pluginName": "metadata-generator",
-      "pluginAlias": "metadata-generator",
+      "pluginName": "sfdx-metadata-generator",
+      "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
       "aliases": [],
       "examples": [
@@ -772,8 +772,8 @@
       "description": "print a greeting and your template IDs",
       "strict": true,
       "usage": "<%= command.id %> [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
-      "pluginName": "metadata-generator",
-      "pluginAlias": "metadata-generator",
+      "pluginName": "sfdx-metadata-generator",
+      "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
       "aliases": [],
       "examples": [
@@ -1024,7 +1024,7 @@
           "maskChar": "",
           "maskType": "",
           "picklistFullName": "Yes;No",
-          "picklistLabel": "はい;いいえ"
+          "picklistLabel": "YES;NO"
         },
         "rowMultiselectPicklist": {
           "fullName": "multiselectPicklist__c",
@@ -1043,7 +1043,7 @@
           "maskChar": "",
           "maskType": "",
           "picklistFullName": "a;b;c",
-          "picklistLabel": "い;ろ;は"
+          "picklistLabel": "A;B;C"
         },
         "rowText": {
           "fullName": "text__c",

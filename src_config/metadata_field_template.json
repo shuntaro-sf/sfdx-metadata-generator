@@ -188,7 +188,7 @@
       "maskChar": "",
       "maskType": "",
       "picklistFullName": "Yes;No",
-      "picklistLabel": "\u306f\u3044;\u3044\u3044\u3048"
+      "picklistLabel": "YES;NO"
     },
     "rowMultiselectPicklist": {
       "fullName": "multiselectPicklist__c",
@@ -207,7 +207,7 @@
       "maskChar": "",
       "maskType": "",
       "picklistFullName": "a;b;c",
-      "picklistLabel": "\u3044;\u308d;\u306f"
+      "picklistLabel": "A;B;C"
     },
     "rowText": {
       "fullName": "text__c",

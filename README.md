@@ -1,27 +1,27 @@
-# metadata-generator
+# sfdx-metadata-generator
 
 SFDX plugin to generate metadata
 
-[![Version](https://img.shields.io/npm/v/metadata-generator.svg)](https://npmjs.generate/package/metadata-generator)
-[![CircleCI](https://circleci.com/gh/C:/metadata-generator/tree/master.svg?style=shield)](https://circleci.com/gh/C:/metadata-generator/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/C:/metadata-generator?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/metadata-generator/branch/master)
-[![Greenkeeper](https://badges.greenkeeper.io/C:/metadata-generator.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/C:/metadata-generator/badge.svg)](https://snyk.io/test/github/C:/metadata-generator)
-[![Downloads/week](https://img.shields.io/npm/dw/metadata-generator.svg)](https://npmjs.generate/package/metadata-generator)
-[![License](https://img.shields.io/npm/l/metadata-generator.svg)](https://github.com/C:/metadata-generator/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/sfdx-metadata-generator.svg)](https://npmjs.generate/package/sfdx-metadata-generator)
+[![CircleCI](https://circleci.com/gh/C:/sfdx-metadata-generator/tree/master.svg?style=shield)](https://circleci.com/gh/C:/sfdx-metadata-generator/tree/master)
+[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/C:/sfdx-metadata-generator?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/sfdx-metadata-generator/branch/master)
+[![Greenkeeper](https://badges.greenkeeper.io/C:/sfdx-metadata-generator.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/C:/sfdx-metadata-generator/badge.svg)](https://snyk.io/test/github/C:/sfdx-metadata-generator)
+[![Downloads/week](https://img.shields.io/npm/dw/sfdx-metadata-generator.svg)](https://npmjs.generate/package/sfdx-metadata-generator)
+[![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
 <!-- toc -->
-* [metadata-generator](#metadata-generator)
+* [sfdx-metadata-generator](#sfdx-metadata-generator)
 * [How to get started](#how-to-get-started)
 <!-- tocstop -->
-            <!-- install -->
-            <!-- usage -->
+              <!-- install -->
+              <!-- usage -->
 ```sh-session
-$ npm install -g metadata-generator
+$ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-metadata-generator/0.0.1 win32-x64 node-v16.15.0
+sfdx-metadata-generator/1.0.0 win32-x64 node-v16.15.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND

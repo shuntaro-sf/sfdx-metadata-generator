@@ -1,12 +1,11 @@
 {
-  "name": "metadata-generator",
+  "name": "sfdx-metadata-generator",
   "description": "SFDX plugin to generate metadata",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "shuntaro.ohtsuka",
-  "bugs": "https://github.com/C:/metadata-generator/issues",
+  "bugs": "https://github.com/C:/sfdx-metadata-generator/issues",
   "dependencies": {
     "@oclif/core": "^1",
-    "@salesforce/cli-plugins-testkit": "^3.3.4",
     "@salesforce/command": "^5",
     "@salesforce/core": "^3",
     "tslib": "^2"
@@ -45,7 +44,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/C:/metadata-generator",
+  "homepage": "https://github.com/C:/sfdx-metadata-generator",
   "keywords": [
     "sfdx-plugin"
   ],
@@ -62,7 +61,7 @@
       }
     }
   },
-  "repository": "C:/metadata-generator",
+  "repository": "C:/sfdx-metadata-generator",
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint src/**/*.ts test/**/*.ts",
