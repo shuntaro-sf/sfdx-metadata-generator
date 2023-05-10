@@ -3,7 +3,7 @@
   "description": "SFDX plugin to generate metadata",
   "version": "1.0.1",
   "author": "shuntaro.ohtsuka",
-  "bugs": "https://github.com/C:/sfdx-metadata-generator/issues",
+  "bugs": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator/issues",
   "dependencies": {
     "@oclif/core": "^1",
     "@salesforce/command": "^5",
@@ -44,7 +44,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/C:/sfdx-metadata-generator",
+  "homepage": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator",
   "keywords": [
     "sfdx-plugin"
   ],
