@@ -51,8 +51,7 @@ export default class generate extends SfdxCommand {
   private static defaultValues = ConfigData.defaultValues;
   private static isRequired = ConfigData.isRequired;
   private static options = ConfigData.options;
-
-  private static indentationLength = 4;
+  private static indentationLength = ConfigData.indentationLength;
 
   private static validationResults = [];
   private static successResults = [];

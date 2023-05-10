@@ -650,5 +650,6 @@
     "maskChar": ["asterisk", "X"],
     "maskType": ["all", "lastFour", "creditCard", "nino", "ssn", "sin"]
   },
+  "indentationLength": 4,
   "resolveJsonModule": true
 }
