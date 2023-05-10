@@ -21,7 +21,7 @@ $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-sfdx-metadata-generator/1.0.2 win32-x64 node-v16.15.0
+sfdx-metadata-generator/1.0.3 win32-x64 node-v16.15.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -67,7 +67,8 @@ USAGE
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
-  -o, --outputdir=<value>                                                           example boolean flag
+  -o, --outputdir=<value>                                                           directory where a template csv file
+                                                                                    is saved.
   --json                                                                            format output as json
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
