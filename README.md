@@ -21,7 +21,7 @@ $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-sfdx-metadata-generator/1.0.3 win32-x64 node-v16.15.0
+sfdx-metadata-generator/1.0.4 win32-x64 node-v16.15.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
