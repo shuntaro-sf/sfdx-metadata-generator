@@ -1,5 +1,5 @@
 {
-  "commandDescription": "print a greeting and your generate IDs",
+  "commandDescription": "Generates custom field metadata converting values in a csv file to xml files.",
   "inputFlagDescription": "input file to be converted to xml files",
   "outputdirFlagDescription": "output directory where metadata are saved",
   "errorNogenerateResults": "No results found for the generate '%s'.",

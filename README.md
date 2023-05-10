@@ -34,7 +34,7 @@ USAGE
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-print a greeting and your generate IDs
+Generates custom field metadata converting values in a csv file to xml files.
 
 ```
 USAGE
@@ -51,7 +51,7 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  print a greeting and your generate IDs
+  Generates custom field metadata converting values in a csv file to xml files.
 
 EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
@@ -59,7 +59,7 @@ EXAMPLES
 
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-print a greeting and your template IDs
+Creates a template input-csv-file.
 
 ```
 USAGE
@@ -74,7 +74,7 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  print a greeting and your template IDs
+  Creates a template input-csv-file.
 
 EXAMPLES
   $ sfdx metadata:field:template --outputdir ./outputdir/

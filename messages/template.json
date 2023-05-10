@@ -1,5 +1,5 @@
 {
-  "commandDescription": "print a greeting and your template IDs",
+  "commandDescription": "Creates a template input-csv-file.",
   "outputdirFlagDescription": "directory where a template csv file is saved.",
   "errorNogenerateResults": "No results found for the template '%s'.",
   "examples": ["sfdx metadata:field:template --outputdir ./outputdir/"],
