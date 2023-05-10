@@ -52,6 +52,8 @@ export default class generate extends SfdxCommand {
   private static isRequired = ConfigData.isRequired;
   private static options = ConfigData.options;
 
+  private static indentationLength = 4;
+
   private static validationResults = [];
   private static successResults = [];
   private static metaInfo = [];
@@ -135,6 +137,9 @@ export default class generate extends SfdxCommand {
       // convert special characters in the html form
       row[indexOfTag] = this.convertSpecialChars(row[indexOfTag]);
 
+      // format boolean string in a xml format
+      this.formatBoolean(tag, row, indexOfTag);
+
       let tagStr = "";
       if (row[indexOfTag] != "") {
         tagStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
@@ -143,12 +148,15 @@ export default class generate extends SfdxCommand {
       }
       tagStrs.push(tagStr);
     }
-    metaStr += "\n    " + tagStrs.join("\n    ");
+    metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
 
     if (row[indexOfType] === "Picklist" || row[indexOfType] === "MultiselectPicklist") {
       const idxOfPicklistFullName = header.indexOf("picklistFullName");
       const idxOfPicklistLabel = header.indexOf("picklistLabel");
-      metaStr += "\n    " + this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel], header, rowIndex);
+      metaStr +=
+        "\n" +
+        this.getIndentation(generate.indentationLength) +
+        this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel], header, rowIndex);
     }
 
     metaStr += "\n</CustomField>";
@@ -157,7 +165,12 @@ export default class generate extends SfdxCommand {
 
   private getPicklistMetaStr(inputPicklistFullName: string, inputPicklistLabel: string, header: string[], rowIndex: number) {
     let picklistValueStr = "";
-    let picklistMetaStr = "<valueSet>\n        <valueSetDefinition>\n            <sorted>false</sorted>";
+    let picklistMetaStr =
+      "<valueSet>\n" +
+      this.getIndentation(2 * generate.indentationLength) +
+      "<valueSetDefinition>\n" +
+      this.getIndentation(3 * generate.indentationLength) +
+      "<sorted>false</sorted>";
     const picklistDefaultStr = "<default>false</default>";
     let picklistValues = [];
     const picklistFullNames = inputPicklistFullName.split(";");
@@ -172,13 +185,23 @@ export default class generate extends SfdxCommand {
       picklistLabels[idx] = this.convertSpecialChars(picklistLabels[idx]);
       let picklistFullNameStr = "<fullName>" + picklistFullNames[idx] + "</fullName>";
       let picklistLabelStr = "<label>" + picklistLabels[idx] + "</label>";
-      let eachPicklistMetaStr = "<value>";
-      eachPicklistMetaStr += [picklistFullNameStr, picklistDefaultStr, picklistLabelStr].join("\n                ");
-      eachPicklistMetaStr += "\n            </value>";
+      let eachPicklistMetaStr = "<value>\n" + this.getIndentation(4 * generate.indentationLength);
+      eachPicklistMetaStr += [picklistFullNameStr, picklistDefaultStr, picklistLabelStr].join(
+        "\n" + this.getIndentation(4 * generate.indentationLength)
+      );
+      eachPicklistMetaStr += "\n" + this.getIndentation(3 * generate.indentationLength) + "</value>";
       picklistValues[idx] = eachPicklistMetaStr;
     }
-    picklistValueStr = picklistValues.join("\n            ");
-    picklistMetaStr += "\n            " + picklistValueStr + "\n        </valueSetDefinition>\n    </valueSet>";
+    picklistValueStr = picklistValues.join("\n" + this.getIndentation(3 * generate.indentationLength));
+    picklistMetaStr +=
+      "\n" +
+      this.getIndentation(3 * generate.indentationLength) +
+      picklistValueStr +
+      "\n" +
+      this.getIndentation(2 * generate.indentationLength) +
+      "</valueSetDefinition>\n" +
+      this.getIndentation(generate.indentationLength) +
+      "</valueSet>";
     return picklistMetaStr;
   }
 
@@ -417,6 +440,14 @@ export default class generate extends SfdxCommand {
     return str;
   }
 
+  private formatBoolean(tag: string, row: string[], indexOfTag: number) {
+    if (generate.options[tag] !== undefined) {
+      if (generate.options[tag].includes(true.toString()) && generate.options[tag].includes(false.toString())) {
+        row[indexOfTag] = row[indexOfTag].toLowerCase();
+      }
+    }
+  }
+
   private showValidationErrorMessages() {
     const logLengths = this.getLogLenghts(generate.validationResults);
     this.showLogHeader(logLengths);
@@ -426,13 +457,13 @@ export default class generate extends SfdxCommand {
 
   private saveMetaData() {
     const logLengths = this.getLogLenghts(generate.successResults);
+    const blue = "\u001b[34m";
+    const white = "\u001b[37m";
+    console.log("===" + blue + " Generated Source" + white);
     this.showLogHeader(logLengths);
     for (const meta of generate.metaInfo) {
       writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".field-meta.xml", meta.metaStr, "utf8");
     }
-    const blue = "\u001b[34m";
-    const white = "\u001b[37m";
-    console.log(blue + "=== Generated Source" + white);
     this.showLogBody(generate.successResults, logLengths);
   }
 
@@ -481,5 +512,10 @@ export default class generate extends SfdxCommand {
       }
       console.log(logMessage);
     }
+  }
+
+  private getIndentation(length: number): string {
+    const whiteSpace = " ";
+    return whiteSpace.repeat(length);
   }
 }

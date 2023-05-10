@@ -1,5 +1,5 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "commands": {
     "metadata:field:generate": {
       "id": "metadata:field:generate",
@@ -763,6 +763,7 @@
           "sin"
         ]
       },
+      "indentationLength": 4,
       "validationResults": [],
       "successResults": [],
       "metaInfo": []
