@@ -63,7 +63,7 @@ export default class generate extends SfdxCommand {
 
   private static validationResults = [];
   private static successResults = [];
-  private static warnings = [];
+  private static failureResults = [];
   private static metaInfo = [];
 
   public async run(): Promise<AnyJson> {
@@ -106,6 +106,7 @@ export default class generate extends SfdxCommand {
     } else {
       this.saveMetaData();
     }
+    this.showFailureResults();
 
     // Return an object to be displayed with --json*/
     return { input: this.flags.input };
@@ -478,7 +479,8 @@ export default class generate extends SfdxCommand {
         this.updateFile(meta);
       } else {
         // when fail to save
-        generate.warnings.push("Failed to save " + meta.fullName + "." + generate.fieldExtension + messages.getMessage("failureSave"));
+        generate.failureResults[meta.fullName + "." + generate.fieldExtension] =
+          "Failed to save " + meta.fullName + "." + generate.fieldExtension + messages.getMessage("failureSave");
       }
     }
     this.showLogBody(generate.successResults, logLengths);
@@ -538,6 +540,9 @@ export default class generate extends SfdxCommand {
   private showLogBody(logs: any[], logLengths: any) {
     const whiteSpace = " ";
     for (const log of logs) {
+      if (generate.failureResults[log.FULLNAME]) {
+        continue;
+      }
       let logMessage = "";
       let counter = 0;
       for (const logName in log) {
@@ -548,6 +553,15 @@ export default class generate extends SfdxCommand {
         }
       }
       console.log(logMessage);
+    }
+  }
+
+  private showFailureResults() {
+    const red = "\u001b[31m";
+    const white = "\u001b[37m";
+    console.log("\n===" + red + " Failure" + white);
+    for (const fullName in generate.failureResults) {
+      console.log(generate.failureResults[fullName]);
     }
   }
 
