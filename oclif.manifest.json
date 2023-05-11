@@ -1,5 +1,5 @@
 {
-  "version": "1.0.6",
+  "version": "1.1.0",
   "commands": {
     "metadata:field:convert": {
       "id": "metadata:field:convert",
@@ -868,6 +868,25 @@
       },
       "indentationLength": 4,
       "fieldExtension": "field-meta.xml",
+      "tagNames": [
+        "fullName",
+        "externalId",
+        "label",
+        "required",
+        "type",
+        "trackTrending",
+        "unique",
+        "defaultValue",
+        "displayLocationInDecimal",
+        "scale",
+        "precision",
+        "visibleLines",
+        "length",
+        "maskChar",
+        "maskType",
+        "picklistFullName",
+        "picklistLabel"
+      ],
       "validationResults": [],
       "successResults": [],
       "metaInfo": []
