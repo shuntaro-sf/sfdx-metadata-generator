@@ -108,7 +108,7 @@
       "id": "metadata:field:generate",
       "description": "Generates custom field metadata converting values in a csv file to xml files.",
       "strict": true,
-      "usage": "<%= command.id %> [-i <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
       "pluginName": "sfdx-metadata-generator",
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
@@ -159,6 +159,13 @@
           "char": "o",
           "description": "output directory where metadata are saved",
           "multiple": false
+        },
+        "updates": {
+          "name": "updates",
+          "type": "boolean",
+          "char": "u",
+          "description": "whether update existing xml files in outputdir or not",
+          "allowNo": false
         }
       },
       "args": {
@@ -182,6 +189,13 @@
           "input": [],
           "multiple": false,
           "type": "option"
+        },
+        "updates": {
+          "kind": "boolean",
+          "char": "u",
+          "description": "whether update existing xml files in outputdir or not",
+          "allowNo": false,
+          "type": "boolean"
         }
       },
       "requiresUsername": false,
@@ -889,6 +903,7 @@
       ],
       "validationResults": [],
       "successResults": [],
+      "warnings": [],
       "metaInfo": []
     },
     "metadata:field:template": {

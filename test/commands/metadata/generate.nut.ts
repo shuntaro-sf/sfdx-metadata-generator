@@ -24,7 +24,7 @@ describe("Test", () => {
     shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir);
     done();
   });
-  it("deploy to a scratch org to confirm the generated metadata are valid", async (done) => {
+  it("deploy to a test org to confirm the generated metadata are valid", async (done) => {
     shell.exec("sfdx force:source:deploy -p " + outputDir + " --checkonly -u " + alias);
     done();
   });

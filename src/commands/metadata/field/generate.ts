@@ -38,6 +38,10 @@ export default class generate extends SfdxCommand {
       char: "o",
       description: messages.getMessage("outputdirFlagDescription"),
     }),
+    updates: flags.boolean({
+      char: "u",
+      description: messages.getMessage("updatesFlagDescription"),
+    }),
   };
 
   // Comment this out if your command does not require an generate username
@@ -59,6 +63,7 @@ export default class generate extends SfdxCommand {
 
   private static validationResults = [];
   private static successResults = [];
+  private static warnings = [];
   private static metaInfo = [];
 
   public async run(): Promise<AnyJson> {
@@ -468,9 +473,12 @@ export default class generate extends SfdxCommand {
       if (!existsSync(join(this.flags.outputdir, meta.fullName + "." + generate.fieldExtension))) {
         // for creating
         writeFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.fieldExtension), meta.metaStr, "utf8");
-      } else {
+      } else if (this.flags.updates) {
         // for updating
         this.updateFile(meta);
+      } else {
+        // when fail to save
+        generate.warnings.push("Failed to save " + meta.fullName + "." + generate.fieldExtension + messages.getMessage("failureSave"));
       }
     }
     this.showLogBody(generate.successResults, logLengths);
