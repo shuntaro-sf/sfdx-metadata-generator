@@ -9,6 +9,8 @@ import { readFileSync, existsSync, writeFileSync } from "fs";
 import { flags, SfdxCommand } from "@salesforce/command";
 import { Messages, SfError } from "@salesforce/core";
 import { AnyJson } from "@salesforce/ts-types";
+import { join } from "path";
+
 //@ts-ignore
 import * as ConfigData from "../../../../src_config/metadata_field_generate.json";
 
@@ -52,6 +54,7 @@ export default class generate extends SfdxCommand {
   private static isRequired = ConfigData.isRequired;
   private static options = ConfigData.options;
   private static indentationLength = ConfigData.indentationLength;
+  private static fieldExtension = ConfigData.fieldExtension;
 
   private static validationResults = [];
   private static successResults = [];
@@ -88,8 +91,8 @@ export default class generate extends SfdxCommand {
       const indexOfFullName = header.indexOf("fullName");
       generate.metaInfo.push({ fullName: csv[rowIndex][indexOfFullName], metaStr: metaStr });
       generate.successResults.push({
-        FULLNAME: csv[rowIndex][indexOfFullName] + messages.getMessage("fieldExtension"),
-        PATH: (this.flags.outputdir + "/" + csv[rowIndex][indexOfFullName] + messages.getMessage("fieldExtension")).replace("//", "/"),
+        FULLNAME: csv[rowIndex][indexOfFullName] + "." + generate.fieldExtension,
+        PATH: join(this.flags.outputdir, csv[rowIndex][indexOfFullName] + "." + generate.fieldExtension).replace("//", "/"),
       });
     }
     if (generate.validationResults.length > 0) {
@@ -461,7 +464,7 @@ export default class generate extends SfdxCommand {
     console.log("===" + blue + " Generated Source" + white);
     this.showLogHeader(logLengths);
     for (const meta of generate.metaInfo) {
-      writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".field-meta.xml", meta.metaStr, "utf8");
+      writeFileSync(join(this.flags.outputdir, meta.fullName + ".field-meta.xml"), meta.metaStr, "utf8");
     }
     this.showLogBody(generate.successResults, logLengths);
   }

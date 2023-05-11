@@ -1,0 +1,21 @@
+{
+  "header": [
+    "fullName",
+    "externalId",
+    "label",
+    "required",
+    "type",
+    "trackTrending",
+    "unique",
+    "defaultValue",
+    "displayLocationInDecimal",
+    "scale",
+    "precision",
+    "visibleLines",
+    "length",
+    "maskChar",
+    "maskType",
+    "picklistFullName",
+    "picklistLabel"
+  ]
+}

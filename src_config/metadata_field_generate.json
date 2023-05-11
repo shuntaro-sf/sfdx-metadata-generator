@@ -651,5 +651,6 @@
     "maskType": ["all", "lastFour", "creditCard", "nino", "ssn", "sin"]
   },
   "indentationLength": 4,
+  "fieldExtension": "field-meta.xml",
   "resolveJsonModule": true
 }
