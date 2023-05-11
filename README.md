@@ -14,8 +14,8 @@ SFDX plugin to generate metadata
 * [sfdx-metadata-generator](#sfdx-metadata-generator)
 * [How to get started](#how-to-get-started)
 <!-- tocstop -->
-              <!-- install -->
-              <!-- usage -->
+                <!-- install -->
+                <!-- usage -->
 ```sh-session
 $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
@@ -130,6 +130,20 @@ The flag `--input` specifies the input-csv-file to be converted to metadata-xml-
 
 ```
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+You can also update custom-field-xml-files with `sfdx metadata:field:convert`. Assume you have created SFDX project and retrieved field-xml files you want to update. Then, run the following command to rewrite the fhiles in the csv format.
+
+```
+  $ sfdx metadata:field:convert -sourcedir .force-app/main/default/objects/Account/fields/ --outputdir ../outputdir/
+```
+
+Edit the craeted csv file as you want to update metadata, and then run `sfdx metadata:field:generate --updates` to override the xml files.
+
+Note that runnning without `--updates` avoids overrinding existing metadata.
+
+```
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/ --updates
 ```
 
 <!---
