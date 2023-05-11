@@ -1,5 +1,5 @@
 {
-  "commandDescription": "Generates custom field metadata converting values in a csv file to xml files.",
+  "commandDescription": "Convert custom-field-xml-files to a file used to create or update the metadata.",
   "sourceFlagDescription": "directory where source files you convert are stored",
   "outputdirFlagDescription": "output directory where metadata are saved",
   "errorNogenerateResults": "No results found for the generate '%s'.",

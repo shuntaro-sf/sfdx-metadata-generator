@@ -67,9 +67,7 @@ export default class convert extends SfdxCommand {
       const metastr = readFileSync(join(this.flags.sourcedir, file), { encoding: "utf8" });
       let row = [];
 
-      const regexpFullName = new RegExp("\\<fullName\\>(.+)\\</fullName\\>");
-      const fullNameValue = metastr.match(regexpFullName);
-      if (fullNameValue[1].substring(fullNameValue[1].length - 3, fullNameValue[1].length) !== "__c" || fullNameValue === null) {
+      if (!this.isCustomField(metastr)) {
         continue;
       }
 
@@ -131,6 +129,14 @@ export default class convert extends SfdxCommand {
     return this.convertSpecialChars(valueOfTag);
   }
 
+  private isCustomField(metastr: string): boolean {
+    const regexpFullName = new RegExp("\\<fullName\\>(.+)\\</fullName\\>");
+    const fullNameValue = metastr.match(regexpFullName);
+    if (fullNameValue[1].substring(fullNameValue[1].length - 3, fullNameValue[1].length) !== "__c" || fullNameValue === null) {
+      return false;
+    }
+    return true;
+  }
   private convertSpecialChars(str: string): string {
     str = str.replace(/&amp;/g, "&");
     str = str.replace(/&lt;/g, "<");

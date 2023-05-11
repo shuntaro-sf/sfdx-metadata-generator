@@ -2,6 +2,7 @@
   "commandDescription": "Generates custom field metadata converting values in a csv file to xml files.",
   "inputFlagDescription": "input file to be converted to xml files",
   "outputdirFlagDescription": "output directory where metadata are saved",
+  "updatesFlagDescription": "whether update existing xml files in outputdir or not",
   "errorNogenerateResults": "No results found for the generate '%s'.",
   "examples": ["sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"],
   "errorPathOfInput": "Cannot find the input: ",
@@ -46,5 +47,5 @@
   "validationPicklistLabelMax": "The number of picklistLabels must be equal to the one of picklistFullNames.",
   "validationPicklistFullNameBlank": "picklistFullName must not be blank.",
   "validationPicklistLabelBlank": "picklistLabel must not be blank.",
-  "fieldExtension": ".field-meta.xml"
+  "failureSave": "In order to update exiting files, Add the flag --updates on this command."
 }

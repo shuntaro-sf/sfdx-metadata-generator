@@ -38,6 +38,10 @@ export default class generate extends SfdxCommand {
       char: "o",
       description: messages.getMessage("outputdirFlagDescription"),
     }),
+    updates: flags.boolean({
+      char: "u",
+      description: messages.getMessage("updatesFlagDescription"),
+    }),
   };
 
   // Comment this out if your command does not require an generate username
@@ -55,9 +59,11 @@ export default class generate extends SfdxCommand {
   private static options = ConfigData.options;
   private static indentationLength = ConfigData.indentationLength;
   private static fieldExtension = ConfigData.fieldExtension;
+  private static tagNames = ConfigData.tagNames;
 
   private static validationResults = [];
   private static successResults = [];
+  private static warnings = [];
   private static metaInfo = [];
 
   public async run(): Promise<AnyJson> {
@@ -464,9 +470,38 @@ export default class generate extends SfdxCommand {
     console.log("===" + blue + " Generated Source" + white);
     this.showLogHeader(logLengths);
     for (const meta of generate.metaInfo) {
-      writeFileSync(join(this.flags.outputdir, meta.fullName + ".field-meta.xml"), meta.metaStr, "utf8");
+      if (!existsSync(join(this.flags.outputdir, meta.fullName + "." + generate.fieldExtension))) {
+        // for creating
+        writeFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.fieldExtension), meta.metaStr, "utf8");
+      } else if (this.flags.updates) {
+        // for updating
+        this.updateFile(meta);
+      } else {
+        // when fail to save
+        generate.warnings.push("Failed to save " + meta.fullName + "." + generate.fieldExtension + messages.getMessage("failureSave"));
+      }
     }
     this.showLogBody(generate.successResults, logLengths);
+  }
+
+  private updateFile(meta: any) {
+    let metastrToUpdate = readFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.fieldExtension), "utf8");
+    for (const tag of generate.tagNames) {
+      if (tag !== "picklistFullName" && tag !== "picklistLabel") {
+        const regexp = new RegExp("\\<" + tag + "\\>(.+)\\</" + tag + "\\>");
+        const newValue = meta.metaStr.match(regexp);
+        if (newValue !== null) {
+          metastrToUpdate = metastrToUpdate.replace(regexp, newValue[0]);
+        }
+      } else {
+        const regexp = new RegExp("\\<valueSet\\>[\\s\\S]*\\</valueSet\\>");
+        const newValue = meta.metaStr.match(regexp);
+        if (newValue !== null) {
+          metastrToUpdate = metastrToUpdate.replace(regexp, newValue[0]);
+        }
+      }
+    }
+    writeFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.fieldExtension), metastrToUpdate, "utf8");
   }
 
   private getLogLenghts(logs: any[]) {

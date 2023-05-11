@@ -652,5 +652,24 @@
   },
   "indentationLength": 4,
   "fieldExtension": "field-meta.xml",
+  "tagNames": [
+    "fullName",
+    "externalId",
+    "label",
+    "required",
+    "type",
+    "trackTrending",
+    "unique",
+    "defaultValue",
+    "displayLocationInDecimal",
+    "scale",
+    "precision",
+    "visibleLines",
+    "length",
+    "maskChar",
+    "maskType",
+    "picklistFullName",
+    "picklistLabel"
+  ],
   "resolveJsonModule": true
 }
