@@ -1,6 +1,109 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "commands": {
+    "metadata:field:convert": {
+      "id": "metadata:field:convert",
+      "description": "Generates custom field metadata converting values in a csv file to xml files.",
+      "strict": true,
+      "usage": "<%= command.id %> [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "pluginName": "sfdx-metadata-generator",
+      "pluginAlias": "sfdx-metadata-generator",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [
+        "sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/"
+      ],
+      "flags": {
+        "json": {
+          "name": "json",
+          "type": "boolean",
+          "description": "format output as json",
+          "allowNo": false
+        },
+        "loglevel": {
+          "name": "loglevel",
+          "type": "option",
+          "description": "logging level for this command invocation",
+          "required": false,
+          "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
+          "multiple": false,
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
+          "default": "warn"
+        },
+        "sourcedir": {
+          "name": "sourcedir",
+          "type": "option",
+          "char": "s",
+          "description": "directory where source files you convert are stored",
+          "multiple": false
+        },
+        "outputdir": {
+          "name": "outputdir",
+          "type": "option",
+          "char": "o",
+          "description": "output directory where metadata are saved",
+          "multiple": false
+        }
+      },
+      "args": {
+        "file": {
+          "name": "file"
+        }
+      },
+      "flagsConfig": {
+        "sourcedir": {
+          "kind": "string",
+          "char": "s",
+          "description": "directory where source files you convert are stored",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        },
+        "outputdir": {
+          "kind": "string",
+          "char": "o",
+          "description": "output directory where metadata are saved",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        }
+      },
+      "requiresUsername": false,
+      "supportsDevhubUsername": false,
+      "requiresProject": false,
+      "header": [
+        "fullName",
+        "externalId",
+        "label",
+        "required",
+        "type",
+        "trackTrending",
+        "unique",
+        "defaultValue",
+        "displayLocationInDecimal",
+        "scale",
+        "precision",
+        "visibleLines",
+        "length",
+        "maskChar",
+        "maskType",
+        "picklistFullName",
+        "picklistLabel"
+      ]
+    },
     "metadata:field:generate": {
       "id": "metadata:field:generate",
       "description": "Generates custom field metadata converting values in a csv file to xml files.",
@@ -764,6 +867,7 @@
         ]
       },
       "indentationLength": 4,
+      "fieldExtension": "field-meta.xml",
       "validationResults": [],
       "successResults": [],
       "metaInfo": []
