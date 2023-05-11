@@ -1,9 +1,9 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "commands": {
     "metadata:field:convert": {
       "id": "metadata:field:convert",
-      "description": "Generates custom field metadata converting values in a csv file to xml files.",
+      "description": "Convert custom-field-xml-files to a file used to create or update the metadata.",
       "strict": true,
       "usage": "<%= command.id %> [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
       "pluginName": "sfdx-metadata-generator",

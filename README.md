@@ -35,7 +35,7 @@ USAGE
 
 ## `sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Generates custom field metadata converting values in a csv file to xml files.
+Convert custom-field-xml-files to a file used to create or update the metadata.
 
 ```
 USAGE
@@ -52,7 +52,7 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  Generates custom field metadata converting values in a csv file to xml files.
+  Convert custom-field-xml-files to a file used to create or update the metadata.
 
 EXAMPLES
   $ sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/
