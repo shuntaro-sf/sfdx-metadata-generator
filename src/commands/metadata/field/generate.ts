@@ -105,8 +105,8 @@ export default class generate extends SfdxCommand {
       this.showValidationErrorMessages();
     } else {
       this.saveMetaData();
+      this.showFailureResults();
     }
-    this.showFailureResults();
 
     // Return an object to be displayed with --json*/
     return { input: this.flags.input };
@@ -480,7 +480,7 @@ export default class generate extends SfdxCommand {
       } else {
         // when fail to save
         generate.failureResults[meta.fullName + "." + generate.fieldExtension] =
-          "Failed to save " + meta.fullName + "." + generate.fieldExtension + messages.getMessage("failureSave");
+          "Failed to save " + meta.fullName + "." + generate.fieldExtension + ". " + messages.getMessage("failureSave");
       }
     }
     this.showLogBody(generate.successResults, logLengths);
@@ -557,6 +557,9 @@ export default class generate extends SfdxCommand {
   }
 
   private showFailureResults() {
+    if (Object.keys(generate.failureResults).length === 0) {
+      return;
+    }
     const red = "\u001b[31m";
     const white = "\u001b[37m";
     console.log("\n===" + red + " Failure" + white);

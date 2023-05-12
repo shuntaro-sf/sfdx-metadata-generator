@@ -47,5 +47,5 @@
   "validationPicklistLabelMax": "The number of picklistLabels must be equal to the one of picklistFullNames.",
   "validationPicklistFullNameBlank": "picklistFullName must not be blank.",
   "validationPicklistLabelBlank": "picklistLabel must not be blank.",
-  "failureSave": "In order to update exiting files, Add the flag --updates on this command."
+  "failureSave": "To update exiting files, Add the flag --updates to this command."
 }
