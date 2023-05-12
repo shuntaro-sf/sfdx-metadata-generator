@@ -14,8 +14,8 @@ SFDX plugin to generate metadata
 * [sfdx-metadata-generator](#sfdx-metadata-generator)
 * [How to get started](#how-to-get-started)
 <!-- tocstop -->
-                <!-- install -->
-                <!-- usage -->
+                  <!-- install -->
+                  <!-- usage -->
 ```sh-session
 $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
@@ -118,6 +118,26 @@ Make sure you have already installed this plugin.
 
 To start generating field metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom fields from the second line.
 
+| Tag                      | Description                                                                                                                                                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fullName                 | Custom field API name.                                                                                                                                                                                            |
+| label                    | Field label name.                                                                                                                                                                                                 |
+| type                     | Data type. Options are listed below:<br>Checkbox, Currency, Date, DateTime, Email, Location, Number, Percent, Phone, Picklist, MultiselectPicklist, Text, TextArea, LongTextArea, Html, EncryptedText, Time, Url. |
+| required                 | Whether it is required. Options are listed below:<br>true, false.                                                                                                                                                 |
+| externalId               | Whether it is an external ID. Options are listed below:<br>true, false.                                                                                                                                           |
+| trackTrending            | Whether to track historical trending. Options are listed below:<br>true, false.                                                                                                                                   |
+| unique                   | Whether it is unique. Options are listed below:<br>true, false.                                                                                                                                                   |
+| defaultValue             | Default value. Applied only when Checkbox is choosen as data type. Options are listed below:<br>true, false.                                                                                                      |
+| displayLocationInDecimal | Wheter to display location in decimal. Options are listed below:<br>true, false.                                                                                                                                  |
+| scale                    | The number of decimal places.                                                                                                                                                                                     |
+| precision                | The number of digits.                                                                                                                                                                                             |
+| visibleLines             | Visible lines applied to MultiselectPicklist, LongTextArea, and Html.                                                                                                                                             |
+| length                   | Text length applied to Text, TextArea, LongTextArea, and Html.                                                                                                                                                    |
+| maskChar                 | Mask character applied to EncryptedText. Options are listed below:<br>asterisk, X.                                                                                                                                |
+| maskType                 | Mask type applied to EncryptedText. Options are listed below:<br>all, lastFour, creditCard, nino, ssn, sin.                                                                                                       |
+| picklistFullName         | Picklist API Names applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as delimiter to separate character string in multiple names.                                                      |
+| picklistLabel            | Picklist labels applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as delimiter to separate character string in multiple labels.                                                        |
+
 Or you can create a template file running the following commnad:
 
 ```
@@ -132,10 +152,10 @@ The flag `--input` specifies the input-csv-file to be converted to metadata-xml-
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-You can also update custom-field-xml-files with `sfdx metadata:field:convert`. Assume you have created SFDX project and retrieved field-xml files you want to update. Then, run the following command to rewrite the fhiles in the csv format.
+You can also update custom-field-xml-files with `sfdx metadata:field:convert`. Assume you have created SFDX project and retrieved field-xml files you want to update. Then, run the following command to rewrite the files in the csv format.
 
 ```
-  $ sfdx metadata:field:convert -sourcedir .force-app/main/default/objects/Account/fields/ --outputdir ../outputdir/
+  $ sfdx metadata:field:convert -sourcedir ./force-app/main/default/objects/Account/fields/ --outputdir ../outputdir/
 ```
 
 Edit the craeted csv file as you want to update metadata, and then run `sfdx metadata:field:generate --updates` to override the xml files.
