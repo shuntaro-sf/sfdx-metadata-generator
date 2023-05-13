@@ -71,25 +71,7 @@ export default class convert extends SfdxCommand {
         continue;
       }
 
-      for (const tag of convert.header) {
-        const indexOfTag = convert.header.indexOf(tag);
-        if (tag !== "picklistFullName" && tag !== "picklistLabel") {
-          const regexp = new RegExp("\\<" + tag + "\\>(.+)\\</" + tag + "\\>");
-          const tagValue = metastr.match(regexp);
-          if (tagValue !== null) {
-            row[indexOfTag] = this.convertSpecialChars(tagValue[1]);
-          } else {
-            row[indexOfTag] = "";
-          }
-        } else {
-          const valueOfTag = this.getValueOfPicklistTag(metastr, row, tag);
-          if (valueOfTag !== null) {
-            row[indexOfTag] = this.convertSpecialChars(valueOfTag);
-          } else {
-            row[indexOfTag] = "";
-          }
-        }
-      }
+      this.convertXmlToRowOfCsv(metastr, row);
       csvDataStr += row.join(",") + "\n";
     }
 
@@ -97,6 +79,28 @@ export default class convert extends SfdxCommand {
 
     // Return an object to be displayed with --json*/
     return { sourcedir: this.flags.sourcedir };
+  }
+
+  private convertXmlToRowOfCsv(metastr: string, row: any[]) {
+    for (const tag of convert.header) {
+      const indexOfTag = convert.header.indexOf(tag);
+      if (tag !== "picklistFullName" && tag !== "picklistLabel") {
+        const regexp = new RegExp("\\<" + tag + "\\>(.+)\\</" + tag + "\\>");
+        const tagValue = metastr.match(regexp);
+        if (tagValue !== null) {
+          row[indexOfTag] = this.convertSpecialChars(tagValue[1]);
+        } else {
+          row[indexOfTag] = "";
+        }
+      } else {
+        const valueOfTag = this.getValueOfPicklistTag(metastr, row, tag);
+        if (valueOfTag !== null) {
+          row[indexOfTag] = this.convertSpecialChars(valueOfTag);
+        } else {
+          row[indexOfTag] = "";
+        }
+      }
+    }
   }
 
   private getValueOfPicklistTag(metastr: string, row: string[], tag: string) {
