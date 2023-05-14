@@ -1,0 +1,50 @@
+{
+  "permissionTags": {
+    "applicationVisibilities": {
+      "keyTag": "application",
+      "tags": ["default", "visible"]
+    },
+    "classAccesses": {
+      "keyTag": "apexClass",
+      "tags": ["enabled"]
+    },
+    "fieldPermissions": {
+      "keyTag": "field",
+      "tags": ["editable", "readable"]
+    },
+    "objectPermissions": {
+      "keyTag": "object",
+      "tags": ["allowCreate", "allowDelete", "allowEdit", "allowRead", "modifyAllRecords", "viewAllRecords"]
+    },
+    "pageAccesses": {
+      "keyTag": "apexPage",
+      "tags": ["enabled"]
+    },
+    "recordTypeVisibilities": {
+      "keyTag": "recordType",
+      "tags": ["default", "visible"]
+    },
+    "tabVisibilities": {
+      "keyTag": "tab",
+      "tags": ["visibility"]
+    },
+    "userPermissions": {
+      "keyTag": "name",
+      "tags": ["enabled"]
+    }
+  },
+  "options": {
+    "editable": ["true", "false"],
+    "readable": ["true", "false"],
+    "allowCreate": ["true", "false"],
+    "allowDelete": ["true", "false"],
+    "allowEdit": ["true", "false"],
+    "allowRead": ["true", "false"],
+    "modifyAllRecords": ["true", "false"],
+    "viewAllRecords": ["true", "false"],
+    "default": ["true", "false"],
+    "visible": ["true", "false"],
+    "enabled": ["true", "false"],
+    "visibility": ["DefaultOn", "DefaultOff", "Hidden"]
+  }
+}

@@ -9,5 +9,7 @@
   "search.exclude": {
     "**/lib": true,
     "**/bin": true
-  }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
