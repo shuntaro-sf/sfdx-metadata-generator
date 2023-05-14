@@ -1329,7 +1329,7 @@
       "pluginType": "core",
       "aliases": [],
       "examples": [
-        "sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"
+        "sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/"
       ],
       "flags": {
         "json": {

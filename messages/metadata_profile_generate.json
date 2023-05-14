@@ -4,7 +4,7 @@
   "outputdirFlagDescription": "output directory where metadata are saved",
   "sourceFlagDescription": "directory where source files you convert are stored",
   "errorNogenerateResults": "No results found for the generate '%s'.",
-  "examples": ["sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"],
+  "examples": ["sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/"],
   "errorPathOfInput": "Cannot find the input: ",
   "errorPathOfOutput": "Cannot find the output-directory: "
 }
