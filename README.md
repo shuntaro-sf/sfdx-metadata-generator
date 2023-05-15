@@ -10,6 +10,15 @@ SFDX plugin to generate metadata
 [![Downloads/week](https://img.shields.io/npm/dw/sfdx-metadata-generator.svg)](https://npmjs.generate/package/sfdx-metadata-generator)
 [![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
+<!-- toc -->
+  <!-- tocstop -->
+
+                          <!-- install -->
+                          <!-- usage -->
+
+<!-- usagestop -->
+<!-- commands -->
+<!-- commandsstop -->
 <!-- debugging-your-plugin -->
 
 # How to get started
