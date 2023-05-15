@@ -10,21 +10,18 @@ SFDX plugin to generate metadata
 [![Downloads/week](https://img.shields.io/npm/dw/sfdx-metadata-generator.svg)](https://npmjs.generate/package/sfdx-metadata-generator)
 [![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
-<!-- toc -->
-
 - [sfdx-metadata-generator](#sfdx-metadata-generator)
 - [How to get started](#how-to-get-started)
   <!-- tocstop -->
-
-                      <!-- install -->
-                      <!-- usage -->
+                                  <!-- install -->
+                                  <!-- usage -->
 
 ```sh-session
 $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-sfdx-metadata-generator/1.5.4 win32-x64 node-v18.16.0
+sfdx-metadata-generator/1.5.15 win32-x64 node-v18.16.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -33,19 +30,6 @@ USAGE
 
 <!-- usagestop -->
 
-```sh-session
-$ npm install -g sfdx-metadata-generator
-$ sfdx COMMAND
-running command...
-$ sfdx (--version)
-sfdx-metadata-generator/1.2.5 win32-x64 node-v18.16.0
-$ sfdx --help [COMMAND]
-USAGE
-  $ sfdx COMMAND
-...
-```
-
-<!-- usagestop -->
 <!-- commands -->
 
 - [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
@@ -55,7 +39,7 @@ USAGE
 
 ## `sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Convert custom-field-xml-files to a file used to create or update the metadata.
+Converts custom-field-xml-files to a file used to create or update the metadata.
 
 ```
 USAGE
@@ -72,11 +56,13 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  Convert custom-field-xml-files to a file used to create or update the metadata.
+  Converts custom-field-xml-files to a file used to create or update the metadata.
 
 EXAMPLES
   $ sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
+
+_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.15/src/commands/metadata/field/convert.ts)_
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -105,6 +91,8 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
+_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.15/src/commands/metadata/field/generate.ts)_
+
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 Creates a template input-csv-file.
@@ -127,6 +115,8 @@ DESCRIPTION
 EXAMPLES
   $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
+
+_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.15/src/commands/metadata/field/template.ts)_
 
 ## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -155,7 +145,11 @@ EXAMPLES
   $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
 ```
 
+_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.15/src/commands/metadata/profile/generate.ts)_
+
 <!-- commandsstop -->
+
+<!-- debugging-your-plugin -->
 
 # How to get started
 

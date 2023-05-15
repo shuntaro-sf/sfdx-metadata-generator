@@ -69,6 +69,7 @@
     "postpack": "rimraf oclif.manifest.json",
     "posttest": "eslint src/**/*.ts test/**/*.ts",
     "prepack": "rimraf lib && tsc -b && oclif manifest && oclif readme",
+    "prepack:non:readme": "rimraf lib && tsc -b && oclif manifest",
     "test": "nyc --extension .ts --require ts-node/register mocha --forbid-only \"test/**/*.test.ts\"",
     "test:nuts": "nyc --extension .ts --require ts-node/register mocha --forbid-only \"test/**/*.nut.ts\" --timeout 100000",
     "version": "oclif readme && git add README.md"
