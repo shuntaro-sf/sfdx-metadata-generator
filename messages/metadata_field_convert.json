@@ -3,7 +3,7 @@
   "sourcedirFlagDescription": "directory where source files you convert are stored",
   "outputdirFlagDescription": "output directory where metadata are saved",
   "errorNogenerateResults": "No results found for the generate '%s'.",
-  "examples": ["sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/"],
+  "examples": ["sfdx metadata:field:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/"],
   "errorPathOfSource": "Cannot find the souce-directory: ",
   "errorPathOfOutput": "Cannot find the output-directory: "
 }
