@@ -62,7 +62,7 @@
       }
     }
   },
-  "repository": "C:/sfdx-metadata-generator",
+  "repository": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator",
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint src/**/*.ts test/**/*.ts",
