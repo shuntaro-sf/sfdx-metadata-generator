@@ -11,6 +11,9 @@ SFDX plugin to generate metadata
 [![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
 <!-- toc -->
+* [sfdx-metadata-generator](#sfdx-metadata-generator)
+* [How to get started](#how-to-get-started)
+<!-- tocstop -->
 
 - [sfdx-metadata-generator](#sfdx-metadata-generator)
 - [How to get started](#how-to-get-started)
@@ -18,6 +21,18 @@ SFDX plugin to generate metadata
 
                           <!-- install -->
                           <!-- usage -->
+```sh-session
+$ npm install -g sfdx-metadata-generator
+$ sfdx COMMAND
+running command...
+$ sfdx (--version)
+sfdx-metadata-generator/1.5.6 win32-x64 node-v18.16.0
+$ sfdx --help [COMMAND]
+USAGE
+  $ sfdx COMMAND
+...
+```
+<!-- usagestop -->
 
 ```sh-session
 $ npm install -g sfdx-metadata-generator
@@ -33,6 +48,113 @@ USAGE
 
 <!-- usagestop -->
 <!-- commands -->
+* [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldtemplate--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataprofilegenerate--i-string--o-string--s-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+
+## `sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Converts custom-field-xml-files to a file used to create or update the metadata.
+
+```
+USAGE
+  $ sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --sourcedir=<value>                                                           directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Converts custom-field-xml-files to a file used to create or update the metadata.
+
+EXAMPLES
+  $ sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/
+```
+
+## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Generates custom field metadata converting values in a csv file to xml files.
+
+```
+USAGE
+  $ sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -u, --updates                                                                     whether update existing xml files in
+                                                                                    outputdir or not
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Generates custom field metadata converting values in a csv file to xml files.
+
+EXAMPLES
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Creates a template input-csv-file.
+
+```
+USAGE
+  $ sfdx metadata:field:template [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           directory where a template csv file
+                                                                                    is saved.
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Creates a template input-csv-file.
+
+EXAMPLES
+  $ sfdx metadata:field:template --outputdir ./outputdir/
+```
+
+## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Updates profile metadata converting values in a csv file to xml files.
+
+```
+USAGE
+  $ sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --source=<value>                                                              directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Updates profile metadata converting values in a csv file to xml files.
+
+EXAMPLES
+  $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
+```
+<!-- commandsstop -->
 
 - [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 - [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
