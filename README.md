@@ -11,6 +11,9 @@ SFDX plugin to generate metadata
 [![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
 <!-- toc -->
+* [sfdx-metadata-generator](#sfdx-metadata-generator)
+* [How to get started](#how-to-get-started)
+<!-- tocstop -->
 
 - [sfdx-metadata-generator](#sfdx-metadata-generator)
 - [How to get started](#how-to-get-started)
@@ -22,6 +25,18 @@ SFDX plugin to generate metadata
 
                           <!-- install -->
                           <!-- usage -->
+```sh-session
+$ npm install -g sfdx-metadata-generator
+$ sfdx COMMAND
+running command...
+$ sfdx (--version)
+sfdx-metadata-generator/1.5.10 win32-x64 node-v18.16.0
+$ sfdx --help [COMMAND]
+USAGE
+  $ sfdx COMMAND
+...
+```
+<!-- usagestop -->
 
 ```sh-session
 $ npm install -g sfdx-metadata-generator
@@ -37,6 +52,8 @@ USAGE
 
 <!-- usagestop -->
 <!-- commands -->
+
+<!-- commandsstop -->
 
 <!-- commandsstop -->
 
