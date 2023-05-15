@@ -25,7 +25,7 @@ $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-sfdx-metadata-generator/1.5.18 win32-x64 node-v18.16.0
+sfdx-metadata-generator/1.6.0 win32-x64 node-v18.16.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -78,7 +78,7 @@ EXAMPLES
   $ sfdx metadata:field:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.18/src/commands/metadata/field/convert.ts)_
+_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/field/convert.ts)_
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -107,7 +107,7 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.18/src/commands/metadata/field/generate.ts)_
+_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/field/generate.ts)_
 
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -132,7 +132,7 @@ EXAMPLES
   $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.18/src/commands/metadata/field/template.ts)_
+_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/field/template.ts)_
 
 ## `sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -159,7 +159,7 @@ EXAMPLES
   $ sfdx metadata:profile:convert --source ./source --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.18/src/commands/metadata/profile/convert.ts)_
+_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/profile/convert.ts)_
 
 ## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -188,7 +188,7 @@ EXAMPLES
   $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.5.18/src/commands/metadata/profile/generate.ts)_
+_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/profile/generate.ts)_
 <!-- commandsstop -->
 
 - [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
