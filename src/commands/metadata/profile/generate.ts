@@ -67,6 +67,9 @@ export default class generate extends SfdxCommand {
     if (!existsSync(this.flags.outputdir)) {
       throw new SfError(messages.getMessage("errorPathOfOutput") + this.flags.outputdir);
     }
+    if (!existsSync(this.flags.source)) {
+      throw new SfError(messages.getMessage("errorPathOfSource") + this.flags.source);
+    }
     const csv = readFileSync(this.flags.input, {
       encoding: "utf8",
     })
@@ -86,6 +89,8 @@ export default class generate extends SfdxCommand {
       //generates metadata for each row
       metastr = this.getMetaStr(metastr, csv, rowIndex, header);
     }
+    console.log(generate.permissionMetaStrs);
+    console.log(metastr);
     if (generate.validationResults.length > 0) {
       this.showValidationErrorMessages();
     } else {
@@ -124,7 +129,7 @@ export default class generate extends SfdxCommand {
       this.formatBoolean(tag, row, indexOfTag);
 
       const permissionStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
-      const permissionRegexp = new RegExp("\\<" + tag + "\\>(.+)\\</" + tag + "\\>");
+      const permissionRegexp = new RegExp("<" + tag + ">(.+)<\\/" + tag + ">");
       const newPermMetaStr = generate.permissionMetaStrs[fullName].replace(permissionRegexp, permissionStr);
       metastr = metastr.replace(generate.permissionMetaStrs[fullName], newPermMetaStr);
       generate.permissionMetaStrs[fullName] = newPermMetaStr;
@@ -137,7 +142,7 @@ export default class generate extends SfdxCommand {
     let tagMetastrs = metastr.split(regexp);
 
     for (const tagMetastr of tagMetastrs) {
-      const keyTagRegexp = new RegExp("<" + keyTag + ">(.+)*" + "<\\/" + keyTag + ">");
+      const keyTagRegexp = new RegExp("<" + keyTag + ">(.+)*" + "\\</" + keyTag + ">");
       const fullNameValue = tagMetastr.match(keyTagRegexp);
       if (fullNameValue === null) {
         continue;
@@ -166,84 +171,84 @@ export default class generate extends SfdxCommand {
       case "editable":
         if (type === "fieldPermissions") {
           if (!generate.options.editable.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationEditableOptions"));
           }
         }
         break;
       case "readable":
         if (type === "fieldPermissions") {
           if (!generate.options.readable.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationReadableOptions"));
           }
         }
         break;
       case "allowCreate":
         if (type === "objectPermissions") {
           if (!generate.options.allowCreate.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationAllowCreateOptions"));
           }
         }
         break;
       case "allowDelete":
         if (type === "objectPermissions") {
           if (!generate.options.allowDelete.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationAllowDeleteOptions"));
           }
         }
         break;
       case "allowEdit":
         if (type === "objectPermissions") {
           if (!generate.options.allowEdit.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationAllowEditOptions"));
           }
         }
         break;
       case "allowRead":
         if (type === "objectPermissions") {
           if (!generate.options.allowRead.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationAllowReadOptions"));
           }
         }
         break;
       case "modifyAllRecords":
         if (type === "objectPermissions") {
           if (!generate.options.modifyAllRecords.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationModifyAllRecordsOptions"));
           }
         }
         break;
       case "viewAllRecords":
         if (type === "objectPermissions") {
           if (!generate.options.viewAllRecords.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationViewAllRecordsOptions"));
           }
         }
         break;
       case "default":
-        if (type === "permissionTags" || type === "recordTypeVisibilities") {
+        if (type === "permissionTags" || type === "recordTypeVisibilities" || type === "applicationVisibilities") {
           if (!generate.options.default.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDefaultOptions"));
           }
         }
         break;
       case "visible":
-        if (type === "permissionTags" || type === "recordTypeVisibilities") {
+        if (type === "permissionTags" || type === "recordTypeVisibilities" || type === "applicationVisibilities") {
           if (!generate.options.visible.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibleOptions"));
           }
         }
         break;
       case "enabled":
         if (type === "classAccesses" || type === "userPermissions" || type === "pageAccesses") {
           if (!generate.options.enabled.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+            this.pushValidationResult(errorIndex, messages.getMessage("validationEnabledOptions"));
           }
         }
         break;
-      case "enabled":
-        if (type === "classAccesses" || type === "userPermissions") {
-          if (!generate.options.enabled.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
+      case "visibility":
+        if (type === "tabVisibilities") {
+          if (!generate.options.visibility.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationVisibilityOptions") + generate.options.visibility.toString());
           }
         }
         break;

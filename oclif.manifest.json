@@ -1,5 +1,5 @@
 {
-  "version": "1.2.5",
+  "version": "1.5.0",
   "commands": {
     "metadata:field:convert": {
       "id": "metadata:field:convert",
@@ -10,7 +10,9 @@
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
       "aliases": [],
-      "examples": ["sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/"],
+      "examples": [
+        "sfdx metadata:field:generate --sourcedir ./sourcedir/ --outputdir ./outputdir/"
+      ],
       "flags": {
         "json": {
           "name": "json",
@@ -25,7 +27,20 @@
           "required": false,
           "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
           "multiple": false,
-          "options": ["trace", "debug", "info", "warn", "error", "fatal", "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"],
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
           "default": "warn"
         },
         "sourcedir": {
@@ -98,7 +113,9 @@
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
       "aliases": [],
-      "examples": ["sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"],
+      "examples": [
+        "sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"
+      ],
       "flags": {
         "json": {
           "name": "json",
@@ -113,7 +130,20 @@
           "required": false,
           "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
           "multiple": false,
-          "options": ["trace", "debug", "info", "warn", "error", "fatal", "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"],
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
           "default": "warn"
         },
         "input": {
@@ -793,8 +823,14 @@
         }
       },
       "options": {
-        "externalId": ["true", "false"],
-        "required": ["true", "false"],
+        "externalId": [
+          "true",
+          "false"
+        ],
+        "required": [
+          "true",
+          "false"
+        ],
         "type": [
           "Checkbox",
           "Currency",
@@ -815,12 +851,34 @@
           "Time",
           "Url"
         ],
-        "trackTrending": ["true", "false"],
-        "unique": ["true", "false"],
-        "defaultValue": ["true", "false"],
-        "displayLocationInDecimal": ["true", "false"],
-        "maskChar": ["asterisk", "X"],
-        "maskType": ["all", "lastFour", "creditCard", "nino", "ssn", "sin"]
+        "trackTrending": [
+          "true",
+          "false"
+        ],
+        "unique": [
+          "true",
+          "false"
+        ],
+        "defaultValue": [
+          "true",
+          "false"
+        ],
+        "displayLocationInDecimal": [
+          "true",
+          "false"
+        ],
+        "maskChar": [
+          "asterisk",
+          "X"
+        ],
+        "maskType": [
+          "all",
+          "lastFour",
+          "creditCard",
+          "nino",
+          "ssn",
+          "sin"
+        ]
       },
       "indentationLength": 4,
       "fieldExtension": "field-meta.xml",
@@ -857,7 +915,9 @@
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
       "aliases": [],
-      "examples": ["sfdx metadata:field:template --outputdir ./outputdir/"],
+      "examples": [
+        "sfdx metadata:field:template --outputdir ./outputdir/"
+      ],
       "flags": {
         "json": {
           "name": "json",
@@ -872,7 +932,20 @@
           "required": false,
           "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
           "multiple": false,
-          "options": ["trace", "debug", "info", "warn", "error", "fatal", "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"],
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
           "default": "warn"
         },
         "outputdir": {
@@ -1255,7 +1328,9 @@
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
       "aliases": [],
-      "examples": ["sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/"],
+      "examples": [
+        "sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/"
+      ],
       "flags": {
         "json": {
           "name": "json",
@@ -1270,7 +1345,20 @@
           "required": false,
           "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
           "multiple": false,
-          "options": ["trace", "debug", "info", "warn", "error", "fatal", "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL"],
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
           "default": "warn"
         },
         "input": {
@@ -1332,50 +1420,111 @@
       "permissionTags": {
         "applicationVisibilities": {
           "keyTag": "application",
-          "tags": ["default", "visible"]
+          "tags": [
+            "default",
+            "visible"
+          ]
         },
         "classAccesses": {
           "keyTag": "apexClass",
-          "tags": ["enabled"]
+          "tags": [
+            "enabled"
+          ]
         },
         "fieldPermissions": {
           "keyTag": "field",
-          "tags": ["editable", "readable"]
+          "tags": [
+            "editable",
+            "readable"
+          ]
         },
         "objectPermissions": {
           "keyTag": "object",
-          "tags": ["allowCreate", "allowDelete", "allowEdit", "allowRead", "modifyAllRecords", "viewAllRecords"]
+          "tags": [
+            "allowCreate",
+            "allowDelete",
+            "allowEdit",
+            "allowRead",
+            "modifyAllRecords",
+            "viewAllRecords"
+          ]
         },
         "pageAccesses": {
           "keyTag": "apexPage",
-          "tags": ["enabled"]
+          "tags": [
+            "enabled"
+          ]
         },
         "recordTypeVisibilities": {
           "keyTag": "recordType",
-          "tags": ["default", "visible"]
+          "tags": [
+            "default",
+            "visible"
+          ]
         },
         "tabVisibilities": {
           "keyTag": "tab",
-          "tags": ["visibility"]
+          "tags": [
+            "visibility"
+          ]
         },
         "userPermissions": {
           "keyTag": "name",
-          "tags": ["enabled"]
+          "tags": [
+            "enabled"
+          ]
         }
       },
       "options": {
-        "editable": ["true", "false"],
-        "readable": ["true", "false"],
-        "allowCreate": ["true", "false"],
-        "allowDelete": ["true", "false"],
-        "allowEdit": ["true", "false"],
-        "allowRead": ["true", "false"],
-        "modifyAllRecords": ["true", "false"],
-        "viewAllRecords": ["true", "false"],
-        "default": ["true", "false"],
-        "visible": ["true", "false"],
-        "enabled": ["true", "false"],
-        "visibility": ["DefaultOn", "DefaultOff", "Hidden"]
+        "editable": [
+          "true",
+          "false"
+        ],
+        "readable": [
+          "true",
+          "false"
+        ],
+        "allowCreate": [
+          "true",
+          "false"
+        ],
+        "allowDelete": [
+          "true",
+          "false"
+        ],
+        "allowEdit": [
+          "true",
+          "false"
+        ],
+        "allowRead": [
+          "true",
+          "false"
+        ],
+        "modifyAllRecords": [
+          "true",
+          "false"
+        ],
+        "viewAllRecords": [
+          "true",
+          "false"
+        ],
+        "default": [
+          "true",
+          "false"
+        ],
+        "visible": [
+          "true",
+          "false"
+        ],
+        "enabled": [
+          "true",
+          "false"
+        ],
+        "visibility": [
+          "DefaultOn",
+          "DefaultOff",
+          "Hidden"
+        ]
       },
       "validationResults": [],
       "permissionMetaStrs": {}

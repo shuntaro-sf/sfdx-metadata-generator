@@ -6,5 +6,19 @@
   "errorNogenerateResults": "No results found for the generate '%s'.",
   "examples": ["sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/"],
   "errorPathOfInput": "Cannot find the input: ",
-  "errorPathOfOutput": "Cannot find the output-directory: "
+  "errorPathOfOutput": "Cannot find the output-directory: ",
+  "errorPathOfSource": "Cannot find the srouce: ",
+  "validation": "Validtion error",
+  "validationEditableOptions": "editable must be true or false.",
+  "validationReadableOptions": "readable must be true or false.",
+  "validationAllowCreateOptions": "allowCreate must be true or false.",
+  "validationAllowDeleteOptions": "allowDelete must be true or false.",
+  "validationAllowEditOptions": "allowEdit must be true or false.",
+  "validationAllowReadOptions": "allowRead must be true or false.",
+  "validationModifyAllRecordsOptions": "modifyAllRecords must be true or false.",
+  "validationViewAllRecordsOptions": "viewAllRecords must be true or false.",
+  "validationDefaultOptions": "default must be true or false.",
+  "validationVisibleOptions": "visible must be true or false.",
+  "validationEnabledOptions": "enabled must be true or false.",
+  "validationVisibilityOptions": "visibility must be one of the followings: "
 }

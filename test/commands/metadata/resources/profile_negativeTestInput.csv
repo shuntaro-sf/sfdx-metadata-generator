@@ -1,0 +1,16 @@
+fullName,type,editable,readable,allowCreate,allowDelete,allowEdit,allowRead,modifyAllRecords,viewAllRecords,default,visible,enabled,visibility
+Account.AccountSource,fieldPermissions,bar,FALSE,,,,,,,,,,
+Account.AccountSource,fieldPermissions,FALSE,bar,,,,,,,,,,
+Account,objectPermissions,,,bar,FALSE,FALSE,FALSE,,,,,,
+Account,objectPermissions,,,FALSE,bar,FALSE,FALSE,,,,,,
+Account,objectPermissions,,,FALSE,FALSE,bar,FALSE,,,,,,
+Account,objectPermissions,,,FALSE,FALSE,FALSE,bar,,,,,,
+Account,objectPermissions,,,FALSE,FALSE,FALSE,FALSE,bar,FALSE,,,,
+Account,objectPermissions,,,FALSE,FALSE,FALSE,FALSE,FALSE,bar,,,,
+standard__AllTabSet,applicationVisibilities,,,,,,,,,bar,bar,,
+HelloWorld,classAccesses,,,,,,,,,,,bar,
+HelloWorld,pageAccesses,,,,,,,,,,,bar,
+Account.AccrecordType,recordTypeVisibilities,,,,,,,,,bar,FALSE,,
+Account.AccrecordType,recordTypeVisibilities,,,,,,,,,FALSE,bar,,
+standard-Account,tabVisibilities,,,,,,,,,,,,bar
+AllowUniversalSearch,userPermissions,,,,,,,,,,,bar,
