@@ -190,6 +190,8 @@ Make sure you have already installed this plugin.
 
 To start generating field metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom fields from the second line.
 
+The description of each tag is as follows. For further details of custrom-field-metadata, see [https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm](https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm)
+
 | Tag                      | Description                                                                                                                                                                                                       |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | fullName                 | Custom field API name.                                                                                                                                                                                            |
@@ -236,6 +238,22 @@ Note that runnning without `--updates` avoids overrinding existing metadata.
 
 ```
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/ --updates
+```
+
+## Profile metadata
+
+Only update is supported for profile metadata due to dependencies on other metadata.
+
+You can rewrite a profile xml file in the csv format as shown in field metadata by runnning `metadata:field:convert`.
+
+```
+  $ sfdx metadata:field:convert -sourcedir ./force-app/main/default/profiles/xxx.profile-meta.xml --outputdir ../outputdir/
+```
+
+Edit the craeted csv file as you want to update metadata, and then run `sfdx metadata:profile:generate --updates` to override the profile xml file.
+
+```
+  $ sfdx metadata:profile:generate --input ./input.csv --outputdir ../outputdir/
 ```
 
 <!---
