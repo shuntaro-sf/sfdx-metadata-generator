@@ -250,7 +250,26 @@ You can rewrite a profile xml file in the csv format as shown in field metadata 
   $ sfdx metadata:field:convert -sourcedir ./force-app/main/default/profiles/xxx.profile-meta.xml --outputdir ../outputdir/
 ```
 
-Edit the craeted csv file as you want to update metadata, and then run `sfdx metadata:profile:generate --updates` to override the profile xml file.
+Edit the craeted csv file as you want to update metadata. The description of the output csv file is as follows:
+
+| Tag              | Description                                                                                                                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fullName         | FullName to update.                                                                                                                                                                                     |
+| type             | Field Name to update. Options are listed below:<br>applicationVisibilities, classAccesses, fieldPermissions, objectPermissions, pageAccesses, recordTypeVisibilities, tabVisibilities, userPermissions. |
+| editable         | Whether it is allowed to edit the field of fullName. Options are listed below:<br>true, false. ,                                                                                                        |
+| readable         | Whether it is allowed to read the field of fullName. Options are listed below:<br>true, false. ,                                                                                                        |
+| allowCreate      | Whether it is allowed to create the object of fullName. Options are listed below:<br>true, false. ,                                                                                                     |
+| allowDelete      | Whether it is allowed to delete the object of fullName. Options are listed below:<br>true, false. ,                                                                                                     |
+| allowEdit        | Whether it is allowed to edit the object of fullName. Options are listed below:<br>true, false. ,                                                                                                       |
+| allowRead        | Whether it is allowed to read the object of fullName. Options are listed below:<br>true, false. ,                                                                                                       |
+| modifyAllRecords | Whether it is allowed to modify all records of the object of fullName.Options are listed below:<br>true, false. ,                                                                                       |
+| viewAllRecords   | Whether it is allowed to view all records of the object of fullName. Options are listed below:<br>true, false. ,                                                                                        |
+| default          | Whether it is default. Applied for applicationVisibilities and recordTypeVisibilities. Options are listed below:<br>true, false. ,                                                                      |
+| visible          | Whether it is visible. Applied for applicationVisibilities and recordTypeVisibilities. Options are listed below:<br>true, false. ,                                                                      |
+| enabled          | Whether it is enabled. Applied for classAccesses, pageAccesses, and userPermissions. Options are listed below:<br>true, false. ,                                                                        |
+| visibility       | Type of tag-visibility. Applied for tabVisibilities. Options are listed below:<br>DefaultOn, DefaultOff,Hidden                                                                                          |
+
+Then, run `sfdx metadata:profile:generate --updates` to override the profile xml file.
 
 ```
   $ sfdx metadata:profile:generate --input ./input.csv --outputdir ../outputdir/
