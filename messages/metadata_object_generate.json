@@ -1,0 +1,15 @@
+{
+  "commandDescription": "Generates custom field metadata converting values in a csv file to xml files.",
+  "inputFlagDescription": "input file to be converted to xml files",
+  "outputdirFlagDescription": "output directory where metadata are saved",
+  "updatesFlagDescription": "whether update existing xml files in outputdir or not",
+  "errorNogenerateResults": "No results found for the generate '%s'.",
+  "examples": ["sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"],
+  "errorPathOfInput": "Cannot find the input: ",
+  "errorPathOfOutput": "Cannot find the output-directory: ",
+  "validation": "Validtion error",
+  "validationFullNameFormat": "fullName: API Name can only contain alphanumeric characters, must begin with a letter, cannot end with an underscore or contain two consecutive underscore characters",
+  "validationFullNameTail": "fullName: API Name must end with '__c'.",
+  "validationFullNameBlank": "fullName: API Name must not be blank.",
+  "failureSave": "To update exiting files, Add the flag --updates to this command."
+}

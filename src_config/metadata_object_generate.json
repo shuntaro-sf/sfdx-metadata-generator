@@ -1,0 +1,86 @@
+{
+  "xmlSetting": {
+    "version": "1.0",
+    "encoding": "UTF-8",
+    "xmlns": "http://soap.sforce.com/2006/04/metadata"
+  },
+  "defaultValues": {
+    "fullName": null,
+    "label": null,
+    "allowInChatterGroups": "false",
+    "deploymentStatus": "Deployed",
+    "enableActivities": "false",
+    "enableBulkApi": "true",
+    "enableFeeds": "false",
+    "enableHistory": "false",
+    "enableReports": "false",
+    "enableSearch": "false",
+    "enableSharing": "true",
+    "enableStreamingApi": "true"
+  },
+  "isRequired": {
+    "fullName": true,
+    "label": true,
+    "allowInChatterGroups": false,
+    "deploymentStatus": false,
+    "enableActivities": false,
+    "enableBulkApi": false,
+    "enableFeeds": false,
+    "enableHistory": false,
+    "enableReports": false,
+    "enableSearch": false,
+    "enableSharing": false,
+    "enableStreamingApi": false
+  },
+  "metaSettings": {
+    "actionOverrides": {
+      "Accept": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "CancelEdit": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "Clone": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "Delete": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "Edit": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "List": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "New": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "SaveEdit": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "Tab": { "type": "Default", "formatFactor": ["Large", "Small"] },
+      "View": { "type": "Default", "formatFactor": ["Large", "Small"] }
+    },
+    "compactLayoutAssignment": "SYSTEM",
+    "enableFeeds": "false",
+    "enableLicensin": "false",
+    "externalSharingModel": "Private",
+    "searchLayouts": "",
+    "sharingModel": "ReadWrite",
+    "visibility": "Public"
+  },
+  "options": {
+    "allowInChatterGroups": ["true", "false"],
+    "deploymentStatus": ["Deployed", "InDevelopment"],
+    "enableActivities": ["true", "false"],
+    "enableBulkApi": ["true", "false"],
+    "enableFeeds": ["true", "false"],
+    "enableHistory": ["true", "false"],
+    "enableLicensing": ["true", "false"],
+    "enableReports": ["true", "false"],
+    "enableSearch": ["true", "false"],
+    "enableSharing": ["true", "false"],
+    "enableStreamingApi": ["true", "false"]
+  },
+  "indentationLength": 4,
+  "objectExtension": "object-meta.xml",
+  "tagNames": [
+    "fullName",
+    "label",
+    "allowInChatterGroups",
+    "deploymentStatus",
+    "enableActivities",
+    "enableBulkApi",
+    "enableFeeds",
+    "enableHistory",
+    "enableReports",
+    "enableSearch",
+    "enableSharing",
+    "enableStreamingApi"
+  ],
+  "resolveJsonModule": true
+}

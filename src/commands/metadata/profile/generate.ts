@@ -89,8 +89,6 @@ export default class generate extends SfdxCommand {
       //generates metadata for each row
       metastr = this.getMetaStr(metastr, csv, rowIndex, header);
     }
-    console.log(generate.permissionMetaStrs);
-    console.log(metastr);
     if (generate.validationResults.length > 0) {
       this.showValidationErrorMessages();
     } else {
