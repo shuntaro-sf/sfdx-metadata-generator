@@ -10,14 +10,14 @@ SFDX plugin to generate metadata
 [![Downloads/week](https://img.shields.io/npm/dw/sfdx-metadata-generator.svg)](https://npmjs.generate/package/sfdx-metadata-generator)
 [![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
- <!-- toctoc -->
+ <!-- toc -->
 
 - [sfdx-metadata-generator](#sfdx-metadata-generator)
 - [How to get started](#how-to-get-started)
   <!-- tocstop -->
 
                                     <!-- install -->
-                                    <!-- usageusage -->
+                                    <!-- usage -->
 
 ```sh-session
 $ npm install -g sfdx-metadata-generator
@@ -33,7 +33,7 @@ USAGE
 
 <!-- usagestop -->
 
-<!-- commandscommands -->
+<!-- commands -->
 
 - [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 - [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
