@@ -374,14 +374,14 @@ export default class generate extends SfdxCommand {
   private updateFile(meta: any) {
     let metastrToUpdate = readFileSync(join(this.flags.outputdir, meta.fullName, meta.fullName + "." + generate.objectExtension), "utf8");
     for (const tag of generate.tagNames) {
-      if (tag !== "picklistFullName" && tag !== "picklistLabel") {
+      if (tag !== "nameFieldType" && tag !== "nameFieldLabel") {
         const regexp = new RegExp("\\<" + tag + "\\>(.+)\\</" + tag + "\\>");
         const newValue = meta.metaStr.match(regexp);
         if (newValue !== null) {
           metastrToUpdate = metastrToUpdate.replace(regexp, newValue[0]);
         }
       } else {
-        const regexp = new RegExp("\\<valueSet\\>[\\s\\S]*\\</valueSet\\>");
+        const regexp = new RegExp("\\<nameField\\>[\\s\\S]*\\</nameField\\>");
         const newValue = meta.metaStr.match(regexp);
         if (newValue !== null) {
           metastrToUpdate = metastrToUpdate.replace(regexp, newValue[0]);

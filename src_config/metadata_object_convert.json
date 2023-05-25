@@ -1,0 +1,18 @@
+{
+  "header": [
+    "fullName",
+    "label",
+    "allowInChatterGroups",
+    "deploymentStatus",
+    "enableActivities",
+    "enableBulkApi",
+    "enableFeeds",
+    "enableHistory",
+    "enableReports",
+    "enableSearch",
+    "enableSharing",
+    "enableStreamingApi",
+    "nameFieldType",
+    "nameFieldLabel"
+  ]
+}

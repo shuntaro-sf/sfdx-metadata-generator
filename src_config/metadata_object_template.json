@@ -13,8 +13,8 @@
       "enableSearch": "false",
       "enableSharing": "true",
       "enableStreamingApi": "true",
-      "fieldNameType": "Text",
-      "fieldNameLabel": "CustomObjectName"
+      "nameFieldType": "Text",
+      "nameFieldLabel": "CustomObjectName"
     },
     "rowAutoNumber": {
       "fullName": "CustomObject_AutoNumber__c",
@@ -29,8 +29,8 @@
       "enableSearch": "true",
       "enableSharing": "true",
       "enableStreamingApi": "true",
-      "fieldNameType": "AutoNumber",
-      "fieldNameLabel": "CustomObject-{0000}"
+      "nameFieldType": "AutoNumber",
+      "nameFieldLabel": "CustomObject-{0000}"
     }
   }
 }

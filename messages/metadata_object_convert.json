@@ -1,0 +1,9 @@
+{
+  "commandDescription": "Converts custom-object-xml-files to a file used to create or update the metadata.",
+  "sourcedirFlagDescription": "directory where source files you convert are stored",
+  "outputdirFlagDescription": "output directory where metadata are saved",
+  "errorNogenerateResults": "No results found for the generate '%s'.",
+  "examples": ["sfdx metadata:object:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/"],
+  "errorPathOfSource": "Cannot find the souce-directory: ",
+  "errorPathOfOutput": "Cannot find the output-directory: "
+}
