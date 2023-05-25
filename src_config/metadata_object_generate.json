@@ -34,16 +34,16 @@
   },
   "metaSettings": {
     "actionOverrides": {
-      "Accept": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "CancelEdit": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "Clone": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "Delete": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "Edit": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "List": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "New": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "SaveEdit": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "Tab": { "type": "Default", "formatFactor": ["Large", "Small"] },
-      "View": { "type": "Default", "formatFactor": ["Large", "Small"] }
+      "Accept": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "CancelEdit": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "Clone": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "Delete": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "Edit": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "List": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "New": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "SaveEdit": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "Tab": { "type": "Default", "formFactor": ["Large", "Small"] },
+      "View": { "type": "Default", "formFactor": ["Large", "Small"] }
     },
     "compactLayoutAssignment": "SYSTEM",
     "enableFeeds": "false",

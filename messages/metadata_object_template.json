@@ -1,0 +1,8 @@
+{
+  "commandDescription": "Creates a template input-csv-file.",
+  "outputdirFlagDescription": "directory where a template csv file is saved.",
+  "errorNogenerateResults": "No results found for the template '%s'.",
+  "examples": ["sfdx metadata:object:template --outputdir ./outputdir/"],
+  "errorPathOfOutput": "Cannot find the output-directory: ",
+  "success": "Successfully generated a template input-file in "
+}

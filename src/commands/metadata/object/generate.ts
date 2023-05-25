@@ -5,7 +5,7 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.generate/licenses/BSD-3-Clause
  */
 import * as os from "os";
-import { readFileSync, existsSync, writeFileSync } from "fs";
+import { readFileSync, existsSync, writeFileSync, mkdirSync } from "fs";
 import { flags, SfdxCommand } from "@salesforce/command";
 import { Messages, SfError } from "@salesforce/core";
 import { AnyJson } from "@salesforce/ts-types";
@@ -143,7 +143,6 @@ export default class generate extends SfdxCommand {
 
       // convert special characters in the html form
       row[indexOfTag] = this.convertSpecialChars(row[indexOfTag]);
-      console.log("ddd");
       // format boolean string in a xml format
       this.formatBoolean(tag, row, indexOfTag);
 
@@ -170,14 +169,16 @@ export default class generate extends SfdxCommand {
     let actionOverridesMetaStr = "";
     for (const actionName in actionOverridesMetaSetting) {
       actionOverridesMetaStr +=
-        "\n" + this.getIndentation(generate.indentationLength) + "<actionOverrides>\n" + this.getIndentation(generate.indentationLength);
+        "\n" + this.getIndentation(generate.indentationLength) + "<actionOverrides>\n" + this.getIndentation(2 * generate.indentationLength);
       actionOverridesMetaStr += "<actionName>" + actionName + "</actionName>\n" + this.getIndentation(2 * generate.indentationLength);
       actionOverridesMetaStr +=
         "<type>" + actionOverridesMetaSetting[actionName]["type"] + "</type>\n" + this.getIndentation(generate.indentationLength);
       actionOverridesMetaStr += "</actionOverrides>\n" + this.getIndentation(generate.indentationLength);
-      for (const formatFactor of actionOverridesMetaSetting[actionName]["formatFactor"]) {
-        actionOverridesMetaStr += "<actionOverrides>\n" + this.getIndentation(2 * generate.indentationLength);
-        actionOverridesMetaStr += "<formatFactor>" + formatFactor + "</formatFactor>\n" + this.getIndentation(2 * generate.indentationLength);
+      for (const formFactor of actionOverridesMetaSetting[actionName]["formFactor"]) {
+        actionOverridesMetaStr +=
+          "\n" + this.getIndentation(generate.indentationLength) + "<actionOverrides>\n" + this.getIndentation(2 * generate.indentationLength);
+        actionOverridesMetaStr += "<actionName>" + actionName + "</actionName>\n" + this.getIndentation(2 * generate.indentationLength);
+        actionOverridesMetaStr += "<formFactor>" + formFactor + "</formFactor>\n" + this.getIndentation(2 * generate.indentationLength);
         actionOverridesMetaStr +=
           "<type>" + actionOverridesMetaSetting[actionName]["type"] + "</type>\n" + this.getIndentation(generate.indentationLength);
         actionOverridesMetaStr += "</actionOverrides>";
@@ -255,6 +256,59 @@ export default class generate extends SfdxCommand {
           }
         }
         break;
+      case "allowInChatterGroups":
+        if (!generate.options.allowInChatterGroups.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationAllowInChatterGroupsOptions"));
+        }
+        break;
+      case "deploymentStatus":
+        if (!generate.options.deploymentStatus.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          this.pushValidationResult(
+            errorIndex,
+            messages.getMessage("validationDeploymentStatusOptions") + generate.options.deploymentStatus.toString()
+          );
+        }
+        break;
+      case "enableActivities":
+        if (!generate.options.enableActivities.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableActivitiesOptions"));
+        }
+        break;
+      case "enableBulkApi":
+        if (!generate.options.enableBulkApi.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableBulkApiOptions"));
+        }
+        break;
+      case "enableFeeds":
+        if (!generate.options.enableFeeds.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableFeedsOptions"));
+        }
+        break;
+      case "enableHistory":
+        if (!generate.options.enableHistory.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableHistoryOptions"));
+        }
+        break;
+      case "enableReports":
+        if (!generate.options.enableReports.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableReportsOptions"));
+        }
+        break;
+      case "enableSearch":
+        if (!generate.options.enableSearch.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableSearchOptions"));
+        }
+        break;
+      case "enableSharing":
+        if (!generate.options.enableSharing.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableSharingOptions"));
+        }
+        break;
+      case "enableStreamingApi":
+        if (!generate.options.enableStreamingApi.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableStreamingApiOptions"));
+        }
+        break;
     }
     return validationResLenBefore == generate.validationResults.length;
   }
@@ -301,9 +355,10 @@ export default class generate extends SfdxCommand {
     console.log("===" + blue + " Generated Source" + white);
     this.showLogHeader(logLengths);
     for (const meta of generate.metaInfo) {
-      if (!existsSync(join(this.flags.outputdir, meta.fullName + "." + generate.objectExtension))) {
+      if (!existsSync(join(this.flags.outputdir, meta.fullName))) {
         // for creating
-        writeFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.objectExtension), meta.metaStr, "utf8");
+        mkdirSync(join(this.flags.outputdir, meta.fullName));
+        writeFileSync(join(this.flags.outputdir, meta.fullName, meta.fullName + "." + generate.objectExtension), meta.metaStr, "utf8");
       } else if (this.flags.updates) {
         // for updating
         this.updateFile(meta);
@@ -317,7 +372,7 @@ export default class generate extends SfdxCommand {
   }
 
   private updateFile(meta: any) {
-    let metastrToUpdate = readFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.objectExtension), "utf8");
+    let metastrToUpdate = readFileSync(join(this.flags.outputdir, meta.fullName, meta.fullName + "." + generate.objectExtension), "utf8");
     for (const tag of generate.tagNames) {
       if (tag !== "picklistFullName" && tag !== "picklistLabel") {
         const regexp = new RegExp("\\<" + tag + "\\>(.+)\\</" + tag + "\\>");
@@ -333,7 +388,7 @@ export default class generate extends SfdxCommand {
         }
       }
     }
-    writeFileSync(join(this.flags.outputdir, meta.fullName + "." + generate.objectExtension), metastrToUpdate, "utf8");
+    writeFileSync(join(this.flags.outputdir, meta.fullName, meta.fullName + "." + generate.objectExtension), metastrToUpdate, "utf8");
   }
 
   private getLogLenghts(logs: any[]) {

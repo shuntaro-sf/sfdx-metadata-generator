@@ -11,5 +11,15 @@
   "validationFullNameFormat": "fullName: API Name can only contain alphanumeric characters, must begin with a letter, cannot end with an underscore or contain two consecutive underscore characters",
   "validationFullNameTail": "fullName: API Name must end with '__c'.",
   "validationFullNameBlank": "fullName: API Name must not be blank.",
+  "validationAllowInChatterGroupsOptions": "allowInChatterGroups value must be true or false.",
+  "validationDeploymentStatusOptions": "deploymentStatus must be one of the followings: ",
+  "validationEnableActivitiesOptions": "enableActivities value must be true or false.",
+  "validationEnableBulkApiOptions": "enableBulkApi value must be true or false.",
+  "validationEnableFeedsOptions": "enableFeeds value must be true or false.",
+  "validationEnableHistoryOptions": "enableHistory value must be true or false.",
+  "validationEnableReportsOptions": "enableReports value must be true or false.",
+  "validationEnableSearchOptions": "enableSearch value must be true or false.",
+  "validationEnableSharingOptions": "enableSharing value must be true or false.",
+  "validationEnableStreamingApiOptions": "enableStreamingApi value must be true or false.",
   "failureSave": "To update exiting files, Add the flag --updates to this command."
 }

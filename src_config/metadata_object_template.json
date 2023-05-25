@@ -1,0 +1,36 @@
+{
+  "template": {
+    "rowText": {
+      "fullName": "CustomObject__c",
+      "label": "CustomObject",
+      "allowInChatterGroups": "false",
+      "deploymentStatus": "false",
+      "enableActivities": "false",
+      "enableBulkApi": "true",
+      "enableFeeds": "false",
+      "enableHistory": "false",
+      "enableReports": "false",
+      "enableSearch": "false",
+      "enableSharing": "true",
+      "enableStreamingApi": "true",
+      "fieldNameType": "Text",
+      "fieldNameLabel": "CustomObjectName"
+    },
+    "rowAutoNumber": {
+      "fullName": "CustomObject_AutoNumber__c",
+      "label": "CustomObject",
+      "allowInChatterGroups": "true",
+      "deploymentStatus": "true",
+      "enableActivities": "true",
+      "enableBulkApi": "true",
+      "enableFeeds": "true",
+      "enableHistory": "true",
+      "enableReports": "true",
+      "enableSearch": "true",
+      "enableSharing": "true",
+      "enableStreamingApi": "true",
+      "fieldNameType": "AutoNumber",
+      "fieldNameLabel": "CustomObject-{0000}"
+    }
+  }
+}

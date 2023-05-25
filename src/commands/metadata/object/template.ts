@@ -11,14 +11,14 @@ import { Messages, SfError } from "@salesforce/core";
 import { AnyJson } from "@salesforce/ts-types";
 
 //@ts-ignore
-import * as TemplateData from "../../../../src_config/metadata_field_template.json";
+import * as TemplateData from "../../../../src_config/metadata_object_template.json";
 
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = Messages.loadMessages("sfdx-metadata-generator", "metadata_field_template");
+const messages = Messages.loadMessages("sfdx-metadata-generator", "metadata_object_template");
 
 export default class template extends SfdxCommand {
   public static description = messages.getMessage("commandDescription");
@@ -57,7 +57,7 @@ export default class template extends SfdxCommand {
     csvTemplate += Object.keys(firstRow).join(",") + "\n";
     for (const rowName in template.templateInput) {
       csvTemplate += Object.values(template.templateInput[rowName]).join(",") + "\n";
-      //  writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".field-meta.xml", meta.metaStr);
+      //  writeFileSync(this.flags.outputdir + "/" + meta.fullName + ".object-meta.xml", meta.metaStr);
     }
     writeFileSync(this.flags.outputdir + "/template.csv", csvTemplate, "utf8");
     console.log(messages.getMessage("success") + this.flags.outputdir + ".");

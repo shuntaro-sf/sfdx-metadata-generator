@@ -1515,70 +1515,70 @@
         "actionOverrides": {
           "Accept": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "CancelEdit": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "Clone": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "Delete": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "Edit": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "List": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "New": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "SaveEdit": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "Tab": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
           },
           "View": {
             "type": "Default",
-            "formatFactor": [
+            "formFactor": [
               "Large",
               "Small"
             ]
@@ -1596,6 +1596,109 @@
       "successResults": [],
       "failureResults": [],
       "metaInfo": []
+    },
+    "metadata:object:template": {
+      "id": "metadata:object:template",
+      "description": "Creates a template input-csv-file.",
+      "strict": true,
+      "usage": "<%= command.id %> [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "pluginName": "sfdx-metadata-generator",
+      "pluginAlias": "sfdx-metadata-generator",
+      "pluginType": "core",
+      "aliases": [],
+      "examples": [
+        "sfdx metadata:object:template --outputdir ./outputdir/"
+      ],
+      "flags": {
+        "json": {
+          "name": "json",
+          "type": "boolean",
+          "description": "format output as json",
+          "allowNo": false
+        },
+        "loglevel": {
+          "name": "loglevel",
+          "type": "option",
+          "description": "logging level for this command invocation",
+          "required": false,
+          "helpValue": "(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)",
+          "multiple": false,
+          "options": [
+            "trace",
+            "debug",
+            "info",
+            "warn",
+            "error",
+            "fatal",
+            "TRACE",
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR",
+            "FATAL"
+          ],
+          "default": "warn"
+        },
+        "outputdir": {
+          "name": "outputdir",
+          "type": "option",
+          "char": "o",
+          "description": "directory where a template csv file is saved.",
+          "multiple": false
+        }
+      },
+      "args": {
+        "file": {
+          "name": "file"
+        }
+      },
+      "flagsConfig": {
+        "outputdir": {
+          "kind": "string",
+          "char": "o",
+          "description": "directory where a template csv file is saved.",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        }
+      },
+      "requiresUsername": false,
+      "supportsDevhubUsername": false,
+      "requiresProject": false,
+      "templateInput": {
+        "rowText": {
+          "fullName": "CustomObject__c",
+          "label": "CustomObject",
+          "allowInChatterGroups": "false",
+          "deploymentStatus": "false",
+          "enableActivities": "false",
+          "enableBulkApi": "true",
+          "enableFeeds": "false",
+          "enableHistory": "false",
+          "enableReports": "false",
+          "enableSearch": "false",
+          "enableSharing": "true",
+          "enableStreamingApi": "true",
+          "fieldNameType": "Text",
+          "fieldNameLabel": "CustomObjectName"
+        },
+        "rowAutoNumber": {
+          "fullName": "CustomObject_AutoNumber__c",
+          "label": "CustomObject",
+          "allowInChatterGroups": "true",
+          "deploymentStatus": "true",
+          "enableActivities": "true",
+          "enableBulkApi": "true",
+          "enableFeeds": "true",
+          "enableHistory": "true",
+          "enableReports": "true",
+          "enableSearch": "true",
+          "enableSharing": "true",
+          "enableStreamingApi": "true",
+          "fieldNameType": "AutoNumber",
+          "fieldNameLabel": "CustomObject-{0000}"
+        }
+      }
     },
     "metadata:profile:convert": {
       "id": "metadata:profile:convert",

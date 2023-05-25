@@ -30,12 +30,30 @@ describe("Test", () => {
   });
 
   after(async () => {
-    //  fs.readdir(outputDir, (err, files) => {
-    //   if (err) throw err;
-    //   for (const file of files) {
-    //     shell.rm(path.join(outputDir, file));
-    //   }
-    // });
-    // await exec("echo y | sfdx force:org:delete -u test");
+    const input = "../" + inputFileName;
+    const csv = fs
+      .readFileSync(input, {
+        encoding: "utf8",
+      })
+      .toString()
+      .split("\n")
+      .map((e) => e.trim())
+      .map((e) => e.split(",").map((e) => e.trim()));
+
+    let fullNames = [];
+    csv.forEach((row) => {
+      fullNames.push(row[0]);
+    });
+
+    console.log(fullNames);
+    fs.readdir(outputDir, (err, files) => {
+      if (err) throw err;
+      for (const file of files) {
+        console.log(file);
+        if (fullNames.includes(file)) {
+          shell.rm("-r", path.join(outputDir, file));
+        }
+      }
+    });
   });
 });
