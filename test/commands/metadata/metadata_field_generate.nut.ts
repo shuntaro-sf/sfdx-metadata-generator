@@ -4,10 +4,10 @@ import * as fs from "fs";
 import * as path from "path";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "object_input.csv";
-const outputDir = "force-app/main/default/objects/";
+const inputFileName = "field_input.csv";
+const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("ObjctTest", () => {
+describe("Test", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test/");
@@ -19,9 +19,9 @@ describe("ObjctTest", () => {
     });
   });
 
-  it("generates object-metadata", async (done) => {
+  it("generates field-metadata", async (done) => {
     const input = "../" + inputFileName;
-    shell.exec("sfdx metadata:object:generate -i " + input + " -o " + outputDir);
+    shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir);
     done();
   });
   it("deploy to a test org to confirm the generated metadata are valid", async (done) => {
@@ -30,28 +30,12 @@ describe("ObjctTest", () => {
   });
 
   after(async () => {
-    const input = "../" + inputFileName;
-    const csv = fs
-      .readFileSync(input, {
-        encoding: "utf8",
-      })
-      .toString()
-      .split("\n")
-      .map((e) => e.trim())
-      .map((e) => e.split(",").map((e) => e.trim()));
-
-    let fullNames = [];
-    csv.forEach((row) => {
-      fullNames.push(row[0]);
-    });
-
     fs.readdir(outputDir, (err, files) => {
       if (err) throw err;
       for (const file of files) {
-        if (fullNames.includes(file)) {
-          shell.rm("-r", path.join(outputDir, file));
-        }
+        shell.rm(path.join(outputDir, file));
       }
     });
+    // await exec("echo y | sfdx force:org:delete -u test");
   });
 });

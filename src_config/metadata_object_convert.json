@@ -13,6 +13,7 @@
     "enableSharing",
     "enableStreamingApi",
     "nameFieldType",
-    "nameFieldLabel"
+    "nameFieldLabel",
+    "nameFieldDisplayFormat"
   ]
 }

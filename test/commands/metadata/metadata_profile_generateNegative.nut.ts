@@ -2,7 +2,7 @@
 import * as shell from "shelljs";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "profile_NegativeTestInput.csv";
+const inputFileName = "profile_negativeTestInput.csv";
 const sourcePath = "force-app/main/default/profiles/Admin.profile-meta.xml";
 const outputDir = "force-app/main/default/profiles/";
 

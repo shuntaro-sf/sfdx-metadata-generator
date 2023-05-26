@@ -4,10 +4,10 @@ import * as fs from "fs";
 import * as path from "path";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "positiveTestInput.csv";
+const inputFileName = "field_negativeTestInput.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("PositiveTest", () => {
+describe("NegativeTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test");

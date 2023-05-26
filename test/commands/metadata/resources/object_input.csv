@@ -1,2 +1,5 @@
-fullName,label,allowInChatterGroups,deploymentStatus,enableActivities,enableBulkApi,enableFeeds,enableHistory,enableReports,enableSearch,enableSharing,enableStreamingApi,nameFieldType,nameFieldLabel
-CustomObject__c,CustomObject,false,Deployed,true,true,true,false,false,false,true,true,Text,customObjectName
+fullName,label,allowInChatterGroups,deploymentStatus,enableActivities,enableBulkApi,enableFeeds,enableHistory,enableReports,enableSearch,enableSharing,enableStreamingApi,nameFieldType,nameFieldLabel,nameFieldDisplayFormat
+CustomObject__c,CustomObject,false,Deployed,true,true,true,false,false,false,true,true,Text,customObjectName,
+CustomObject_AutoNumber__c,CustomObject,false,Deployed,true,true,true,false,false,false,true,true,AutoNumber,customObjectName,customObjectName-{0000}
+obj__c,obj,false,InDevelopment,false,false,false,false,false,false,false,false,Text,objName,
+co__c,co,true,InDevelopment,true,true,true,true,true,true,true,true,Text,coName,

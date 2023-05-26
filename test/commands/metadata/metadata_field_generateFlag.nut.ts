@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 const invalidInputFileName = "inputNotFound.csv";
-const validInputFileName = "input.csv";
+const validInputFileName = "field_input.csv";
 const validOutputDir = "force-app/main/default/objects/Account/fields/";
 const invalidOutputDir = "force-app/main/default/objects/ObjectNotFound/fields/";
 

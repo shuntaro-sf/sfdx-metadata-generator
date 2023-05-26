@@ -2,7 +2,7 @@
 import * as shell from "shelljs";
 
 const invalidInputFileName = "inputNotFound.csv";
-const validInputFileName = "profile_NegativeTestInput.csv";
+const validInputFileName = "profile_negativeTestInput.csv";
 const validSourcePath = "force-app/main/default/profiles/Admin.profile-meta.xml";
 const invalidSourcePath = "force-app/main/default/profiles/NotFound.xml";
 const validOutputDir = "force-app/main/default/profiles/";

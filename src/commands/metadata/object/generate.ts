@@ -129,9 +129,12 @@ export default class generate extends SfdxCommand {
     metaStr += this.getActionOverridesMetaStr();
 
     for (const tag in generate.defaultValues) {
+      if (tag === "fullName") {
+        continue;
+      }
+
       const indexOfTag = header.indexOf(tag);
 
-      console.log(header);
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
         continue;
@@ -155,12 +158,13 @@ export default class generate extends SfdxCommand {
       tagStrs.push(tagStr);
     }
 
-    metaStr += this.getNameFieldMetaStr(row, header);
-
+    this.pushNameFieldMetaStr(tagStrs, row, header);
+    // metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
+    this.pushMetaStrSettings(tagStrs);
+    tagStrs.sort();
     metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
-    metaStr += this.getMetaStrSettings();
+    //   metaStr += this.getMetaStrSettings(tagStrs);
     metaStr += "\n</CustomObject>";
-    console.log(metaStr);
     return metaStr;
   }
 
@@ -173,7 +177,7 @@ export default class generate extends SfdxCommand {
       actionOverridesMetaStr += "<actionName>" + actionName + "</actionName>\n" + this.getIndentation(2 * generate.indentationLength);
       actionOverridesMetaStr +=
         "<type>" + actionOverridesMetaSetting[actionName]["type"] + "</type>\n" + this.getIndentation(generate.indentationLength);
-      actionOverridesMetaStr += "</actionOverrides>\n" + this.getIndentation(generate.indentationLength);
+      actionOverridesMetaStr += "</actionOverrides>";
       for (const formFactor of actionOverridesMetaSetting[actionName]["formFactor"]) {
         actionOverridesMetaStr +=
           "\n" + this.getIndentation(generate.indentationLength) + "<actionOverrides>\n" + this.getIndentation(2 * generate.indentationLength);
@@ -187,20 +191,17 @@ export default class generate extends SfdxCommand {
     return actionOverridesMetaStr;
   }
 
-  private getMetaStrSettings() {
-    let metaStr = "";
+  private pushMetaStrSettings(tagStrs: string[]) {
     for (const tagName in generate.metaSettings) {
       if (tagName === "actionOverrides") {
         continue;
       }
-      metaStr += "\n" + this.getIndentation(generate.indentationLength) + "<" + tagName + ">" + generate.metaSettings[tagName] + "</" + tagName + ">";
+      tagStrs.push("<" + tagName + ">" + generate.metaSettings[tagName] + "</" + tagName + ">");
     }
-    return metaStr;
   }
 
-  private getNameFieldMetaStr(row: string[], header: string[]): string {
-    let nameFieldMetaStr =
-      "\n" + this.getIndentation(generate.indentationLength) + "<nameField>\n" + this.getIndentation(2 * generate.indentationLength);
+  private pushNameFieldMetaStr(tagStrs: string[], row: string[], header: string[]) {
+    let nameFieldMetaStr = "<nameField>\n" + this.getIndentation(2 * generate.indentationLength);
     const indexOfNameFieldType = header.indexOf("nameFieldType");
     const indexOfNameFieldLabel = header.indexOf("nameFieldLabel");
     const nameFieldType = row[indexOfNameFieldType];
@@ -209,13 +210,13 @@ export default class generate extends SfdxCommand {
     nameFieldMetaStr += "<label>" + nemeFieldLabel + "</label>\n" + this.getIndentation(2 * generate.indentationLength);
     nameFieldMetaStr += "<trackHistory>false</trackHistory>\n" + this.getIndentation(2 * generate.indentationLength);
     if (nameFieldType === "AutoNumber") {
-      const indexOfDisplayFormat = header.indexOf("displayFormat");
+      const indexOfDisplayFormat = header.indexOf("nameFieldDisplayFormat");
       const displayFormat = row[indexOfDisplayFormat];
       nameFieldMetaStr += "<displayFormat>" + displayFormat + "</displayFormat>\n" + this.getIndentation(2 * generate.indentationLength);
     }
     nameFieldMetaStr += "<type>" + nameFieldType + "</type>\n" + this.getIndentation(generate.indentationLength);
     nameFieldMetaStr += "</nameField>";
-    return nameFieldMetaStr;
+    tagStrs.push(nameFieldMetaStr);
   }
 
   private isValidInputs(tag: string, row: string[], header: string[], rowIndex: number): boolean {
@@ -277,11 +278,6 @@ export default class generate extends SfdxCommand {
       case "enableBulkApi":
         if (!generate.options.enableBulkApi.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
           this.pushValidationResult(errorIndex, messages.getMessage("validationEnableBulkApiOptions"));
-        }
-        break;
-      case "enableFeeds":
-        if (!generate.options.enableFeeds.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-          this.pushValidationResult(errorIndex, messages.getMessage("validationEnableFeedsOptions"));
         }
         break;
       case "enableHistory":

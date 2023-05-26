@@ -14,7 +14,8 @@
       "enableSharing": "true",
       "enableStreamingApi": "true",
       "nameFieldType": "Text",
-      "nameFieldLabel": "CustomObjectName"
+      "nameFieldLabel": "CustomObjectName",
+      "nameFieldDisplayFormat": ""
     },
     "rowAutoNumber": {
       "fullName": "CustomObject_AutoNumber__c",
@@ -30,7 +31,8 @@
       "enableSharing": "true",
       "enableStreamingApi": "true",
       "nameFieldType": "AutoNumber",
-      "nameFieldLabel": "CustomObject-{0000}"
+      "nameFieldLabel": "CustomObjectName",
+      "nameFieldDisplayFormat": "CustomObject-{0000}"
     }
   }
 }

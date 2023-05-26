@@ -1,0 +1,5 @@
+fullName,label,allowInChatterGroups,deploymentStatus,enableActivities,enableBulkApi,enableFeeds,enableHistory,enableReports,enableSearch,enableSharing,enableStreamingApi,nameFieldType,nameFieldLabel,nameFieldDisplayFormat
+CustomObject__c,CustomObjectUpdate,true,Deployed,false,false,false,true,true,true,false,false,Text,customObjectUpdateName,
+CustomObject_AutoNumber__c,CustomObjectUpdate,true,Deployed,false,false,false,true,true,true,false,false,AutoNumber,customObjectNameUpdate,coNameUpdate-{0000}
+obj__c,objUpdate,true,InDevelopment,true,true,true,true,true,true,true,true,Text,objUpdateName,
+co__c,coUpdate,false,InDevelopment,false,false,false,false,false,false,false,false,Text,coUpdateName,
