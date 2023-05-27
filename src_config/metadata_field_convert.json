@@ -1,13 +1,13 @@
 {
   "header": [
     "fullName",
-    "externalId",
     "label",
-    "required",
     "type",
-    "trackTrending",
+    "externalId",
+    "required",
     "unique",
     "defaultValue",
+    "trackTrending",
     "displayLocationInDecimal",
     "scale",
     "precision",
