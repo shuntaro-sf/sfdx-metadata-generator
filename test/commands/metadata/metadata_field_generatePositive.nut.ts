@@ -8,7 +8,7 @@ const alias = "sfdxPluginTest";
 const inputFileName = "field_positiveTestInput.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("PositiveTest", () => {
+describe("FieldPositiveTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test");

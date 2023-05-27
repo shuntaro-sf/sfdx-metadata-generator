@@ -30,6 +30,11 @@ describe("ObjectUpdateTest", () => {
     shell.exec("sfdx metadata:object:generate -i " + input + " -o " + outputDir + " -u ");
     done();
   });
+  it("update object-metadata", async (done) => {
+    const input = "../" + inputToUpdateFileName;
+    shell.exec("sfdx metadata:object:generate -i " + input + " -o " + outputDir);
+    done();
+  });
   it("deploy to a test org to confirm the generated metadata are valid", async (done) => {
     shell.exec("sfdx force:source:deploy -p " + outputDir + " --checkonly -u " + alias);
     done();

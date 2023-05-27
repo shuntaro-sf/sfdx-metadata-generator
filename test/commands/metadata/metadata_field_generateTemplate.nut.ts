@@ -3,13 +3,14 @@ import * as shell from "shelljs";
 import * as fs from "fs";
 import * as path from "path";
 
-const inputFileName = "field_performanceTestInput.csv";
+const alias = "sfdxPluginTest";
+const inputFileName = "template.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("FieldPerformanceTest", () => {
+describe("fieldTemplateTest", () => {
   //let testSession: TestSession;
   before(async () => {
-    shell.cd("test/commands/metadata/resources/test");
+    shell.cd("test/commands/metadata/resources/test/");
     fs.readdir(outputDir, (err, files) => {
       if (err) throw err;
       for (const file of files) {
@@ -18,12 +19,17 @@ describe("FieldPerformanceTest", () => {
     });
   });
 
+  it("generates a template csv file", async (done) => {
+    shell.exec("sfdx metadata:field:template -o ../");
+    done();
+  });
   it("generates field-metadata", async (done) => {
-    const startTime = performance.now();
     const input = "../" + inputFileName;
     shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir);
-    const endTime = performance.now();
-    console.log(endTime - startTime);
+    done();
+  });
+  it("deploy to a test org to confirm the generated metadata are valid", async (done) => {
+    shell.exec("sfdx force:source:deploy -p " + outputDir + " --checkonly -u " + alias);
     done();
   });
 
@@ -34,5 +40,6 @@ describe("FieldPerformanceTest", () => {
         shell.rm(path.join(outputDir, file));
       }
     });
+    // await exec("echo y | sfdx force:org:delete -u test");
   });
 });

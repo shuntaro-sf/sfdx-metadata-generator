@@ -4,11 +4,10 @@ import * as fs from "fs";
 import * as path from "path";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "input.csv";
-const inputToUpdateFileName = "field_inputToUpdate.csv";
-const outputDir = "force-app/main/default/objects/Account/fields/";
+const inputFileName = "template.csv";
+const outputDir = "force-app/main/default/objects/";
 
-describe("UpdateTest", () => {
+describe("ObjectTemplateTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test/");
@@ -20,19 +19,13 @@ describe("UpdateTest", () => {
     });
   });
 
-  it("generates field-metadata", async (done) => {
+  it("generates a template csv file", async (done) => {
+    shell.exec("sfdx metadata:object:template -o ../");
+    done();
+  });
+  it("generates object-metadata", async (done) => {
     const input = "../" + inputFileName;
-    shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir);
-    done();
-  });
-  it("update field-metadata", async (done) => {
-    const input = "../" + inputToUpdateFileName;
-    shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir + " -u ");
-    done();
-  });
-  it("update field-metadata", async (done) => {
-    const input = "../" + inputToUpdateFileName;
-    shell.exec("sfdx metadata:field:generate -i " + input + " -o " + outputDir);
+    shell.exec("sfdx metadata:object:generate -i " + input + " -o " + outputDir);
     done();
   });
   it("deploy to a test org to confirm the generated metadata are valid", async (done) => {

@@ -8,7 +8,7 @@ const validInputFileName = "field_input.csv";
 const validOutputDir = "force-app/main/default/objects/Account/fields/";
 const invalidOutputDir = "force-app/main/default/objects/ObjectNotFound/fields/";
 
-describe("FlagTest", () => {
+describe("FieldFlagTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test/");

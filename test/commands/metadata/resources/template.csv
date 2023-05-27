@@ -1,0 +1,3 @@
+fullName,label,allowInChatterGroups,deploymentStatus,enableActivities,enableBulkApi,enableFeeds,enableHistory,enableReports,enableSearch,enableSharing,enableStreamingApi,nameFieldType,nameFieldLabel,nameFieldDisplayFormat
+CustomObject__c,CustomObject,false,false,false,true,false,false,false,false,true,true,Text,CustomObjectName,
+CustomObject_AutoNumber__c,CustomObject,true,true,true,true,true,true,true,true,true,true,AutoNumber,CustomObjectName,CustomObject-{0000}
