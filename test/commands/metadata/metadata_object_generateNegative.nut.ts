@@ -4,13 +4,13 @@ import * as fs from "fs";
 import * as path from "path";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "object_input.csv";
+const inputFileName = "object_negativeTestInput.csv";
 const outputDir = "force-app/main/default/objects/";
 
-describe("ObjectTest", () => {
+describe("ObjectNegativeTest", () => {
   //let testSession: TestSession;
   before(async () => {
-    shell.cd("test/commands/metadata/resources/test/");
+    shell.cd("test/commands/metadata/resources/test");
     fs.readdir(outputDir, (err, files) => {
       if (err) throw err;
       for (const file of files) {
@@ -44,7 +44,6 @@ describe("ObjectTest", () => {
     csv.forEach((row) => {
       fullNames.push(row[0]);
     });
-
     fs.readdir(outputDir, (err, files) => {
       if (err) throw err;
       for (const file of files) {

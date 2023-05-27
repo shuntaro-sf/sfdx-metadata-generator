@@ -129,14 +129,13 @@ export default class generate extends SfdxCommand {
     metaStr += this.getActionOverridesMetaStr();
 
     for (const tag in generate.defaultValues) {
-      if (tag === "fullName") {
-        continue;
-      }
-
       const indexOfTag = header.indexOf(tag);
 
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
+        continue;
+      }
+      if (tag === "fullName") {
         continue;
       }
 
@@ -233,6 +232,9 @@ export default class generate extends SfdxCommand {
         }
         if (row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) !== "__c") {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameTail"));
+        }
+        if (row[indexOfTag].split("__").length > 2) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameUnderscore"));
         }
         if (row[indexOfTag].length === 0) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameBlank"));

@@ -10,6 +10,7 @@
   "validation": "Validtion error",
   "validationFullNameFormat": "fullName: API Name can only contain alphanumeric characters, must begin with a letter, cannot end with an underscore or contain two consecutive underscore characters",
   "validationFullNameTail": "fullName: API Name must end with '__c'.",
+  "validationFullNameUnderscore": "fullName: API Name cannot contain two consecutive underscore characters,",
   "validationFullNameBlank": "fullName: API Name must not be blank.",
   "validationFullNameLength": "The length of fullName must be less than or equal to 40.",
   "validationExternalIdOptions": "externalId must be true or false.",
