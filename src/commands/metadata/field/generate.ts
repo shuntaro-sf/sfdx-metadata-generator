@@ -46,6 +46,10 @@ export default class generate extends SfdxCommand {
       char: "d",
       description: messages.getMessage("delimiterFlagDescription"),
     }),
+    picklistdelimiter: flags.string({
+      char: "p",
+      description: messages.getMessage("picklistDelimiterFlagDescription"),
+    }),
   };
 
   // Comment this out if your command does not require an generate username
@@ -64,6 +68,7 @@ export default class generate extends SfdxCommand {
   private static indentationLength = ConfigData.indentationLength;
   private static fieldExtension = ConfigData.fieldExtension;
   private static delimiter = ConfigData.delimiter;
+  private static picklistDelimiter = ConfigData.picklistDelimiter;
   private static tagNames = ConfigData.tagNames;
 
   private static validationResults = [];
@@ -80,6 +85,9 @@ export default class generate extends SfdxCommand {
     }
     if (this.flags.delimiter === undefined) {
       this.flags.delimiter = generate.delimiter;
+    }
+    if (this.flags.picklistDelimiter === undefined) {
+      this.flags.picklistDelimiter = generate.picklistDelimiter;
     }
     const csv = readFileSync(this.flags.input, {
       encoding: "utf8",

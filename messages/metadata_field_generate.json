@@ -4,6 +4,7 @@
   "outputdirFlagDescription": "output directory where metadata are saved",
   "updatesFlagDescription": "whether update existing xml files in outputdir or not",
   "delimiterFlagDescription": "delimiter for the input file. the default value is comma",
+  "picklistDelimiterFlagDescription": "delimiter for picklist fullNames and labels. the default value is semicolon",
   "errorNogenerateResults": "No results found for the generate '%s'.",
   "examples": ["sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/"],
   "errorPathOfInput": "Cannot find the input: ",

@@ -653,6 +653,7 @@
   "indentationLength": 4,
   "fieldExtension": "field-meta.xml",
   "delimiter": ",",
+  "picklistDelimiter": ";",
   "tagNames": [
     "fullName",
     "externalId",

@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "commands": {
     "metadata:field:convert": {
       "id": "metadata:field:convert",
@@ -108,7 +108,7 @@
       "id": "metadata:field:generate",
       "description": "Generates custom field metadata converting values in a csv file to xml files.",
       "strict": true,
-      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
       "pluginName": "sfdx-metadata-generator",
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
@@ -173,6 +173,13 @@
           "char": "d",
           "description": "delimiter for the input file. the default value is comma",
           "multiple": false
+        },
+        "picklistdelimiter": {
+          "name": "picklistdelimiter",
+          "type": "option",
+          "char": "p",
+          "description": "delimiter for picklist fullNames and labels. the default value is semicolon",
+          "multiple": false
         }
       },
       "args": {
@@ -208,6 +215,14 @@
           "kind": "string",
           "char": "d",
           "description": "delimiter for the input file. the default value is comma",
+          "input": [],
+          "multiple": false,
+          "type": "option"
+        },
+        "picklistdelimiter": {
+          "kind": "string",
+          "char": "p",
+          "description": "delimiter for picklist fullNames and labels. the default value is semicolon",
           "input": [],
           "multiple": false,
           "type": "option"
@@ -898,6 +913,7 @@
       "indentationLength": 4,
       "fieldExtension": "field-meta.xml",
       "delimiter": ",",
+      "picklistDelimiter": ";",
       "tagNames": [
         "fullName",
         "externalId",
