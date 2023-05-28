@@ -1,7 +1,7 @@
 {
   "name": "sfdx-metadata-generator",
   "description": "SFDX plugin to generate metadata",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "author": "shuntaro.ohtsuka",
   "bugs": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator/issues",
   "dependencies": {
