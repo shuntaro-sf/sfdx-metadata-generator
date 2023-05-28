@@ -23,7 +23,7 @@ $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-sfdx-metadata-generator/2.1.3 win32-x64 node-v18.16.0
+sfdx-metadata-generator/2.1.5 win32-x64 node-v18.16.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -68,7 +68,7 @@ EXAMPLES
   $ sfdx metadata:field:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/field/convert.ts)_
+_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/field/convert.ts)_
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -102,7 +102,7 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/field/generate.ts)_
+_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/field/generate.ts)_
 
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -127,7 +127,7 @@ EXAMPLES
   $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/field/template.ts)_
+_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/field/template.ts)_
 
 ## `sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -154,7 +154,7 @@ EXAMPLES
   $ sfdx metadata:object:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/object/convert.ts)_
+_See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/object/convert.ts)_
 
 ## `sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -185,7 +185,7 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/object/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/object/generate.ts)_
+_See code: [src/commands/metadata/object/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/object/generate.ts)_
 
 ## `sfdx metadata:object:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -210,7 +210,7 @@ EXAMPLES
   $ sfdx metadata:object:template --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/object/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/object/template.ts)_
+_See code: [src/commands/metadata/object/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/object/template.ts)_
 
 ## `sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -237,7 +237,7 @@ EXAMPLES
   $ sfdx metadata:profile:convert --source ./source --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/profile/convert.ts)_
+_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/profile/convert.ts)_
 
 ## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -268,7 +268,7 @@ EXAMPLES
   $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/profile/generate.ts)_
+_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.5/src/commands/metadata/profile/generate.ts)_
 
 <!-- commandsstop -->
 
@@ -286,25 +286,25 @@ Other separate-sheet files are also supported as delimiter flag on the generator
 
 The description of each tag is as follows. For further details of custrom-field-metadata, see [https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm](https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm)
 
-| Tag                      | Description                                                                                                                                                                                                       |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fullName                 | Custom field API name.                                                                                                                                                                                            |
-| label                    | Field label name.                                                                                                                                                                                                 |
-| type                     | Data type. Options are listed below:<br>Checkbox, Currency, Date, DateTime, Email, Location, Number, Percent, Phone, Picklist, MultiselectPicklist, Text, TextArea, LongTextArea, Html, EncryptedText, Time, Url. |
-| required                 | Whether it is required. Options are listed below:<br>true, false.                                                                                                                                                 |
-| externalId               | Whether it is an external ID. Options are listed below:<br>true, false.                                                                                                                                           |
-| trackTrending            | Whether to track historical trending. Options are listed below:<br>true, false.                                                                                                                                   |
-| unique                   | Whether it is unique. Options are listed below:<br>true, false.                                                                                                                                                   |
-| defaultValue             | Default value. Applied only when Checkbox is choosen as data type. Options are listed below:<br>true, false.                                                                                                      |
-| displayLocationInDecimal | Whether to display location in decimal. Options are listed below:<br>true, false.                                                                                                                                 |
-| scale                    | The number of decimal places.                                                                                                                                                                                     |
-| precision                | The number of digits.                                                                                                                                                                                             |
-| visibleLines             | Visible lines applied to MultiselectPicklist, LongTextArea, and Html.                                                                                                                                             |
-| length                   | Text length applied to Text, TextArea, LongTextArea, and Html.                                                                                                                                                    |
-| maskChar                 | Mask character applied to EncryptedText. Options are listed below:<br>asterisk, X.                                                                                                                                |
-| maskType                 | Mask type applied to EncryptedText. Options are listed below:<br>all, lastFour, creditCard, nino, ssn, sin.                                                                                                       |
-| picklistFullName         | Picklist API Names applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as delimiter to separate character string in multiple names.                                                      |
-| picklistLabel            | Picklist labels applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as delimiter to separate character string in multiple labels.                                                        |
+| Tag                      | Description                                                                                                                                                                                                                         |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fullName                 | Custom field API name.                                                                                                                                                                                                              |
+| label                    | Field label name.                                                                                                                                                                                                                   |
+| type                     | Data type. Options are listed below:<br>Checkbox, Currency, Date, DateTime, Email, Location, Number, Percent, Phone, Picklist, MultiselectPicklist, Text, TextArea, LongTextArea, Html, EncryptedText, Time, Url.                   |
+| required                 | Whether it is required. Options are listed below:<br>true, false.                                                                                                                                                                   |
+| externalId               | Whether it is an external ID. Options are listed below:<br>true, false.                                                                                                                                                             |
+| trackTrending            | Whether to track historical trending. Options are listed below:<br>true, false.                                                                                                                                                     |
+| unique                   | Whether it is unique. Options are listed below:<br>true, false.                                                                                                                                                                     |
+| defaultValue             | Default value. Applied only when Checkbox is choosen as data type. Options are listed below:<br>true, false.                                                                                                                        |
+| displayLocationInDecimal | Whether to display location in decimal. Options are listed below:<br>true, false.                                                                                                                                                   |
+| scale                    | The number of decimal places.                                                                                                                                                                                                       |
+| precision                | The number of digits.                                                                                                                                                                                                               |
+| visibleLines             | The number of visible lines applied to MultiselectPicklist, LongTextArea, and Html.                                                                                                                                                 |
+| length                   | Text length applied to Text, TextArea, LongTextArea, and Html.                                                                                                                                                                      |
+| maskChar                 | Mask character applied to EncryptedText. Options are listed below:<br>asterisk, X.                                                                                                                                                  |
+| maskType                 | Mask type applied to EncryptedText. Options are listed below:<br>all, lastFour, creditCard, nino, ssn, sin.                                                                                                                         |
+| picklistFullName         | Picklist API Names applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as the default delimiter to separate character string to multiple names. The delimiter can be chenged giving the picklistdelimiter. |
+| picklistLabel            | Picklist labels applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as the default delimiter to separate character string to multiple labels. The delimiter can be chenged giving the picklistdelimiter.   |
 
 Or you can create a template file running the following commnad:
 
