@@ -342,22 +342,22 @@ Other separate-sheet files are also supported as delimiter flag on the generator
 
 The description of each tag is as follows. For further details of custrom-object-metadata, see [https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customobject.htm](https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customobject.htm)
 
-| Tag                    | Description                                                                      |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| fullName               | Custom object API name.                                                          |
-| label                  | Custom object label name.                                                        |
-| allowInChatterGroups   | Whether to allow . Options are listed below:<br>true, false.                     |
-| deploymentStatus       | Deployment status. Deployed                                                      |
-| enableActivities       | Whether to enable activities. Options are listed below:<br>true, false.          |
-| enableBulkApi          | Whether to enable bulk API. Options are listed below:<br>true, false.            |
-| enableHistory          | Whether to enable history. Options are listed below:<br>true, false.             |
-| enableReports          | Whether to enable reports. Options are listed below:<br>true, false.             |
-| enableSearch           | Whether to enable search. Options are listed below:<br>true, false.              |
-| enableSharing          | Whether to enable sharing. Options are listed below:<br>true, false.             |
-| enableStreamingApi     | Whether to enable sreaming API. Options are listed below:<br>true, false.        |
-| nameFieldType          | Type of name field. Text                                                         |
-| nameFieldLabel         | Name field label.                                                                |
-| nameFieldDisplayFormat | Name field display format. Applied when nameFieldType is set to AutoNumber. type |
+| Tag                    | Description                                                                 |
+| ---------------------- | --------------------------------------------------------------------------- |
+| fullName               | Custom object API name.                                                     |
+| label                  | Custom object label name.                                                   |
+| allowInChatterGroups   | Whether to allow . Options are listed below:<br>true, false.                |
+| deploymentStatus       | Deployment status. Deployed                                                 |
+| enableActivities       | Whether to enable activities. Options are listed below:<br>true, false.     |
+| enableBulkApi          | Whether to enable bulk API. Options are listed below:<br>true, false.       |
+| enableHistory          | Whether to enable history. Options are listed below:<br>true, false.        |
+| enableReports          | Whether to enable reports. Options are listed below:<br>true, false.        |
+| enableSearch           | Whether to enable search. Options are listed below:<br>true, false.         |
+| enableSharing          | Whether to enable sharing. Options are listed below:<br>true, false.        |
+| enableStreamingApi     | Whether to enable sreaming API. Options are listed below:<br>true, false.   |
+| nameFieldType          | Type of name field. Options are listed below:<br>Text, AutoNumber.          |
+| nameFieldLabel         | Label for name field.                                                       |
+| nameFieldDisplayFormat | Name field display format. Applied when nameFieldType is set to AutoNumber. |
 
 Or you can create a template file running the following commnad:
 
