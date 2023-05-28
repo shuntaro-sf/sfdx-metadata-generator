@@ -42,6 +42,10 @@ export default class generate extends SfdxCommand {
       char: "s",
       description: messages.getMessage("sourceFlagDescription"),
     }),
+    delimiter: flags.string({
+      char: "d",
+      description: messages.getMessage("delimiterFlagDescription"),
+    }),
   };
 
   // Comment this out if your command does not require an generate username
@@ -52,7 +56,7 @@ export default class generate extends SfdxCommand {
 
   // Set this to true if your command requires a project workspace; 'requiresProject' is false by default
   protected static requiresProject = false;
-
+  private static delimiter = ConfigData.delimiter;
   private static permissionTags = ConfigData.permissionTags;
   private static options = ConfigData.options;
 
@@ -69,6 +73,9 @@ export default class generate extends SfdxCommand {
     }
     if (!existsSync(this.flags.source)) {
       throw new SfError(messages.getMessage("errorPathOfSource") + this.flags.source);
+    }
+    if (this.flags.delimiter === undefined) {
+      this.flags.delimiter = generate.delimiter;
     }
     const csv = readFileSync(this.flags.input, {
       encoding: "utf8",

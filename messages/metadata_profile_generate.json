@@ -3,6 +3,7 @@
   "inputFlagDescription": "input file to be converted to xml files",
   "outputdirFlagDescription": "output directory where metadata are saved",
   "sourceFlagDescription": "directory where source files you convert are stored",
+  "delimiterFlagDescription": "delimiter for the input file. the default value is comma",
   "errorNogenerateResults": "No results found for the generate '%s'.",
   "examples": ["sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/"],
   "errorPathOfInput": "Cannot find the input: ",

@@ -8,7 +8,7 @@ const inputFileName = "input.csv";
 const inputToUpdateFileName = "field_inputToUpdate.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("UpdateTest", () => {
+describe("FieldUpdateTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test/");

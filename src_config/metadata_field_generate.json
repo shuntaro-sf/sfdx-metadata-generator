@@ -652,6 +652,7 @@
   },
   "indentationLength": 4,
   "fieldExtension": "field-meta.xml",
+  "delimiter": ",",
   "tagNames": [
     "fullName",
     "externalId",

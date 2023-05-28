@@ -7,7 +7,7 @@ const alias = "sfdxPluginTest";
 const inputFileName = "template.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 
-describe("fieldTemplateTest", () => {
+describe("FieldTemplateTest", () => {
   //let testSession: TestSession;
   before(async () => {
     shell.cd("test/commands/metadata/resources/test/");

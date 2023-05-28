@@ -65,6 +65,7 @@
   },
   "indentationLength": 4,
   "objectExtension": "object-meta.xml",
+  "delimiter": ",",
   "tagNames": [
     "label",
     "allowInChatterGroups",

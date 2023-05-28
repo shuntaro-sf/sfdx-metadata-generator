@@ -46,5 +46,7 @@
     "visible": ["true", "false"],
     "enabled": ["true", "false"],
     "visibility": ["DefaultOn", "DefaultOff", "Hidden"]
-  }
+  },
+  "delimiter": ",",
+  "resolveJsonModule": true
 }

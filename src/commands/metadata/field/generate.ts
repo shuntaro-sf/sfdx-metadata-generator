@@ -42,6 +42,10 @@ export default class generate extends SfdxCommand {
       char: "u",
       description: messages.getMessage("updatesFlagDescription"),
     }),
+    delimiter: flags.string({
+      char: "d",
+      description: messages.getMessage("delimiterFlagDescription"),
+    }),
   };
 
   // Comment this out if your command does not require an generate username
@@ -59,6 +63,7 @@ export default class generate extends SfdxCommand {
   private static options = ConfigData.options;
   private static indentationLength = ConfigData.indentationLength;
   private static fieldExtension = ConfigData.fieldExtension;
+  private static delimiter = ConfigData.delimiter;
   private static tagNames = ConfigData.tagNames;
 
   private static validationResults = [];
@@ -73,13 +78,16 @@ export default class generate extends SfdxCommand {
     if (!existsSync(this.flags.outputdir)) {
       throw new SfError(messages.getMessage("errorPathOfOutput") + this.flags.outputdir);
     }
+    if (this.flags.delimiter === undefined) {
+      this.flags.delimiter = generate.delimiter;
+    }
     const csv = readFileSync(this.flags.input, {
       encoding: "utf8",
     })
       .toString()
       .split("\n")
       .map((e) => e.trim())
-      .map((e) => e.split(",").map((e) => e.trim()));
+      .map((e) => e.split(this.flags.delimiter).map((e) => e.trim()));
 
     const header = csv[0];
     for (let rowIndex = 1; rowIndex < csv.length; rowIndex++) {

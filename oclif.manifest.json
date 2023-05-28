@@ -1,5 +1,5 @@
 {
-  "version": "1.8.4",
+  "version": "1.8.5",
   "commands": {
     "metadata:field:convert": {
       "id": "metadata:field:convert",
@@ -108,7 +108,7 @@
       "id": "metadata:field:generate",
       "description": "Generates custom field metadata converting values in a csv file to xml files.",
       "strict": true,
-      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
       "pluginName": "sfdx-metadata-generator",
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
@@ -166,6 +166,13 @@
           "char": "u",
           "description": "whether update existing xml files in outputdir or not",
           "allowNo": false
+        },
+        "delimiter": {
+          "name": "delimiter",
+          "type": "option",
+          "char": "d",
+          "description": "delimiter for the input file. the default value is comma",
+          "multiple": false
         }
       },
       "args": {
@@ -196,6 +203,14 @@
           "description": "whether update existing xml files in outputdir or not",
           "allowNo": false,
           "type": "boolean"
+        },
+        "delimiter": {
+          "kind": "string",
+          "char": "d",
+          "description": "delimiter for the input file. the default value is comma",
+          "input": [],
+          "multiple": false,
+          "type": "option"
         }
       },
       "requiresUsername": false,
@@ -882,6 +897,7 @@
       },
       "indentationLength": 4,
       "fieldExtension": "field-meta.xml",
+      "delimiter": ",",
       "tagNames": [
         "fullName",
         "externalId",
@@ -1424,7 +1440,7 @@
       "id": "metadata:object:generate",
       "description": "Generates custom field metadata converting values in a csv file to xml files.",
       "strict": true,
-      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
       "pluginName": "sfdx-metadata-generator",
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
@@ -1482,6 +1498,13 @@
           "char": "u",
           "description": "whether update existing xml files in outputdir or not",
           "allowNo": false
+        },
+        "delimiter": {
+          "name": "delimiter",
+          "type": "option",
+          "char": "d",
+          "description": "delimiter for the input file. the default value is comma",
+          "multiple": false
         }
       },
       "args": {
@@ -1512,6 +1535,14 @@
           "description": "whether update existing xml files in outputdir or not",
           "allowNo": false,
           "type": "boolean"
+        },
+        "delimiter": {
+          "kind": "string",
+          "char": "d",
+          "description": "delimiter for the input file. the default value is comma",
+          "input": [],
+          "multiple": false,
+          "type": "option"
         }
       },
       "requiresUsername": false,
@@ -1592,6 +1623,7 @@
       },
       "indentationLength": 4,
       "objectExtension": "object-meta.xml",
+      "delimiter": ",",
       "tagNames": [
         "label",
         "allowInChatterGroups",
@@ -1958,7 +1990,7 @@
       "id": "metadata:profile:generate",
       "description": "Updates profile metadata converting values in a csv file to xml files.",
       "strict": true,
-      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
+      "usage": "<%= command.id %> [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]",
       "pluginName": "sfdx-metadata-generator",
       "pluginAlias": "sfdx-metadata-generator",
       "pluginType": "core",
@@ -2016,6 +2048,13 @@
           "char": "s",
           "description": "directory where source files you convert are stored",
           "multiple": false
+        },
+        "delimiter": {
+          "name": "delimiter",
+          "type": "option",
+          "char": "d",
+          "description": "delimiter for the input file. the default value is comma",
+          "multiple": false
         }
       },
       "args": {
@@ -2047,11 +2086,20 @@
           "input": [],
           "multiple": false,
           "type": "option"
+        },
+        "delimiter": {
+          "kind": "string",
+          "char": "d",
+          "description": "delimiter for the input file. the default value is comma",
+          "input": [],
+          "multiple": false,
+          "type": "option"
         }
       },
       "requiresUsername": false,
       "supportsDevhubUsername": false,
       "requiresProject": false,
+      "delimiter": ",",
       "permissionTags": {
         "applicationVisibilities": {
           "keyTag": "application",
