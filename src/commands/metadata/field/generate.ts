@@ -194,8 +194,8 @@ export default class generate extends SfdxCommand {
       "<sorted>false</sorted>";
     const picklistDefaultStr = "<default>false</default>";
     let picklistValues = [];
-    const picklistFullNames = inputPicklistFullName.split(";");
-    const picklistLabels = inputPicklistLabel.split(";");
+    const picklistFullNames = inputPicklistFullName.split(this.flags.picklistDelimiter);
+    const picklistLabels = inputPicklistLabel.split(this.flags.picklistDelimiter);
 
     if (!this.isValidInputsForPicklist(picklistFullNames, picklistLabels, header, rowIndex)) {
       return picklistMetaStr;
