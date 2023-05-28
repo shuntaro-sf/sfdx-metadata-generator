@@ -15,16 +15,15 @@ SFDX plugin to generate metadata
 - [sfdx-metadata-generator](#sfdx-metadata-generator)
 - [How to get started](#how-to-get-started)
   <!-- tocstop -->
-
-                                    <!-- install -->
-                                    <!-- usageusage -->
+                                            <!-- install -->
+                                            <!-- usageusage -->
 
 ```sh-session
 $ npm install -g sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-sfdx-metadata-generator/1.6.0 win32-x64 node-v18.16.0
+sfdx-metadata-generator/2.1.3 win32-x64 node-v18.16.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -33,13 +32,16 @@ USAGE
 
 <!-- usagestop -->
 
-<!-- commandscommands -->
+<!-- commandcommands -->
 
 - [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-- [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+- [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u--d-string--p-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 - [`sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldtemplate--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+- [`sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataobjectconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+- [`sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataobjectgenerate--i-string--o-string--u--d-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+- [`sfdx metadata:object:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataobjecttemplate--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 - [`sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataprofileconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
-- [`sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataprofilegenerate--i-string--o-string--s-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+- [`sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataprofilegenerate--i-string--o-string--s-string--d-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
 ## `sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -66,22 +68,27 @@ EXAMPLES
   $ sfdx metadata:field:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/field/convert.ts)_
+_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/field/convert.ts)_
 
-## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 Generates custom field metadata converting values in a csv file to xml files.
 
 ```
 USAGE
-  $ sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [--json] [--loglevel
+  $ sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
+  -d, --delimiter=<value>                                                           delimiter for the input file. the
+                                                                                    default value is comma
   -i, --input=<value>                                                               input file to be converted to xml
                                                                                     files
   -o, --outputdir=<value>                                                           output directory where metadata are
                                                                                     saved
+  -p, --picklistdelimiter=<value>                                                   delimiter for picklist fullNames and
+                                                                                    labels. the default value is
+                                                                                    semicolon
   -u, --updates                                                                     whether update existing xml files in
                                                                                     outputdir or not
   --json                                                                            format output as json
@@ -95,7 +102,7 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/field/generate.ts)_
+_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/field/generate.ts)_
 
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -120,7 +127,90 @@ EXAMPLES
   $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/field/template.ts)_
+_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/field/template.ts)_
+
+## `sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Converts custom-object-xml-files to a file used to create or update the metadata.
+
+```
+USAGE
+  $ sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --sourcedir=<value>                                                           directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Converts custom-object-xml-files to a file used to create or update the metadata.
+
+EXAMPLES
+  $ sfdx metadata:object:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/object/convert.ts)_
+
+## `sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Generates custom field metadata converting values in a csv file to xml files.
+
+```
+USAGE
+  $ sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -d, --delimiter=<value>                                                           delimiter for the input file. the
+                                                                                    default value is comma
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -u, --updates                                                                     whether update existing xml files in
+                                                                                    outputdir or not
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Generates custom field metadata converting values in a csv file to xml files.
+
+EXAMPLES
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/object/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/object/generate.ts)_
+
+## `sfdx metadata:object:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Creates a template input-csv-file.
+
+```
+USAGE
+  $ sfdx metadata:object:template [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           directory where a template csv file
+                                                                                    is saved.
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Creates a template input-csv-file.
+
+EXAMPLES
+  $ sfdx metadata:object:template --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/object/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/object/template.ts)_
 
 ## `sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -147,18 +237,20 @@ EXAMPLES
   $ sfdx metadata:profile:convert --source ./source --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/profile/convert.ts)_
+_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/profile/convert.ts)_
 
-## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
 Updates profile metadata converting values in a csv file to xml files.
 
 ```
 USAGE
-  $ sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [--json] [--loglevel
+  $ sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel
     trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 FLAGS
+  -d, --delimiter=<value>                                                           delimiter for the input file. the
+                                                                                    default value is comma
   -i, --input=<value>                                                               input file to be converted to xml
                                                                                     files
   -o, --outputdir=<value>                                                           output directory where metadata are
@@ -176,7 +268,7 @@ EXAMPLES
   $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v1.6.0/src/commands/metadata/profile/generate.ts)_
+_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v2.1.3/src/commands/metadata/profile/generate.ts)_
 
 <!-- commandsstop -->
 
@@ -189,6 +281,8 @@ Make sure you have already installed this plugin.
 ## Field metadata
 
 To start generating field metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom fields from the second line.
+
+Other separate-sheet files are also supported as delimiter flag on the generator command can be any string.
 
 The description of each tag is as follows. For further details of custrom-field-metadata, see [https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm](https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm)
 
@@ -240,6 +334,94 @@ Note that runnning without `--updates` avoids overrinding existing metadata.
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/ --updates
 ```
 
+## Object metadata
+
+To start generating object metadata, you need a csv file to include tab names e.g., fullName, label, type, ... , at the header and values for those tags to determine each detail of custom objects from the second line.
+
+Other separate-sheet files are also supported as delimiter flag on the generator command can be any string.
+
+The description of each tag is as follows. For further details of custrom-object-metadata, see [https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customobject.htm](https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customobject.htm)
+
+| Tag                    | Description                                                                      |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| fullName               | Custom object API name.                                                          |
+| label                  | Custom object label name.                                                        |
+| allowInChatterGroups   | Whether to allow . Options are listed below:<br>true, false.                     |
+| deploymentStatus       | Deployment status. Deployed                                                      |
+| enableActivities       | Whether to enable activities. Options are listed below:<br>true, false.          |
+| enableBulkApi          | Whether to enable bulk API. Options are listed below:<br>true, false.            |
+| enableHistory          | Whether to enable history. Options are listed below:<br>true, false.             |
+| enableReports          | Whether to enable reports. Options are listed below:<br>true, false.             |
+| enableSearch           | Whether to enable search. Options are listed below:<br>true, false.              |
+| enableSharing          | Whether to enable sharing. Options are listed below:<br>true, false.             |
+| enableStreamingApi     | Whether to enable sreaming API. Options are listed below:<br>true, false.        |
+| nameFieldType          | Type of name field. Text                                                         |
+| nameFieldLabel         | Name field label.                                                                |
+| nameFieldDisplayFormat | Name field display format. Applied when nameFieldType is set to AutoNumber. type |
+
+Or you can create a template file running the following commnad:
+
+```
+  $ sfdx metadata:object:template --outputdir ./outputdir/
+```
+
+Then, `sfdx metadata:object:generate` generates custom object metadata of the input-csv-file.
+
+The flag `--input` specifies the input-csv-file to be converted to metadata-xml-files and `--outputdir` the directory to save those xml files.
+
+```
+  $ sfdx metadata:object:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+You can also update custom-object-xml-files with `sfdx metadata:object:convert`. Assume you have created SFDX project and retrieved object-xml files you want to update. Then, run the following command to rewrite the files in the csv format.
+
+```
+  $ sfdx metadata:object:convert -sourcedir ./force-app/main/default/objects/ --outputdir ../outputdir/
+```
+
+Edit the craeted csv file as you want to update metadata, and then run `sfdx metadata:object:generate --updates` to override the xml files.
+
+Note that runnning without `--updates` avoids overrinding existing metadata.
+
+```
+  $ sfdx metadata:object:generate --input ./input.csv --outputdir ./outputdir/ --updates
+```
+
+## Profile metadata
+
+Only update is supported for profile metadata due to dependencies on other metadata.
+
+You can rewrite a profile xml file in the csv format as shown in field metadata by runnning `metadata:field:convert`.
+
+```
+  $ sfdx metadata:field:convert -sourcedir ./force-app/main/default/profiles/xxx.profile-meta.xml --outputdir ../outputdir/
+```
+
+Edit the craeted csv file as you want to update metadata. The description of the output csv file is as follows:
+
+| Tag              | Description                                                                                                                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fullName         | FullName to update.                                                                                                                                                                                     |
+| type             | Field Name to update. Options are listed below:<br>applicationVisibilities, classAccesses, fieldPermissions, objectPermissions, pageAccesses, recordTypeVisibilities, tabVisibilities, userPermissions. |
+| editable         | Whether it is allowed to edit the field of fullName. Options are listed below:<br>true, false.                                                                                                          |
+| readable         | Whether it is allowed to read the field of fullName. Options are listed below:<br>true, false.                                                                                                          |
+| allowCreate      | Whether it is allowed to create the object of fullName. Options are listed below:<br>true, false.                                                                                                       |
+| allowDelete      | Whether it is allowed to delete the object of fullName. Options are listed below:<br>true, false.                                                                                                       |
+| allowEdit        | Whether it is allowed to edit the object of fullName. Options are listed below:<br>true, false.                                                                                                         |
+| allowRead        | Whether it is allowed to read the object of fullName. Options are listed below:<br>true, false.                                                                                                         |
+| modifyAllRecords | Whether it is allowed to modify all records of the object of fullName.Options are listed below:<br>true, false.                                                                                         |
+| viewAllRecords   | Whether it is allowed to view all records of the object of fullName. Options are listed below:<br>true, false.                                                                                          |
+| default          | Whether it is default. Applied for applicationVisibilities and recordTypeVisibilities. Options are listed below:<br>true, false.                                                                        |
+| visible          | Whether it is visible. Applied for applicationVisibilities and recordTypeVisibilities. Options are listed below:<br>true, false.                                                                        |
+| enabled          | Whether it is enabled. Applied for classAccesses, pageAccesses, and userPermissions. Options are listed below:<br>true, false.                                                                          |
+| visibility       | Type of tag-visibility. Applied for tabVisibilities. Options are listed below:<br>DefaultOn, DefaultOff,Hidden                                                                                          |
+
+Then, run `sfdx metadata:profile:generate --updates` to override the profile xml file.
+
+```
+  $ sfdx metadata:profile:generate --input ./input.csv --outputdir ../outputdir/
+```
+
 <!---
 We recommend using the Visual Studio Code (VS Code) IDE for your plugin development. Included in the `.vscode` directory of this plugin is a `launch.json` config file, which allows you to attach a debugger to the node process when running your commands.
 
@@ -261,9 +443,9 @@ $ NODE_OPTIONS=--inspect-brk bin/run generate:generate -u mygenerate@example.com
 
 2. Set some breakpoints in your command code
 3. Click on the Debug icon in the Activity Bar on the side of VS Code to open up the Debug view.
-4. In the upper left hand corner of VS Code, verify that the "Attach to Remote" launch configuration has been chosen.
-5. Hit the green play button to the left of the "Attach to Remote" launch configuration window. The debugger should now be suspended on the first line of the program.
+4. In the upper left hand corner of VS Code, verify that the |Attach to Remote| launch configuration has been chosen.
+5. Hit the green play button to the left of the |Attach to Remote| launch configuration window. The debugger should now be suspended on the first line of the program.
 6. Hit the green play button at the top middle of VS Code (this play button will be to the right of the play button that you clicked in step #5).
-   <br><img src=".images/vscodeScreenshot.png" width="480" height="278"><br>
+   <br><img src=|.images/vscodeScreenshot.png| width=|480| height=|278|><br>
    Congrats, you are debugging!
 -->
