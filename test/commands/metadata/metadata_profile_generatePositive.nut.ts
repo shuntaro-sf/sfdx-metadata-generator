@@ -70,5 +70,7 @@ describe("ProfilePositiveTest", () => {
     }
   });
 
-  after(async () => {});
+  after(async () => {
+    shell.rm("../template.csv");
+  });
 });

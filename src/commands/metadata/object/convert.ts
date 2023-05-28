@@ -59,15 +59,16 @@ export default class convert extends SfdxCommand {
       throw new SfError(messages.getMessage("errorPathOfOutput") + this.flags.outputdir);
     }
 
-    const filesInSourcedir = readdirSync(this.flags.sourcedir);
-
+    const dirsInSourcedir = readdirSync(this.flags.sourcedir);
     let csvDataStr = convert.header.join(",") + "\n";
 
-    for (const file of filesInSourcedir) {
-      const metastr = readFileSync(join(this.flags.sourcedir, file), { encoding: "utf8" });
+    for (const dir of dirsInSourcedir) {
+      const dirForEachSource = readdirSync(join(this.flags.sourcedir, dir));
+      const metaFile = dirForEachSource.find((element) => element.includes(dir));
+      const metastr = readFileSync(join(this.flags.sourcedir, dir, metaFile), { encoding: "utf8" });
       let row = [];
 
-      if (!this.isCustomObject(file)) {
+      if (!this.isCustomObject(dir)) {
         continue;
       }
 

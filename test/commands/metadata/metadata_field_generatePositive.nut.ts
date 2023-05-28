@@ -83,5 +83,6 @@ describe("FieldPositiveTest", () => {
         shell.rm(path.join(outputDir, file));
       }
     });
+    shell.rm("../template.csv");
   });
 });

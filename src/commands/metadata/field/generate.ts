@@ -157,17 +157,13 @@ export default class generate extends SfdxCommand {
       }
       tagStrs.push(tagStr);
     }
-    metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
 
     if (row[indexOfType] === "Picklist" || row[indexOfType] === "MultiselectPicklist") {
       const idxOfPicklistFullName = header.indexOf("picklistFullName");
       const idxOfPicklistLabel = header.indexOf("picklistLabel");
-      metaStr +=
-        "\n" +
-        this.getIndentation(generate.indentationLength) +
-        this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel], header, rowIndex);
+      tagStrs.push(this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel], header, rowIndex));
     }
-
+    metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
     metaStr += "\n</CustomField>";
     return metaStr;
   }
