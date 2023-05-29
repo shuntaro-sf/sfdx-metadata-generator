@@ -34,12 +34,30 @@ describe("ObjectTemplateTest", () => {
   });
 
   after(async () => {
+    const input = "../" + inputFileName;
+    const csv = fs
+      .readFileSync(input, {
+        encoding: "utf8",
+      })
+      .toString()
+      .split("\n")
+      .map((e) => e.trim())
+      .map((e) => e.split(",").map((e) => e.trim()));
+
+    const header = csv[0];
+    const indexOfFullName = header.indexOf("fullName");
+    let fullNames = [];
+    csv.forEach((row) => {
+      fullNames.push(row[indexOfFullName]);
+    });
+
     fs.readdir(outputDir, (err, files) => {
       if (err) throw err;
       for (const file of files) {
-        shell.rm(path.join(outputDir, file));
+        if (fullNames.includes(file)) {
+          shell.rm("-r", path.join(outputDir, file));
+        }
       }
     });
-    // await exec("echo y | sfdx force:org:delete -u test");
   });
 });

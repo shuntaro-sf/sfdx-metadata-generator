@@ -1,5 +1,5 @@
 {
-  "commandDescription": "Updates profile metadata converting values in a csv file to xml files.",
+  "commandDescription": "Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.",
   "inputFlagDescription": "input file to be converted to xml files",
   "outputdirFlagDescription": "output directory where metadata are saved",
   "sourceFlagDescription": "directory where source files you convert are stored",

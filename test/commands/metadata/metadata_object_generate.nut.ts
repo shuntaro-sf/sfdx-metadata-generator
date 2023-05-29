@@ -40,9 +40,11 @@ describe("ObjectTest", () => {
       .map((e) => e.trim())
       .map((e) => e.split(",").map((e) => e.trim()));
 
+    const header = csv[0];
+    const indexOfFullName = header.indexOf("fullName");
     let fullNames = [];
     csv.forEach((row) => {
-      fullNames.push(row[0]);
+      fullNames.push(row[indexOfFullName]);
     });
 
     fs.readdir(outputDir, (err, files) => {

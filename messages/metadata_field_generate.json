@@ -1,5 +1,5 @@
 {
-  "commandDescription": "Generates custom field metadata converting values in a csv file to xml files.",
+  "commandDescription": "Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.",
   "inputFlagDescription": "input file to be converted to xml files",
   "outputdirFlagDescription": "output directory where metadata are saved",
   "updatesFlagDescription": "whether update existing xml files in outputdir or not",
@@ -46,9 +46,13 @@
   "validationLengthEncryptedTextMax": "length must be an integer less than or equal to 175.",
   "validationMaskCharOptions": "maskChar must be asterisk or X.",
   "validationMaskTypeOptions": "unique must be one of the followings: ",
-  "validationPicklistFullNameMax": "The number of picklistFullNames must be equal to the one of picklistLebels.",
-  "validationPicklistLabelMax": "The number of picklistLabels must be equal to the one of picklistFullNames.",
+  "validationPicklistFullNameNumber": "The number of picklistFullNames must be equal to the one of picklistLebels.",
+  "validationPicklistLabelNumber": "The number of picklistLabels must be equal to the one of picklistFullNames.",
   "validationPicklistFullNameBlank": "picklistFullName must not be blank.",
   "validationPicklistLabelBlank": "picklistLabel must not be blank.",
+  "validationPicklistFullNameMax": "Length of picklistFullName must be less than or equal to 255.",
+  "validationPicklistLabelMax": "Length of picklistLabel must be less than or equal to 255.",
+  "validationPicklistFullNameLength": "picklistFullNames cannot exceed 1000 items",
+  "validationPicklistLabelLength": "picklistLabels cannot exceed 1000 items",
   "failureSave": "To update exiting files, Add the flag --updates to this command."
 }

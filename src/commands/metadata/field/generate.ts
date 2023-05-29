@@ -430,8 +430,14 @@ export default class generate extends SfdxCommand {
     const errorIndexForFullName = "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1);
     const errorIndexForLabel = "Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1);
     if (picklistFullNames.length !== picklistLabels.length) {
-      this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameMax"));
-      this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelMax"));
+      this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameNumber"));
+      this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelNumber"));
+    }
+    if (picklistFullNames.length > 1000) {
+      this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameLength"));
+    }
+    if (picklistLabels.length > 1000) {
+      this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistLabelLength"));
     }
     for (let idx = 0; idx < picklistFullNames.length; idx++) {
       if (picklistFullNames[idx].length === 0) {
@@ -439,6 +445,12 @@ export default class generate extends SfdxCommand {
       }
       if (picklistLabels[idx].length === 0) {
         this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelBlank"));
+      }
+      if (picklistFullNames[idx].length > 255) {
+        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelMax"));
+      }
+      if (picklistLabels[idx].length > 255) {
+        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistFullNameMax"));
       }
     }
     return validationResLenBefore == generate.validationResults.length;
