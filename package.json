@@ -1,9 +1,11 @@
 {
-  "name": "sfdx-metadata-generator",
+  "name": "@shuntaro/sfdx-metadata-generator",
   "description": "SFDX plugin to generate metadata",
-  "version": "2.1.10",
+  "version": "3.0.0",
   "author": "shuntaro.ohtsuka",
-  "bugs": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator/issues",
+  "bugs": {
+    "url": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator/issues"
+  },
   "dependencies": {
     "@oclif/core": "^1",
     "@salesforce/command": "^5",
@@ -62,7 +64,10 @@
       }
     }
   },
-  "repository": "https://github.com/shuntaro-sfdx/sfdx-metadata-generator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuntaro-sfdx/sfdx-metadata-generator.git"
+  },
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint src/**/*.ts test/**/*.ts",
@@ -73,5 +78,11 @@
     "test": "nyc --extension .ts --require ts-node/register mocha --forbid-only \"test/**/*.test.ts\"",
     "test:nuts": "nyc --extension .ts --require ts-node/register mocha --forbid-only \"test/**/*.nut.ts\" --timeout 100000",
     "version": "oclif readme && git add README.md"
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
   }
 }
