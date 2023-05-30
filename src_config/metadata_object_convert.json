@@ -2,6 +2,7 @@
   "header": [
     "fullName",
     "label",
+    "description",
     "allowInChatterGroups",
     "deploymentStatus",
     "enableActivities",

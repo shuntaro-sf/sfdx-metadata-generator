@@ -13,10 +13,10 @@
   "validationFullNameTail": "fullName: API Name must end with '__c'.",
   "validationFullNameUnderscore": "fullName: API Name cannot contain two consecutive underscore characters,",
   "validationFullNameBlank": "fullName: API Name must not be blank.",
-  "validationFullNameLength": "The length of fullName must be less than or equal to 40.",
+  "validationFullNameLength": "Length of fullName must be less than or equal to 40.",
   "validationExternalIdOptions": "externalId must be true or false.",
   "validationLabelBlank": "label: Label Name must not be blank.",
-  "validationLabelLength": "The length of label must be less than or equal to 40.",
+  "validationLabelLength": "Length of label must be less than or equal to 40.",
   "validationAllowInChatterGroupsOptions": "allowInChatterGroups value must be true or false.",
   "validationDeploymentStatusOptions": "deploymentStatus must be one of the followings: ",
   "validationEnableActivitiesOptions": "enableActivities value must be true or false.",
@@ -27,5 +27,6 @@
   "validationEnableSearchOptions": "enableSearch value must be true or false.",
   "validationEnableSharingOptions": "enableSharing value must be true or false.",
   "validationEnableStreamingApiOptions": "enableStreamingApi value must be true or false.",
+  "validationDescriptionMax": "Length of description must be less than or equal to 1000.",
   "failureSave": "To update exiting files, Add the flag --updates to this command."
 }

@@ -3,6 +3,7 @@
     "rowCheckbox": {
       "fullName": "checkbox__c",
       "label": "checkbox",
+      "description": "Checkbox field.",
       "type": "Checkbox",
       "externalId": "false",
       "required": "",
@@ -22,6 +23,7 @@
     "rowCurrency": {
       "fullName": "currency__c",
       "label": " currency",
+      "description": "Currency field.",
       "type": "Currency",
       "externalId": "",
       "required": "",
@@ -41,6 +43,7 @@
     "rowDate": {
       "fullName": "date__c",
       "label": "date",
+      "description": "Date field.",
       "type": "Date",
       "externalId": "",
       "required": "",
@@ -60,6 +63,7 @@
     "rowDatetime": {
       "fullName": "datetime__c",
       "label": "datetime",
+      "description": "Datetime field.",
       "type": "DateTime",
       "externalId": "",
       "required": "",
@@ -79,6 +83,7 @@
     "rowEmail": {
       "fullName": "email__c",
       "label": "email",
+      "description": "Email field.",
       "type": "Email",
       "externalId": "",
       "required": "",
@@ -98,6 +103,7 @@
     "rowLocation": {
       "fullName": "location__c",
       "label": "location",
+      "description": "Location field.",
       "type": "Location",
       "externalId": "",
       "required": "",
@@ -117,6 +123,7 @@
     "rowNumber": {
       "fullName": "number__c",
       "label": "number",
+      "description": " Number field.",
       "type": "Number",
       "externalId": "",
       "required": "",
@@ -136,6 +143,7 @@
     "rowPercent": {
       "fullName": "percent__c",
       "label": "percent",
+      "description": "Precent field.",
       "type": "Percent",
       "externalId": "",
       "required": "",
@@ -155,6 +163,7 @@
     "rowPhone": {
       "fullName": "phone__c",
       "label": "phone",
+      "description": "Phone field.",
       "type": "Phone",
       "externalId": "",
       "required": "",
@@ -174,6 +183,7 @@
     "rowPicklist": {
       "fullName": "picklist__c",
       "label": "picklist",
+      "description": "Picklist field.",
       "type": "Picklist",
       "externalId": "",
       "required": "",
@@ -193,6 +203,7 @@
     "rowMultiselectPicklist": {
       "fullName": "multiselectPicklist__c",
       "label": "multiselectPicklist",
+      "description": "MultiselectPicklist field.",
       "type": "MultiselectPicklist",
       "externalId": "",
       "required": "",
@@ -212,6 +223,7 @@
     "rowText": {
       "fullName": "text__c",
       "label": "text",
+      "description": "Text field.",
       "type": "Text",
       "externalId": "",
       "required": "",
@@ -231,6 +243,7 @@
     "rowTextArea": {
       "fullName": "textArea__c",
       "label": "textArea",
+      "description": "TextArea field.",
       "type": "TextArea",
       "externalId": "",
       "required": "",
@@ -250,6 +263,7 @@
     "rowLongTextArea": {
       "fullName": "longTextArea__c",
       "label": "longTextArea",
+      "description": "LongTextArea field.",
       "type": "LongTextArea",
       "externalId": "",
       "required": "",
@@ -269,6 +283,7 @@
     "rowHtml": {
       "fullName": "html__c",
       "label": "html",
+      "description": "Html field.",
       "type": "Html",
       "externalId": "",
       "required": "",
@@ -288,6 +303,7 @@
     "rowEncryptedText": {
       "fullName": "encryptedText__c",
       "label": "encryptedText",
+      "description": "EncryptedText field.",
       "type": "EncryptedText",
       "externalId": "",
       "required": "",
@@ -307,6 +323,7 @@
     "rowTime": {
       "fullName": "time__c",
       "label": "time",
+      "description": "Time field.",
       "type": "Time",
       "externalId": "",
       "required": "",
@@ -326,6 +343,7 @@
     "rowUrl": {
       "fullName": "url__c",
       "label": "url",
+      "description": "Url field.",
       "type": "Url",
       "externalId": "",
       "required": "",

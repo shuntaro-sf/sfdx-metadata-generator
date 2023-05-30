@@ -150,6 +150,11 @@ export default class generate extends SfdxCommand {
     for (const tag in generate.defaultValues[type]) {
       const indexOfTag = header.indexOf(tag);
 
+      // dose not include tag at the header
+      if (indexOfTag === -1) {
+        continue;
+      }
+
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
         continue;
@@ -274,6 +279,11 @@ export default class generate extends SfdxCommand {
           if (row[indexOfTag].length > 42 + dobleQuotesCounter) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
           }
+        }
+        break;
+      case "description":
+        if (row[indexOfTag].length > 1000) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationDescriptionMax"));
         }
         break;
       case "required":
@@ -437,7 +447,7 @@ export default class generate extends SfdxCommand {
       this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameLength"));
     }
     if (picklistLabels.length > 1000) {
-      this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistLabelLength"));
+      this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelLength"));
     }
     for (let idx = 0; idx < picklistFullNames.length; idx++) {
       if (picklistFullNames[idx].length === 0) {
@@ -447,10 +457,10 @@ export default class generate extends SfdxCommand {
         this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelBlank"));
       }
       if (picklistFullNames[idx].length > 255) {
-        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelMax"));
+        this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameMax"));
       }
       if (picklistLabels[idx].length > 255) {
-        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistFullNameMax"));
+        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelMax"));
       }
     }
     return validationResLenBefore == generate.validationResults.length;

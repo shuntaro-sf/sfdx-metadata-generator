@@ -15,7 +15,8 @@
     "enableReports": "false",
     "enableSearch": "false",
     "enableSharing": "true",
-    "enableStreamingApi": "true"
+    "enableStreamingApi": "true",
+    "description": null
   },
   "isRequired": {
     "fullName": true,
@@ -28,7 +29,8 @@
     "enableReports": false,
     "enableSearch": false,
     "enableSharing": false,
-    "enableStreamingApi": false
+    "enableStreamingApi": false,
+    "description": false
   },
   "metaSettings": {
     "actionOverrides": {
@@ -79,7 +81,8 @@
     "enableStreamingApi",
     "nameFieldType",
     "nameFieldLabel",
-    "nameFieldDisplayFormat"
+    "nameFieldDisplayFormat",
+    "description"
   ],
   "resolveJsonModule": true
 }

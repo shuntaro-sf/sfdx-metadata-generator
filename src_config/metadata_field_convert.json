@@ -2,6 +2,7 @@
   "header": [
     "fullName",
     "label",
+    "description",
     "type",
     "externalId",
     "required",

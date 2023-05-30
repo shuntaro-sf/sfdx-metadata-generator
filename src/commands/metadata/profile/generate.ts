@@ -118,6 +118,11 @@ export default class generate extends SfdxCommand {
       const indexOfTag = header.indexOf(tag);
       const keyTag = generate.permissionTags[type]["keyTag"];
 
+      // dose not include tag at the header
+      if (indexOfTag === -1) {
+        continue;
+      }
+
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
         continue;

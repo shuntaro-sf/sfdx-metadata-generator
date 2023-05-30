@@ -79,7 +79,6 @@ export default class generate extends SfdxCommand {
     if (!existsSync(this.flags.outputdir)) {
       throw new SfError(messages.getMessage("errorPathOfOutput") + this.flags.outputdir);
     }
-    console.log(this.flags.delimiter);
     if (this.flags.delimiter === undefined) {
       this.flags.delimiter = generate.delimiter;
     }
@@ -139,6 +138,11 @@ export default class generate extends SfdxCommand {
 
     for (const tag in generate.defaultValues) {
       const indexOfTag = header.indexOf(tag);
+
+      // dose not include tag at the header
+      if (indexOfTag === -1) {
+        continue;
+      }
 
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
@@ -266,6 +270,11 @@ export default class generate extends SfdxCommand {
           if (row[indexOfTag].length > 42 + dobleQuotesCounter) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
           }
+        }
+        break;
+      case "description":
+        if (row[indexOfTag].length > 1000) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationDescriptionMax"));
         }
         break;
       case "allowInChatterGroups":

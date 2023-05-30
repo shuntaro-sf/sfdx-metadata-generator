@@ -4,7 +4,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 const alias = "sfdxPluginTest";
-const inputFileName = "input.csv";
+const inputFileName = "field_input.csv";
 const inputToUpdateFileName = "field_inputToUpdate.csv";
 const outputDir = "force-app/main/default/objects/Account/fields/";
 

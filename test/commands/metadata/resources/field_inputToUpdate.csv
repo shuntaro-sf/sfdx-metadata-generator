@@ -1,19 +1,19 @@
-﻿fullName,label,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel
-checkbox__c,checkbox,Checkbox,FALSE,,,FALSE,,,,,,,,,,
-currency__c,currency,Currency,,,,,,,0,18,,,,,,
-date__c,date,Date,,,,,,,,,,,,,,
-datetime__c,datetime,DateTime,,,,,,,,,,,,,,
-email__c,email,Email,,,,,,,,,,,,,,
-location__c,location,Location,,,,,,FALSE,6,,,,,,,
-number__c,number,Number,,,,,,,0,18,,,,,,
-percent__c,percent,Percent,,,,,,,,,,,,,,
-phone__c,phone,Phone,,,,,,,,,,,,,,
-picklist__c,picklist,Picklist,,,,,,,,,,,,,Yes;No,yes;no
-multiselectPicklist__c,multiselectpicklist,MultiselectPicklist,,,,,,,,,4,,,,a;b;c,a;b;c
-text__c,text,Text,,,,,,,,,,255,,,,
-textArea__c,textArea,TextArea,,,,,,,,,,255,,,,
-longTextArea__c,longTextArea,LongTextArea,,,,,,,,,3,1000,,,,
-html__c,html,Html,,,,,,,,,10,1000,,,,
-encryptedText__c,encryptedText,EncryptedText,,,,,,,,,,100,asterisk,all,,
-time__c,time,Time,,,,,,,,,,,,,,
-url__c,url,Url,,,,,,,,,,,,,,
+﻿fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel
+checkbox__c,checkbox,Checkbox field.,Checkbox,FALSE,,,FALSE,,,,,,,,,,
+currency__c,currency,Currency field.,Currency,,,,,,,0,18,,,,,,
+date__c,date,Date field.,Date,,,,,,,,,,,,,,
+datetime__c,datetime,Datetime field.,DateTime,,,,,,,,,,,,,,
+email__c,email,Email field.,Email,,,,,,,,,,,,,,
+location__c,location,Location field.,Location,,,,,,FALSE,6,,,,,,,
+number__c,number,Number field.,Number,,,,,,,0,18,,,,,,
+percent__c,percent,Percent field.,Percent,,,,,,,,,,,,,,
+phone__c,phone,Phone field.,Phone,,,,,,,,,,,,,,
+picklist__c,picklist,Picklist field.,Picklist,,,,,,,,,,,,,Yes;No,yes;no
+multiselectPicklist__c,multiselectpicklist,MultiselectPicklist field.,MultiselectPicklist,,,,,,,,,4,,,,a;b;c,a;b;c
+text__c,text,Text field.,Text,,,,,,,,,,255,,,,
+textArea__c,textArea,TextArea field.,TextArea,,,,,,,,,,255,,,,
+longTextArea__c,longTextArea,LongTextArea field.,LongTextArea,,,,,,,,,3,1000,,,,
+html__c,html,Html field.,Html,,,,,,,,,10,1000,,,,
+encryptedText__c,encryptedText,EncryptedText field.,EncryptedText,,,,,,,,,,100,asterisk,all,,
+time__c,time,Time field.,Time,,,,,,,,,,,,,,
+url__c,url,Url field.,Url,,,,,,,,,,,,,,

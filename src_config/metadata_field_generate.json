@@ -20,7 +20,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Currency": {
       "fullName": null,
@@ -37,7 +38,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Date": {
       "fullName": null,
@@ -54,7 +56,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "DateTime": {
       "fullName": null,
@@ -71,7 +74,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Email": {
       "fullName": null,
@@ -88,7 +92,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Location": {
       "fullName": null,
@@ -105,7 +110,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Number": {
       "fullName": null,
@@ -122,7 +128,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Percent": {
       "fullName": null,
@@ -139,7 +146,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Phone": {
       "fullName": null,
@@ -156,7 +164,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Picklist": {
       "fullName": null,
@@ -173,7 +182,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "MultiselectPicklist": {
       "fullName": null,
@@ -190,7 +200,8 @@
       "visibleLines": "4",
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Text": {
       "fullName": null,
@@ -207,7 +218,8 @@
       "visibleLines": null,
       "length": "255",
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "TextArea": {
       "fullName": null,
@@ -224,7 +236,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "LongTextArea": {
       "fullName": null,
@@ -241,7 +254,8 @@
       "visibleLines": "3",
       "length": "32768",
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Html": {
       "fullName": null,
@@ -258,7 +272,8 @@
       "visibleLines": "25",
       "length": "32768",
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "EncryptedText": {
       "fullName": null,
@@ -275,7 +290,8 @@
       "visibleLines": null,
       "length": "175",
       "maskChar": "asterisk",
-      "maskType": "all"
+      "maskType": "all",
+      "description": null
     },
     "Time": {
       "fullName": null,
@@ -292,7 +308,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     },
     "Url": {
       "fullName": null,
@@ -309,7 +326,8 @@
       "visibleLines": null,
       "length": null,
       "maskChar": null,
-      "maskType": null
+      "maskType": null,
+      "description": null
     }
   },
   "isRequired": {
@@ -328,7 +346,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Currency": {
       "fullName": true,
@@ -345,7 +364,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Date": {
       "fullName": true,
@@ -362,7 +382,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "DateTime": {
       "fullName": true,
@@ -379,7 +400,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Email": {
       "fullName": true,
@@ -396,7 +418,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Location": {
       "fullName": true,
@@ -413,7 +436,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Number": {
       "fullName": true,
@@ -430,7 +454,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Percent": {
       "fullName": true,
@@ -447,7 +472,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Phone": {
       "fullName": true,
@@ -464,7 +490,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Picklist": {
       "fullName": true,
@@ -481,7 +508,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "MultiselectPicklist": {
       "fullName": true,
@@ -498,7 +526,8 @@
       "visibleLines": true,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Text": {
       "fullName": true,
@@ -515,7 +544,8 @@
       "visibleLines": false,
       "length": true,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "TextArea": {
       "fullName": true,
@@ -532,7 +562,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "LongTextArea": {
       "fullName": true,
@@ -549,7 +580,8 @@
       "visibleLines": true,
       "length": true,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Html": {
       "fullName": true,
@@ -566,7 +598,8 @@
       "visibleLines": true,
       "length": true,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "EncryptedText": {
       "fullName": true,
@@ -583,7 +616,8 @@
       "visibleLines": false,
       "length": true,
       "maskChar": true,
-      "maskType": true
+      "maskType": true,
+      "description": false
     },
     "Time": {
       "fullName": true,
@@ -600,7 +634,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     },
     "Url": {
       "fullName": true,
@@ -617,7 +652,8 @@
       "visibleLines": false,
       "length": false,
       "maskChar": false,
-      "maskType": false
+      "maskType": false,
+      "description": false
     }
   },
   "options": {
@@ -671,7 +707,8 @@
     "maskChar",
     "maskType",
     "picklistFullName",
-    "picklistLabel"
+    "picklistLabel",
+    "description"
   ],
   "resolveJsonModule": true
 }

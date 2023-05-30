@@ -3,6 +3,7 @@
     "rowText": {
       "fullName": "CustomObject__c",
       "label": "CustomObject",
+      "description": "Custom object.",
       "allowInChatterGroups": "false",
       "deploymentStatus": "Deployed",
       "enableActivities": "false",
@@ -19,6 +20,7 @@
     "rowAutoNumber": {
       "fullName": "CustomObject_AutoNumber__c",
       "label": "CustomObject",
+      "description": "Custom object.",
       "allowInChatterGroups": "true",
       "deploymentStatus": "InDevelopment",
       "enableActivities": "true",
