@@ -18,7 +18,7 @@ Messages.importMessagesDirectory(__dirname);
 
 // Load the specific messages for this file. Messages from @salesforce/command, @salesforce/core,
 // or any library that is using the messages framework can also be loaded this way.
-const messages = Messages.loadMessages("sfdx-metadata-generator", "metadata_field_template");
+const messages = Messages.loadMessages("@shuntaro/sfdx-metadata-generator", "metadata_field_template");
 
 export default class template extends SfdxCommand {
   public static description = messages.getMessage("commandDescription");
