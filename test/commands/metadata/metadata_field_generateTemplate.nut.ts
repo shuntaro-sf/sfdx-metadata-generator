@@ -5,7 +5,7 @@ import * as path from "path";
 
 const alias = "sfdxPluginTest";
 const inputFileName = "template.csv";
-const outputDir = "force-app/main/default/objects/Account/fields/";
+const outputDir = "force-app/main/default/objects/Custom_Object__c/fields/";
 
 describe("FieldTemplateTest", () => {
   //let testSession: TestSession;

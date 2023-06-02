@@ -160,6 +160,11 @@ export default class generate extends SfdxCommand {
         continue;
       }
 
+      // when not applicable tag is set
+      if (generate.isRequired[type][tag] === null && generate.defaultValues[type][tag] === null) {
+        continue;
+      }
+      // to omit tag that dosent need to be xml tag
       if (!generate.isRequired[type][tag] && generate.defaultValues[type][tag] === null) {
         continue;
       }
@@ -236,13 +241,17 @@ export default class generate extends SfdxCommand {
     const type = row[indexOfType];
     const indexOfTag = header.indexOf(tag);
 
-    const regExp = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
+    const regExpForOneChar = /^[a-zA-Z]/;
+    const regExpForSnakeCase = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
     const validationResLenBefore = generate.validationResults.length;
     const errorIndex = "Row" + (rowIndex + 1) + "Col" + (indexOfTag + 1);
 
     switch (tag) {
       case "fullName":
-        if (!regExp.test(row[indexOfTag])) {
+        if (
+          (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
+          (row[indexOfTag].length == 1 && !regExpForOneChar.test(row[indexOfTag]))
+        ) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
         }
         if (row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) !== "__c") {
@@ -289,6 +298,13 @@ export default class generate extends SfdxCommand {
       case "required":
         if (!generate.options.required.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
           this.pushValidationResult(errorIndex, messages.getMessage("validationRequiredOptions"));
+        }
+        break;
+      case "trackHistory":
+        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+          if (!generate.options.trackTrending.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationTrackHistoryOptions"));
+          }
         }
         break;
       case "trackTrending":
@@ -426,6 +442,94 @@ export default class generate extends SfdxCommand {
         if (type === "EncryptedText" && row[indexOfTag] !== "") {
           if (!generate.options.maskType.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
             this.pushValidationResult(errorIndex, messages.getMessage("validationMaskTypeOptions") + generate.options.maskType.toString());
+          }
+        }
+        break;
+      case "caseSensitive":
+        if (type === "Text" && row[indexOfTag] !== "") {
+          if (!generate.options.caseSensitive.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationCaseSensitiveOptions"));
+          }
+        }
+        break;
+      case "referenceTo":
+        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+          const isCustomField = row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) == "__c";
+          if (
+            (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
+            (row[indexOfTag].length == 1 && !regExpForOneChar.test(row[indexOfTag]))
+          ) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationReferenceToFormat"));
+          }
+          if ((!isCustomField && row[indexOfTag].split("__").length > 1) || (isCustomField && row[indexOfTag].split("__").length > 2)) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationReferenceToUnderscore"));
+          }
+          if (row[indexOfTag].length === 0) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationReferenceToBlank"));
+          }
+          if ((!isCustomField && row[indexOfTag].length > 40) || (isCustomField && row[indexOfTag].length > 43)) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationReferenceToLength"));
+          }
+        }
+        break;
+      case "relationshipName":
+        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+          const isCustomField = row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) == "__c";
+          if (
+            (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
+            (row[indexOfTag].length == 1 && !regExpForOneChar.test(row[indexOfTag]))
+          ) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationRelationshipNameFormat"));
+          }
+          if ((!isCustomField && row[indexOfTag].split("__").length > 1) || (isCustomField && row[indexOfTag].split("__").length > 2)) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationRelationshipNameUnderscore"));
+          }
+          if (row[indexOfTag].length === 0) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationRelationshipNameBlank"));
+          }
+          if (row[indexOfTag].length > 40) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationRelationshipNameLength"));
+          }
+        }
+        break;
+      case "relationshipLabel":
+        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+          if (row[indexOfTag].length > 80) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationRelationshipLabelLength"));
+          }
+        }
+        break;
+      case "relationshipOrder":
+        if (type === "MasterDetail" && row[indexOfTag] !== "") {
+          if (!generate.options.relationshipOrder.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+            this.pushValidationResult(
+              errorIndex,
+              messages.getMessage("validationRelationshipOrderOptions") + generate.options.relationshipOrder.toString()
+            );
+          }
+        }
+        break;
+      case "deleteConstraint":
+        if (type === "Lookup" && row[indexOfTag] !== "") {
+          if (!generate.options.deleteConstraint.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+            this.pushValidationResult(
+              errorIndex,
+              messages.getMessage("validationDeleteConstraintOptions") + generate.options.deleteConstraint.toString()
+            );
+          }
+        }
+        break;
+      case "reparentableMasterDetail":
+        if (type === "MasterDetail" && row[indexOfTag] !== "") {
+          if (!generate.options.reparentableMasterDetail.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationReparentableMasterDetailOptions"));
+          }
+        }
+        break;
+      case "writeRequiresMasterRead":
+        if (type === "MasterDetail" && row[indexOfTag] !== "") {
+          if (!generate.options.writeRequiresMasterRead.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationWriteRequiresMasterReadOptions"));
           }
         }
         break;

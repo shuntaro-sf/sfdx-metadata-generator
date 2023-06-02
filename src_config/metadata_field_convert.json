@@ -17,6 +17,14 @@
     "maskChar",
     "maskType",
     "picklistFullName",
-    "picklistLabel"
+    "picklistLabel",
+    "trackHistory",
+    "referenceTo",
+    "relationshipLabel",
+    "relationshipName",
+    "relationshipOrder",
+    "deleteConstraint",
+    "reparentableMasterDetail",
+    "writeRequiresMasterRead"
   ]
 }

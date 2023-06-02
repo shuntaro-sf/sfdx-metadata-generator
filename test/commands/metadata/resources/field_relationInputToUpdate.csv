@@ -1,0 +1,3 @@
+﻿fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,trackHistory,referenceTo,relationshipName,relationshipLabel,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,accountLookup,account lookup,,Cascade,,
+masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,0,,true,true

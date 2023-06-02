@@ -152,6 +152,11 @@ export default class generate extends SfdxCommand {
         continue;
       }
 
+      // when not applicable tag is set
+      if (generate.isRequired[tag] === null && generate.defaultValues[tag] === null) {
+        continue;
+      }
+      // to omit tag that dosent need to be xml tag
       if (!generate.isRequired[tag] && generate.defaultValues[tag] === null) {
         continue;
       }
