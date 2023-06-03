@@ -139,11 +139,10 @@ export default class generate extends SfdxCommand {
     for (const tag in generate.defaultValues) {
       const indexOfTag = header.indexOf(tag);
 
-      // dose not include tag at the header
-      if (indexOfTag === -1) {
+      // dose not include tag at the header and the tag is not required
+      if (indexOfTag === -1 && generate.isRequired[tag] === null) {
         continue;
       }
-
       //validates inputs
       if (!this.isValidInputs(tag, row, header, rowIndex)) {
         continue;
@@ -161,10 +160,12 @@ export default class generate extends SfdxCommand {
         continue;
       }
 
-      // convert special characters in the html form
-      row[indexOfTag] = this.convertSpecialChars(row[indexOfTag]);
-      // format boolean string in a xml format
-      this.formatBoolean(tag, row, indexOfTag);
+      if (indexOfTag !== -1) {
+        // convert special characters in the html form
+        row[indexOfTag] = this.convertSpecialChars(row[indexOfTag]);
+        // format boolean string in a xml format
+        this.formatBoolean(tag, row, indexOfTag);
+      }
 
       let tagStr = "";
       if (row[indexOfTag] != "") {
@@ -247,6 +248,10 @@ export default class generate extends SfdxCommand {
     const regExp = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
     const validationResLenBefore = generate.validationResults.length;
     const errorIndex = "Row" + (rowIndex + 1) + "Col" + (indexOfTag + 1);
+
+    if (indexOfTag === -1) {
+      return true;
+    }
 
     switch (tag) {
       case "fullName":
