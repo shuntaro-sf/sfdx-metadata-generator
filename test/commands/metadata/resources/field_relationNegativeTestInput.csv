@@ -1,14 +1,13 @@
-fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,trackHistory,referenceTo,relationshipName,relationshipLabel,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,bar,Account,accountLookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,&'()(),accountLookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,AccountAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,accountLookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account__ddd,accountLookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,AccountAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA__c,accountLookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,accountLookupaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,&&&&accountLookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,account__Lookup,account lookup,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,accountLookup,accountlookupaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,Cascade,,
-lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,accountLookup,account lookup,false,bar,,
-masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,bar,,true,true
-masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,0,,bar,true
-masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,0,,true,bar
+fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,referenceTo,relationshipName,relationshipLabel,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,&'()(),accountLookup,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,AccountAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,accountLookup,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account__ddd,accountLookup,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,AccountAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA__c,accountLookup,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,accountLookupaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,&&&&accountLookup,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,account__Lookup,account lookup,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,accountLookup,accountlookupaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,Cascade,,
+lookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,accountLookup,account lookup,false,bar,,
+masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,bar,,true,true
+masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,0,,bar,true
+masterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,0,,true,bar

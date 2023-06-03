@@ -175,7 +175,7 @@ export default class generate extends SfdxCommand {
       tagStrs.push(tagStr);
     }
 
-    this.pushNameFieldMetaStr(tagStrs, row, header);
+    this.pushNameFieldMetaStr(tagStrs, row, header, rowIndex);
     // metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
     this.pushMetaStrSettings(tagStrs);
     tagStrs.sort();
@@ -217,12 +217,17 @@ export default class generate extends SfdxCommand {
     }
   }
 
-  private pushNameFieldMetaStr(tagStrs: string[], row: string[], header: string[]) {
+  private pushNameFieldMetaStr(tagStrs: string[], row: string[], header: string[], rowIndex: number) {
     let nameFieldMetaStr = "<nameField>\n" + this.getIndentation(2 * generate.indentationLength);
     const indexOfNameFieldType = header.indexOf("nameFieldType");
     const indexOfNameFieldLabel = header.indexOf("nameFieldLabel");
+
+    if (!this.isValidInputsForNameField(row, header, rowIndex)) {
+      return nameFieldMetaStr;
+    }
+
     const nameFieldType = row[indexOfNameFieldType];
-    const nemeFieldLabel = row[indexOfNameFieldLabel];
+    const nemeFieldLabel = this.convertSpecialChars(row[indexOfNameFieldLabel]);
 
     nameFieldMetaStr += "<label>" + nemeFieldLabel + "</label>\n" + this.getIndentation(2 * generate.indentationLength);
     nameFieldMetaStr += "<trackHistory>false</trackHistory>\n" + this.getIndentation(2 * generate.indentationLength);
@@ -330,7 +335,73 @@ export default class generate extends SfdxCommand {
           this.pushValidationResult(errorIndex, messages.getMessage("validationEnableStreamingApiOptions"));
         }
         break;
+      case "nameFieldType":
+        if (!generate.options.nameFieldType.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationNameFieldTypeOptions") + generate.options.nameFieldType.toString());
+        }
+        break;
     }
+    return validationResLenBefore == generate.validationResults.length;
+  }
+
+  private isValidInputsForNameField(row: string[], header: string[], rowIndex: number): boolean {
+    const validationResLenBefore = generate.validationResults.length;
+
+    const indexOfType = header.indexOf("nameFieldType");
+    const indexOfLabel = header.indexOf("nameFieldLabel");
+    const indexOfDisplayFormat = header.indexOf("nameFieldDisplayFormat");
+    const type = row[indexOfType];
+    const errorIndexForType = "Row" + (rowIndex + 1) + "Col" + (indexOfType + 1);
+    const errorIndexForLabel = "Row" + (rowIndex + 1) + "Col" + (indexOfLabel + 1);
+    const errorIndexForDisplayFormat = "Row" + (rowIndex + 1) + "Col" + (indexOfDisplayFormat + 1);
+
+    // when nameFieldLabel is not found
+    if (indexOfLabel === -1) {
+      this.pushValidationResult(errorIndexForType, messages.getMessage("validationNoNameFieldLabel"));
+    }
+
+    const doubleQuotation = /["]/;
+    if (row[indexOfLabel].length === 0) {
+      this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelBlank"));
+    }
+    if (!doubleQuotation.test(row[indexOfLabel])) {
+      if (row[indexOfLabel].length > 80) {
+        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelLengthFormat"));
+      }
+    } else {
+      const dobleQuotesCounter = row[indexOfLabel].match(/""/g).length;
+      if (row[indexOfLabel].length > 82 + dobleQuotesCounter) {
+        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelLengthFormat"));
+      }
+    }
+
+    if (type === "AutoNumber") {
+      const invalidChars = ['"', "'", "&", "<", ">", ";", ":", "\\"];
+      const regExpInvalidChars = new RegExp("[" + invalidChars.join("").replace("\\", "\\\\") + "]+");
+      const regExpNumber = /{(0+)}/;
+      const formatNumber = row[indexOfDisplayFormat].match(regExpNumber);
+
+      // when nameFieldDisplayFormat is not found
+      if (indexOfDisplayFormat === -1) {
+        this.pushValidationResult(errorIndexForType, messages.getMessage("validationNoNameFieldDisplayFormat"));
+      }
+
+      if (regExpInvalidChars.test(row[indexOfDisplayFormat])) {
+        this.pushValidationResult(
+          errorIndexForDisplayFormat,
+          messages.getMessage("validationNameFieldDisplayFormatInvalidChar") + invalidChars.toString()
+        );
+      }
+      if (formatNumber === null) {
+        this.pushValidationResult(errorIndexForDisplayFormat, messages.getMessage("validationNameFieldDisplayFormatFormat"));
+      } else if (formatNumber[1].length > 10) {
+        this.pushValidationResult(errorIndexForDisplayFormat, messages.getMessage("validationNameFieldDisplayFormatDigits"));
+      }
+      if (row[indexOfDisplayFormat].length > 30) {
+        this.pushValidationResult(errorIndexForDisplayFormat, messages.getMessage("validationNameFieldDisplayFormatLength"));
+      }
+    }
+
     return validationResLenBefore == generate.validationResults.length;
   }
 

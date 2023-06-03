@@ -1,4 +1,4 @@
-fullName,label,description,allowInChatterGroups,deploymentStatus,enableActivities,enableBulkApi,enableHistory,enableReports,enableSearch,enableSharing,enableStreamingApi,nameFieldType,nameFieldLabel,nameFieldDisplay
+fullName,label,description,allowInChatterGroups,deploymentStatus,enableActivities,enableBulkApi,enableHistory,enableReports,enableSearch,enableSharing,enableStreamingApi,nameFieldType,nameFieldLabel,nameFieldDisplayFormat
 ,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,Text,customObjectName,
 CustomObject_AutoNumber,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,AutoNumber,AutoNumberObj,customObjectName-{0000}
 _ccccobj__c,obj,object description,true,InDevelopment,true,true,true,true,true,true,true,Text,objName,
@@ -15,4 +15,8 @@ CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,b
 CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,bar,false,false,Text,CustomObjectName,
 CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,bar,false,Text,CustomObjectName,
 CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,bar,Text,CustomObjectName,
-CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,bar,bar,CustomObjectName,
+CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,bar,CustomObjectName,
+CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,AutoNumber,AutoNumberObj,""-{0000}
+CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,AutoNumber,AutoNumberObj,<-{0000}
+CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,AutoNumber,AutoNumberObj,Auto-{000000000000000000}
+CustomObject__c,CustomObject,object description,true,Deployed,false,false,true,true,true,false,false,AutoNumber,AutoNumberObj,Autoooooooooooooooooooooooooooooooooooooooooo-{0000}

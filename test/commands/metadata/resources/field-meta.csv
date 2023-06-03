@@ -1,9 +1,9 @@
-fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,trackHistory,referenceTo,relationshipLabel,relationshipName,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
-fifthlookup__c,lookup,,Lookup,false,false,,,false,,,,,,,,,,false,Account,aaaaaaaaaaaaaaaaaaaaaaaa,aaaaaa,,SetNull,,
-firstlookup__c,lookup,,Lookup,false,false,,,false,,,,,,,,,,false,Account,account lookup,accountLookup,,SetNull,,
-fourthlookup__c,lookup,,Lookup,false,false,,,false,,,,,,,,,,false,Account,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaaaa,,Restrict,,
-ninethmasterDetail__c,masterDetail,,MasterDetail,false,,,,false,,,,,,,,,,false,Opportunity,account masterDetail,accountMasterDetail,1,,true,false
-secondlookup__c,lookup,,Lookup,false,false,,,false,,,,,,,,,,false,Account,account lookup,a,,Restrict,,
-seventhmasterDetail__c,masterDetail,,MasterDetail,false,,,,false,,,,,,,,,,false,Account,account masterDetail,accMasterDetail,0,,true,true
-sixthlookup__c,lookup,,Lookup,false,false,,,false,,,,,,,,,,false,Account,aaaaaaaaaaaaaaaaaaaaaaaa,aaaaaaa,,Restrict,,
-thirdlookup__c,lookup,,Lookup,false,false,,,false,,,,,,,,,,false,Account,account lookup,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,Restrict,,
+fullName,label,description,type,externalId,required,unique,defaultValue,trackHistory,trackTrending,displayFormat,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,referenceTo,relationshipLabel,relationshipName,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
+eighthmasterDetail__c,masterDetail,,MasterDetail,false,,,,,false,,,,,,,,,,,Opportunity,account masterDetail,accountMasterDetail,1,,true,false
+fifthlookup__c,lookup,,Lookup,false,false,,,,false,,,,,,,,,,,Account,aaaaaaaaaaaaaaaaaaaaaaaa,aaaaaa,,SetNull,,
+firstlookup__c,lookup,,Lookup,false,false,,,,false,,,,,,,,,,,Account,account lookup,accountLookup,,SetNull,,
+fourthlookup__c,lookup,,Lookup,false,false,,,,false,,,,,,,,,,,Account,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaaaa,,Restrict,,
+secondlookup__c,lookup,,Lookup,false,false,,,,false,,,,,,,,,,,Account,account lookup,a,,Restrict,,
+seventhmasterDetail__c,masterDetail,,MasterDetail,false,,,,,false,,,,,,,,,,,Account,account masterDetail,accMasterDetail,0,,true,true
+sixthlookup__c,lookup,,Lookup,false,false,,,,false,,,,,,,,,,,Account,aaaaaaaaaaaaaaaaaaaaaaaa,aaaaaaa,,Restrict,,
+thirdlookup__c,lookup,,Lookup,false,false,,,,false,,,,,,,,,,,Account,account lookup,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,Restrict,,

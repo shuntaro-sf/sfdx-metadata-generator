@@ -63,7 +63,8 @@
     "enableReports": ["true", "false"],
     "enableSearch": ["true", "false"],
     "enableSharing": ["true", "false"],
-    "enableStreamingApi": ["true", "false"]
+    "enableStreamingApi": ["true", "false"],
+    "nameFieldType": ["Text", "AutoNumber"]
   },
   "indentationLength": 4,
   "objectExtension": "object-meta.xml",

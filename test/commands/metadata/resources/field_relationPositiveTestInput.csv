@@ -1,9 +1,9 @@
-fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,trackHistory,referenceTo,relationshipName,relationshipLabel,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
-firstlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,false,Account,accountLookup,account lookup,,SetNull,,
-secondlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,false,Account,a,account lookup,,Restrict,,
-thirdlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,false,Account,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,account lookup,,Restrict,,
-fourthlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,false,Account,aaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,Restrict,,
-fifthlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,false,Account,aaaaaa,aaaaaaaaaaaaaaaaaaaaaaaa,,SetNull,,
-sixthlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,false,Account,aaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaa,,Restrict,,
-seventhmasterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Account,accMasterDetail,account masterDetail,,,true,true
-eighthmasterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Opportunity,accountMasterDetail,account masterDetail,1,,true,false
+fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,referenceTo,relationshipName,relationshipLabel,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
+firstlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,accountLookup,account lookup,,SetNull,,
+secondlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,a,account lookup,,Restrict,,
+thirdlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,account lookup,,Restrict,,
+fourthlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,aaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,Restrict,,
+fifthlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,aaaaaa,aaaaaaaaaaaaaaaaaaaaaaaa,,SetNull,,
+sixthlookup__c,lookup,lookup field.,Lookup,,,,,,,,,,,,,,,Account,aaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaa,,Restrict,,
+seventhmasterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,Account,accMasterDetail,account masterDetail,,,true,true
+eighthmasterDetail__c,masterDetail,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,Opportunity,accountMasterDetail,account masterDetail,1,,true,false

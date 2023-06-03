@@ -269,7 +269,7 @@ export default class generate extends SfdxCommand {
         break;
       case "externalId":
         if ((type === "Number" || type === "Email" || type === "Text") && row[indexOfTag] !== "") {
-          if (!generate.options.externalId.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          if (!generate.options.externalId.includes(row[indexOfTag].toLowerCase())) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationExternalIdOptions"));
           }
         }
@@ -301,10 +301,8 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "trackHistory":
-        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
-          if (!generate.options.trackTrending.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationTrackHistoryOptions"));
-          }
+        if (!generate.options.trackTrending.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationTrackHistoryOptions"));
         }
         break;
       case "trackTrending":
@@ -321,6 +319,25 @@ export default class generate extends SfdxCommand {
         if (type === "Checkbox" && row[indexOfTag] !== "") {
           if (!generate.options.defaultValue.includes(row[indexOfTag].toLowerCase())) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationDefaultValueOptions"));
+          }
+        }
+        break;
+      case "displayFormat":
+        const invalidChars = ['"', "'", "&", "<", ">", ";", ":", "\\"];
+        const regExpInvalidChars = new RegExp("[" + invalidChars.join("").replace("\\", "\\\\") + "]+");
+        const regExpNumber = /{(0+)}/;
+        const formatNumber = row[indexOfTag].match(regExpNumber);
+        if (type === "AutoNumber" && row[indexOfTag] !== "") {
+          if (regExpInvalidChars.test(row[indexOfTag])) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayFormatInvalidChar") + invalidChars.toString());
+          }
+          if (formatNumber === null) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayFormatFormat"));
+          } else if (formatNumber[1].length > 10) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayFormatDigits"));
+          }
+          if (row[indexOfTag].length > 30) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationDisplayFormatLength"));
           }
         }
         break;
@@ -433,21 +450,21 @@ export default class generate extends SfdxCommand {
         break;
       case "maskChar":
         if (type === "EncryptedText" && row[indexOfTag] !== "") {
-          if (!generate.options.maskChar.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          if (!generate.options.maskChar.includes(row[indexOfTag])) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationMaskCharOptions"));
           }
         }
         break;
       case "maskType":
         if (type === "EncryptedText" && row[indexOfTag] !== "") {
-          if (!generate.options.maskType.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          if (!generate.options.maskType.includes(row[indexOfTag])) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationMaskTypeOptions") + generate.options.maskType.toString());
           }
         }
         break;
       case "caseSensitive":
         if (type === "Text" && row[indexOfTag] !== "") {
-          if (!generate.options.caseSensitive.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          if (!generate.options.caseSensitive.includes(row[indexOfTag])) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationCaseSensitiveOptions"));
           }
         }
@@ -501,7 +518,7 @@ export default class generate extends SfdxCommand {
         break;
       case "relationshipOrder":
         if (type === "MasterDetail" && row[indexOfTag] !== "") {
-          if (!generate.options.relationshipOrder.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          if (!generate.options.relationshipOrder.includes(row[indexOfTag])) {
             this.pushValidationResult(
               errorIndex,
               messages.getMessage("validationRelationshipOrderOptions") + generate.options.relationshipOrder.toString()
@@ -511,7 +528,7 @@ export default class generate extends SfdxCommand {
         break;
       case "deleteConstraint":
         if (type === "Lookup" && row[indexOfTag] !== "") {
-          if (!generate.options.deleteConstraint.includes(row[indexOfTag]) && row[indexOfTag] !== "") {
+          if (!generate.options.deleteConstraint.includes(row[indexOfTag])) {
             this.pushValidationResult(
               errorIndex,
               messages.getMessage("validationDeleteConstraintOptions") + generate.options.deleteConstraint.toString()
@@ -521,14 +538,14 @@ export default class generate extends SfdxCommand {
         break;
       case "reparentableMasterDetail":
         if (type === "MasterDetail" && row[indexOfTag] !== "") {
-          if (!generate.options.reparentableMasterDetail.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          if (!generate.options.reparentableMasterDetail.includes(row[indexOfTag].toLowerCase())) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationReparentableMasterDetailOptions"));
           }
         }
         break;
       case "writeRequiresMasterRead":
         if (type === "MasterDetail" && row[indexOfTag] !== "") {
-          if (!generate.options.writeRequiresMasterRead.includes(row[indexOfTag].toLowerCase()) && row[indexOfTag] !== "") {
+          if (!generate.options.writeRequiresMasterRead.includes(row[indexOfTag].toLowerCase())) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationWriteRequiresMasterReadOptions"));
           }
         }
@@ -539,10 +556,20 @@ export default class generate extends SfdxCommand {
 
   private isValidInputsForPicklist(picklistFullNames: string[], picklistLabels: string[], header: string[], rowIndex: number) {
     const validationResLenBefore = generate.validationResults.length;
+    const typeColIndex = header.indexOf("type");
     const picklistFullNamesColIndex = header.indexOf("picklistFullName");
     const picklistLabelsColIndex = header.indexOf("picklistLabel");
+    const errorIndexForType = "Row" + (rowIndex + 1) + "Col" + (typeColIndex + 1);
     const errorIndexForFullName = "Row" + (rowIndex + 1) + "Col" + (picklistFullNamesColIndex + 1);
     const errorIndexForLabel = "Row" + (rowIndex + 1) + "Col" + (picklistLabelsColIndex + 1);
+    // when picklist fullnames or labels are not found
+    if (picklistFullNames === null) {
+      this.pushValidationResult(errorIndexForType, messages.getMessage("validationNoPicklistFullName"));
+    }
+    if (picklistLabels === null) {
+      this.pushValidationResult(errorIndexForType, messages.getMessage("validationNoPicklistLabel"));
+    }
+
     if (picklistFullNames.length !== picklistLabels.length) {
       this.pushValidationResult(errorIndexForFullName, messages.getMessage("validationPicklistFullNameNumber"));
       this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelNumber"));

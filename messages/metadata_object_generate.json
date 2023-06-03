@@ -27,6 +27,15 @@
   "validationEnableSearchOptions": "enableSearch value must be true or false.",
   "validationEnableSharingOptions": "enableSharing value must be true or false.",
   "validationEnableStreamingApiOptions": "enableStreamingApi value must be true or false.",
+  "validationNameFieldTypeOptions": "nameFieldType must be one of the followings: ",
+  "validationNoNameFieldLabel": "Column of nameFieldLabel can not be found.",
+  "validationNameFieldLabelBlank": "nameFieldLabel must not be blank.",
+  "validationNameFieldLabelLengthFormat": "Length of nameFieldLabel must be less than or equal to 80.",
+  "validationNoNameFieldDisplayFormat": "Column of nameFieldDisplayFormat can not be found.",
+  "validationNameFieldDisplayFormatInvalidChar": "nameFieldDisplayFormat can not contain the following characters: ",
+  "validationNameFieldDisplayFormatFormat": "nameFieldDisplayFormat must include sequence number substitution variable. Example: A-{0000}.",
+  "validationNameFieldDisplayFormatDigits": "Digits of nameFieldDisplayFormat must be less than or equal to 10.",
+  "validationNameFieldDisplayFormatLength": "Length of nameFieldDisplayFormat must be less than or equal to 30.",
   "validationDescriptionMax": "Length of description must be less than or equal to 1000.",
   "failureSave": "To update exiting files, Add the flag --updates to this command."
 }
