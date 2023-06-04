@@ -28,6 +28,9 @@
     "relationshipOrder",
     "deleteConstraint",
     "reparentableMasterDetail",
-    "writeRequiresMasterRead"
+    "writeRequiresMasterRead",
+    "summarizedField",
+    "summaryForeignKey",
+    "summaryOperation"
   ]
 }

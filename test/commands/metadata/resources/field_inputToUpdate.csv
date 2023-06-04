@@ -18,3 +18,4 @@ html__c,html,Html field.,Html,,,,,,,,,10,1000,,,,,
 encryptedText__c,encryptedText,EncryptedText field.,EncryptedText,,,,,,,,,,100,asterisk,all,,,
 time__c,time,Time field.,Time,,,,,,,,,,,,,,,
 url__c,url,Url field.,Url,,,,,,,,,,,,,,,
+textformula__c,テキスト,Text field.,Text,,,,,,,,,,,,,,,,"aaaaaddddda",BlankAsBlank

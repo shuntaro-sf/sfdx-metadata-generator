@@ -151,12 +151,12 @@ export default class generate extends SfdxCommand {
         continue;
       }
 
-      // when not applicable tag is set
+      // when not applicable tag
       if (generate.isRequired[tag] === null && generate.defaultValues[tag] === null) {
         continue;
       }
-      // to omit tag that dosent need to be xml tag
-      if (!generate.isRequired[tag] && generate.defaultValues[tag] === null) {
+      // to omit tag that dosent need to be xml tag if blank
+      if (!generate.isRequired[tag] && generate.defaultValues[tag] === null && (indexOfTag === -1 || row[indexOfTag] === "")) {
         continue;
       }
 
@@ -245,7 +245,8 @@ export default class generate extends SfdxCommand {
   private isValidInputs(tag: string, row: string[], header: string[], rowIndex: number): boolean {
     const indexOfTag = header.indexOf(tag);
 
-    const regExp = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
+    const regExpForOneChar = /^[a-zA-Z]/;
+    const regExpForSnakeCase = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
     const validationResLenBefore = generate.validationResults.length;
     const errorIndex = "Row" + (rowIndex + 1) + "Col" + (indexOfTag + 1);
 
@@ -255,7 +256,10 @@ export default class generate extends SfdxCommand {
 
     switch (tag) {
       case "fullName":
-        if (!regExp.test(row[indexOfTag])) {
+        if (
+          (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
+          (row[indexOfTag].length == 1 && !regExpForOneChar.test(row[indexOfTag]))
+        ) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
         }
         if (row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) !== "__c") {
@@ -271,20 +275,13 @@ export default class generate extends SfdxCommand {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameLength"));
         }
         break;
+        break;
       case "label":
-        const doubleQuotation = /["]/;
         if (row[indexOfTag].length === 0) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationLabelBlank"));
         }
-        if (!doubleQuotation.test(row[indexOfTag])) {
-          if (row[indexOfTag].length > 40) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
-          }
-        } else {
-          const dobleQuotesCounter = row[indexOfTag].match(/""/g).length;
-          if (row[indexOfTag].length > 42 + dobleQuotesCounter) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
-          }
+        if (row[indexOfTag].length > 40) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
         }
         break;
       case "description":
@@ -365,19 +362,11 @@ export default class generate extends SfdxCommand {
       this.pushValidationResult(errorIndexForType, messages.getMessage("validationNoNameFieldLabel"));
     }
 
-    const doubleQuotation = /["]/;
     if (row[indexOfLabel].length === 0) {
       this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelBlank"));
     }
-    if (!doubleQuotation.test(row[indexOfLabel])) {
-      if (row[indexOfLabel].length > 80) {
-        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelLengthFormat"));
-      }
-    } else {
-      const dobleQuotesCounter = row[indexOfLabel].match(/""/g).length;
-      if (row[indexOfLabel].length > 82 + dobleQuotesCounter) {
-        this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelLengthFormat"));
-      }
+    if (row[indexOfLabel].length > 80) {
+      this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationNameFieldLabelLengthFormat"));
     }
 
     if (type === "AutoNumber") {
@@ -415,12 +404,6 @@ export default class generate extends SfdxCommand {
   }
 
   private convertSpecialChars(str: string): string {
-    const doubleQuotation = /["]/;
-    // gets rid of double-quotation on both ends
-    if (doubleQuotation.test(str)) {
-      str = str.substring(1, str.length - 1);
-    }
-    str = str.replace(/""/g, '"');
     str = str.replace(/&/g, "&" + "amp;");
     str = str.replace(/</g, "&" + "lt;");
     str = str.replace(/>/g, "&" + "gt;");

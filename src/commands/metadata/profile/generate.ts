@@ -136,6 +136,7 @@ export default class generate extends SfdxCommand {
         this.extractMetaStrsForEachKeyTag(metastr, type, keyTag);
       }
 
+      row[indexOfTag] = this.convertSpecialChars(row[indexOfTag]);
       this.formatBoolean(tag, row, indexOfTag);
 
       const permissionStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
@@ -268,6 +269,16 @@ export default class generate extends SfdxCommand {
 
   private pushValidationResult(index: string, errorMessage: string) {
     generate.validationResults.push({ INDEX: index, PROBLEM: errorMessage });
+  }
+
+  private convertSpecialChars(str: string): string {
+    str = str.replace(/&/g, "&" + "amp;");
+    str = str.replace(/</g, "&" + "lt;");
+    str = str.replace(/>/g, "&" + "gt;");
+    str = str.replace(/"/g, "&" + "quot;");
+    str = str.replace(/'/g, "&" + "#x27;");
+    str = str.replace(/`/g, "&" + "#x60;");
+    return str;
   }
 
   private saveMetaData(metastr: string) {

@@ -160,12 +160,12 @@ export default class generate extends SfdxCommand {
         continue;
       }
 
-      // when not applicable tag is set
+      // when not applicable tag
       if (generate.isRequired[type][tag] === null && generate.defaultValues[type][tag] === null) {
         continue;
       }
-      // to omit tag that dosent need to be xml tag
-      if (!generate.isRequired[type][tag] && generate.defaultValues[type][tag] === null) {
+      // to omit tag that dosent need to be xml tag if blank
+      if (!generate.isRequired[type][tag] && generate.defaultValues[type][tag] === null && (indexOfTag === -1 || row[indexOfTag] === "")) {
         continue;
       }
 
@@ -180,7 +180,7 @@ export default class generate extends SfdxCommand {
       let tagStr = "";
       if (row[indexOfTag] != "") {
         tagStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
-      } else {
+      } else if (generate.defaultValues[type][tag] !== null) {
         tagStr = "<" + tag + ">" + generate.defaultValues[type][tag] + "</" + tag + ">";
       }
       tagStrs.push(tagStr);
@@ -281,19 +281,11 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "label":
-        const doubleQuotation = /["]/;
         if (row[indexOfTag].length === 0) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationLabelBlank"));
         }
-        if (!doubleQuotation.test(row[indexOfTag])) {
-          if (row[indexOfTag].length > 40) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
-          }
-        } else {
-          const dobleQuotesCounter = row[indexOfTag].match(/""/g).length;
-          if (row[indexOfTag].length > 42 + dobleQuotesCounter) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
-          }
+        if (row[indexOfTag].length > 40) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationLabelLength"));
         }
         break;
       case "description":
@@ -372,40 +364,50 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "scale":
+        const indexOfPrecision = header.indexOf("precision");
         if ((type === "Number" || type === "Percent" || type === "Currency" || type === "Location") && row[indexOfTag] !== "") {
           if (!Number.isInteger(Number(row[indexOfTag]))) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationScaleType"));
           }
-          if (!Number.isInteger(Number(row[header.indexOf("precision")]))) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionType"));
-          }
           if (Number(row[indexOfTag]) < 0) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationScaleNegative"));
-          }
-          if (Number(row[indexOfTag]) + Number(row[header.indexOf("precision")]) > 18) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleSum"));
           }
           if (Number(row[indexOfTag]) >= 8) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationScaleComarisonPrecision"));
           }
+          if (indexOfPrecision === -1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationNoPrecision"));
+          } else {
+            if (!Number.isInteger(Number(row[indexOfPrecision]))) {
+              this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionType"));
+            }
+            if (Number(row[indexOfTag]) + Number(row[indexOfPrecision]) > 18) {
+              this.pushValidationResult(errorIndex, messages.getMessage("validationScaleSum"));
+            }
+          }
         }
         break;
       case "precision":
+        const indexOfScale = header.indexOf("scale");
         if ((type === "Number" || type === "Percent" || type === "Currency") && row[indexOfTag] !== "") {
           if (!Number.isInteger(Number(row[indexOfTag]))) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionType"));
           }
-          if (!Number.isInteger(Number(row[header.indexOf("scale")]))) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationScaleType"));
-          }
           if (Number(row[indexOfTag]) < 0) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionNegative"));
           }
-          if (Number(row[header.indexOf("scale")]) + Number(row[indexOfTag]) > 18) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionSum"));
-          }
-          if (Number(row[header.indexOf("scale")]) >= 8) {
-            this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionComarisonScale"));
+          if (indexOfScale === -1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationNoPrecision"));
+          } else {
+            if (!Number.isInteger(Number(row[indexOfScale]))) {
+              this.pushValidationResult(errorIndex, messages.getMessage("validationScaleType"));
+            }
+            if (Number(row[indexOfScale]) + Number(row[indexOfTag]) > 18) {
+              this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionSum"));
+            }
+            if (Number(row[indexOfScale]) >= 8) {
+              this.pushValidationResult(errorIndex, messages.getMessage("validationPrecisionComarisonScale"));
+            }
           }
         }
         break;
@@ -487,16 +489,20 @@ export default class generate extends SfdxCommand {
         break;
       case "caseSensitive":
         const indexOfUnique = header.indexOf("unique");
-        if (type === "Text" && row[indexOfUnique] === "true" && row[indexOfTag] !== "") {
-          if (!generate.options.caseSensitive.includes(row[indexOfTag])) {
+        if (type === "Text" && row[indexOfTag] !== "") {
+          if (indexOfUnique === -1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationNoUnique"));
+          } else if (!generate.options.caseSensitive.includes(row[indexOfTag])) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationCaseSensitiveOptions"));
           }
         }
         break;
       case "formulaTreatBlanksAs":
         const indexOfFormula = header.indexOf("formula");
-        if ((type === "Checkbox" || type === "Currency") && row[indexOfFormula].length > 0) {
-          if (!generate.options.formulaTreatBlanksAs.includes(row[indexOfTag])) {
+        if ((type === "Checkbox" || type === "Currency") && row[indexOfTag] !== "") {
+          if (indexOfFormula === -1) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationNoFormula"));
+          } else if (!generate.options.formulaTreatBlanksAs.includes(row[indexOfTag])) {
             this.pushValidationResult(
               errorIndex,
               messages.getMessage("validationFormulaTreatBlanksAsOptions") + generate.options.formulaTreatBlanksAs.toString()
@@ -585,6 +591,54 @@ export default class generate extends SfdxCommand {
           }
         }
         break;
+      case "summarizedField":
+        if (type === "Summary" && row[indexOfTag] !== "") {
+          const fullNameSplit = row[indexOfTag].split(".");
+          if (fullNameSplit.length !== 2) {
+          }
+          if (!regExpForSnakeCase.test(fullNameSplit[0]) || !regExpForSnakeCase.test(fullNameSplit[1])) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldFormat"));
+          }
+          if (fullNameSplit[0].split("__").length > 2 || fullNameSplit[1].split("__").length > 2) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldUnderscore"));
+          }
+          if (fullNameSplit[0].length === 0 || fullNameSplit[0].length === 0) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldBlank"));
+          }
+          if (!this.isValidLengthForSummary(fullNameSplit)) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldLength"));
+          }
+        }
+        break;
+      case "summaryForeignKey":
+        if (type === "Summary" && row[indexOfTag] !== "") {
+          const fullNameSplit = row[indexOfTag].split(".");
+          if (fullNameSplit.length !== 2) {
+          }
+          if (!regExpForSnakeCase.test(fullNameSplit[0]) || !regExpForSnakeCase.test(fullNameSplit[1])) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummaryForeignKeyFormat"));
+          }
+          if (fullNameSplit[0].split("__").length > 2 || fullNameSplit[1].split("__").length > 2) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummaryForeignKeyUnderscore"));
+          }
+          if (fullNameSplit[0].length === 0 || fullNameSplit[0].length === 0) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummaryForeignKeyBlank"));
+          }
+          if (!this.isValidLengthForSummary(fullNameSplit)) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummaryForeignKeyLength"));
+          }
+        }
+        break;
+      case "summaryOperation":
+        if (type === "Summary" && row[indexOfTag] !== "") {
+          if (!generate.options.summaryOperation.includes(row[indexOfTag])) {
+            this.pushValidationResult(
+              errorIndex,
+              messages.getMessage("validationSummaryOperationOptions") + generate.options.summaryOperation.toString()
+            );
+          }
+        }
+        break;
     }
     return validationResLenBefore == generate.validationResults.length;
   }
@@ -637,11 +691,6 @@ export default class generate extends SfdxCommand {
   }
 
   private convertSpecialChars(str: string): string {
-    const doubleQuotation = /["]/;
-    // gets rid of double-quotation on both ends
-    if (doubleQuotation.test(str)) {
-      str = str.substring(1, str.length - 1);
-    }
     str = str.replace(/""/g, '"');
     str = str.replace(/&/g, "&" + "amp;");
     str = str.replace(/</g, "&" + "lt;");
@@ -658,6 +707,19 @@ export default class generate extends SfdxCommand {
         row[indexOfTag] = row[indexOfTag].toLowerCase();
       }
     }
+  }
+
+  private isValidLengthForSummary(fullNames: string[]): boolean {
+    let isValidLength = true;
+    for (const fullName of fullNames) {
+      const isCustomField = fullName.substring(fullName.length - 3, fullName.length) == "__c";
+      if (isCustomField) {
+        isValidLength = fullName.length <= 43 && isValidLength;
+      } else {
+        isValidLength = fullName.length <= 40 && isValidLength;
+      }
+    }
+    return isValidLength;
   }
 
   private showValidationErrorMessages() {

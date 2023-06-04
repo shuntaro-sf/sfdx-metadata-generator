@@ -1,3 +1,3 @@
 ﻿fullName,label,description,type,externalId,required,unique,defaultValue,trackTrending,displayLocationInDecimal,scale,precision,visibleLines,length,maskChar,maskType,picklistFullName,picklistLabel,trackHistory,referenceTo,relationshipName,relationshipLabel,relationshipOrder,deleteConstraint,reparentableMasterDetail,writeRequiresMasterRead
 lookup__c,参照関係,lookup field.,Lookup,,,,,,,,,,,,,,,,Account,accountLookup,account lookup,,SetNull,,
-masterDetail__c,主従関係,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Account,accountMasterDetail,account masterDetail,0,,false,false
+masterDetail__c,主従関係,MasterDetail field.,MasterDetail,,,,,,,,,,,,,,,,Opportunity,accountMasterDetail,account masterDetail,0,,false,false

@@ -33,6 +33,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Checkbox": {
@@ -62,6 +65,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Currency": {
@@ -91,6 +97,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Date": {
@@ -120,6 +129,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "DateTime": {
@@ -149,6 +161,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Email": {
@@ -178,6 +193,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Location": {
@@ -207,6 +225,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Number": {
@@ -236,6 +257,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Percent": {
@@ -265,6 +289,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Phone": {
@@ -294,6 +321,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Picklist": {
@@ -323,6 +353,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "MultiselectPicklist": {
@@ -352,6 +385,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Text": {
@@ -369,7 +405,7 @@
       "scale": null,
       "precision": null,
       "visibleLines": null,
-      "length": "255",
+      "length": null,
       "maskChar": null,
       "maskType": null,
       "caseSensitive": null,
@@ -381,6 +417,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "TextArea": {
@@ -410,6 +449,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "LongTextArea": {
@@ -439,6 +481,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Html": {
@@ -468,6 +513,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "EncryptedText": {
@@ -497,6 +545,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Time": {
@@ -526,6 +577,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Url": {
@@ -555,6 +609,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "Lookup": {
@@ -562,7 +619,7 @@
       "externalId": "false",
       "label": null,
       "required": "false",
-      "type": "Url",
+      "type": "Lookup",
       "trackHistory": null,
       "trackTrending": "false",
       "unique": null,
@@ -584,6 +641,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     },
     "MasterDetail": {
@@ -591,7 +651,7 @@
       "externalId": "false",
       "label": null,
       "required": null,
-      "type": "Url",
+      "type": "MasterDetail",
       "trackHistory": null,
       "trackTrending": "false",
       "unique": null,
@@ -613,6 +673,41 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": "false",
       "writeRequiresMasterRead": "false",
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
+      "description": null
+    },
+    "Summary": {
+      "fullName": null,
+      "externalId": "false",
+      "label": null,
+      "required": null,
+      "type": "Summary",
+      "trackHistory": null,
+      "trackTrending": "false",
+      "unique": null,
+      "defaultValue": null,
+      "formula": null,
+      "displayLocationInDecimal": null,
+      "scale": null,
+      "precision": null,
+      "visibleLines": null,
+      "length": null,
+      "maskChar": null,
+      "maskType": null,
+      "caseSensitive": null,
+      "formulaTreatBlanksAs": null,
+      "referenceTo": null,
+      "relationshipLabel": null,
+      "relationshipName": null,
+      "relationshipOrder": null,
+      "deleteConstraint": null,
+      "reparentableMasterDetail": null,
+      "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": null
     }
   },
@@ -674,6 +769,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Currency": {
@@ -703,6 +801,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Date": {
@@ -732,6 +833,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "DateTime": {
@@ -761,6 +865,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Email": {
@@ -790,6 +897,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Location": {
@@ -819,6 +929,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Number": {
@@ -848,6 +961,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Percent": {
@@ -877,6 +993,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Phone": {
@@ -906,6 +1025,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Picklist": {
@@ -935,6 +1057,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "MultiselectPicklist": {
@@ -964,6 +1089,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Text": {
@@ -985,6 +1113,7 @@
       "maskChar": null,
       "maskType": null,
       "caseSensitive": false,
+      "formulaTreatBlanksAs": false,
       "referenceTo": null,
       "relationshipLabel": null,
       "relationshipName": null,
@@ -992,6 +1121,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "TextArea": {
@@ -1021,6 +1153,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "LongTextArea": {
@@ -1050,13 +1185,16 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Html": {
       "fullName": true,
       "externalId": null,
       "label": true,
-      "required": false,
+      "required": null,
       "type": true,
       "trackHistory": false,
       "trackTrending": false,
@@ -1079,6 +1217,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "EncryptedText": {
@@ -1106,6 +1247,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Time": {
@@ -1135,6 +1279,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Url": {
@@ -1164,6 +1311,9 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "Lookup": {
@@ -1193,6 +1343,9 @@
       "deleteConstraint": true,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
     },
     "MasterDetail": {
@@ -1222,7 +1375,42 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": true,
       "writeRequiresMasterRead": true,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
       "description": false
+    },
+    "Summary": {
+      "fullName": true,
+      "externalId": false,
+      "label": true,
+      "required": null,
+      "type": true,
+      "trackHistory": null,
+      "trackTrending": false,
+      "unique": null,
+      "defaultValue": null,
+      "formula": null,
+      "displayLocationInDecimal": null,
+      "scale": null,
+      "precision": null,
+      "visibleLines": null,
+      "length": null,
+      "maskChar": null,
+      "maskType": null,
+      "caseSensitive": null,
+      "formulaTreatBlanksAs": null,
+      "referenceTo": null,
+      "relationshipLabel": null,
+      "relationshipName": null,
+      "relationshipOrder": null,
+      "deleteConstraint": null,
+      "reparentableMasterDetail": null,
+      "writeRequiresMasterRead": null,
+      "summarizedField": false,
+      "summaryForeignKey": true,
+      "summaryOperation": true,
+      "description": null
     }
   },
   "options": {
@@ -1249,7 +1437,8 @@
       "Time",
       "Url",
       "Lookup",
-      "MasterDetail"
+      "MasterDetail",
+      "Summary"
     ],
     "trackHistory": ["tue", "false"],
     "trackTrending": ["true", "false"],
@@ -1263,7 +1452,8 @@
     "deleteConstraint": ["Cascade", "Restrict", "SetNull"],
     "relationshipOrder": ["0", "1"],
     "reparentableMasterDetail": ["true", "false"],
-    "writeRequiresMasterRead": ["true", "false"]
+    "writeRequiresMasterRead": ["true", "false"],
+    "summaryOperation": ["count", "sum", "min", "max"]
   },
   "indentationLength": 4,
   "fieldExtension": "field-meta.xml",
@@ -1271,13 +1461,17 @@
   "picklistDelimiter": ";",
   "tagNames": [
     "fullName",
-    "externalId",
     "label",
-    "required",
+    "description",
     "type",
-    "trackTrending",
+    "externalId",
+    "required",
     "unique",
     "defaultValue",
+    "formula",
+    "trackHistory",
+    "trackTrending",
+    "displayFormat",
     "displayLocationInDecimal",
     "scale",
     "precision",
@@ -1287,7 +1481,17 @@
     "maskType",
     "picklistFullName",
     "picklistLabel",
-    "description"
+    "formulaTreatBlanksAs",
+    "referenceTo",
+    "relationshipLabel",
+    "relationshipName",
+    "relationshipOrder",
+    "deleteConstraint",
+    "reparentableMasterDetail",
+    "writeRequiresMasterRead",
+    "summaryForeignKey",
+    "summaryOperation",
+    "summarizedField"
   ],
   "resolveJsonModule": true
 }
