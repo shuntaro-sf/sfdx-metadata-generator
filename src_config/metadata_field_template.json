@@ -770,9 +770,9 @@
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
       "writeRequiresMasterRead": "",
-      "summaryForeignKey": "Account",
+      "summaryForeignKey": "Custom_Object__c.Number__c",
       "summaryOperation": "sum",
-      "summarizedField": "Account.Employees",
+      "summarizedField": "Custom_Object__c.Account__c",
       "summaryFilterItemsField": "",
       "summaryFilterItemsOperation": "",
       "summaryFilterItemsValue": ""

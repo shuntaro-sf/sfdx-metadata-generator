@@ -58,3 +58,7 @@
 55,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Account__c,sum,Custom_Object__c.Number__c,dd.ddd""__c,greaterThan,1000
 56,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Account__c,sum,Custom_Object__c.Number__c,dd__c,bar,1000
 57,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Account__c,sum,Custom_Object__c.Number__c,Custom_Object__c.Account__c,greaterThan,100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+58,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Account__c,sum,Custom_Object__c.Number__c,dd.ddd__ddd__c,greaterThan,1000
+59,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Account__c,sum,Custom_Object__c.Number__c,dd.dddddddddddddddddddddddddddddddddddddddddddddddddddddd__c,greaterThan,1000
+60,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Account__c,sum,Custom_Objecttttttttttttttttttttttttttttttttttttttttttttttttttttttttt__c.Number__c,,,
+54,fullName__c,fullName,field description,Summary,,,,,,,,,,,,,,,,,,Custom_Object__c.Accountttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt__c,sum,Custom_Object__c.Number__c,,,
