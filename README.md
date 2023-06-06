@@ -11,12 +11,27 @@ SFDX plugin to generate metadata
 [![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
 
  <!-- toc -->
+* [sfdx-metadata-generator](#sfdx-metadata-generator)
+* [How to get started](#how-to-get-started)
+<!-- tocstop -->
 
 - [sfdx-metadata-generator](#sfdx-metadata-generator)
 - [How to get started](#how-to-get-started)
   <!-- tocstop -->
                                             <!-- install -->
                                             <!-- usage -->
+```sh-session
+$ npm install -g @shuntaro/sfdx-metadata-generator
+$ sfdx COMMAND
+running command...
+$ sfdx (--version)
+@shuntaro/sfdx-metadata-generator/3.5.0 win32-x64 node-v18.16.0
+$ sfdx --help [COMMAND]
+USAGE
+  $ sfdx COMMAND
+...
+```
+<!-- usagestop -->
 
 ```sh-session
 $ npm install -g sfdx-metadata-generator
@@ -33,6 +48,242 @@ USAGE
 <!-- usagestop -->
 
 <!-- commands -->
+* [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u--d-string--p-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldtemplate--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataobjectconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataobjectgenerate--i-string--o-string--u--d-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:object:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataobjecttemplate--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataprofileconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadataprofilegenerate--i-string--o-string--s-string--d-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+
+## `sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Converts custom-field-xml-files to a file used to create or update the metadata.
+
+```
+USAGE
+  $ sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --sourcedir=<value>                                                           directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Converts custom-field-xml-files to a file used to create or update the metadata.
+
+EXAMPLES
+  $ sfdx metadata:field:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/field/convert.ts)_
+
+## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+
+```
+USAGE
+  $ sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -d, --delimiter=<value>                                                           delimiter for the input file. the
+                                                                                    default value is comma
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -p, --picklistdelimiter=<value>                                                   delimiter for picklist fullNames and
+                                                                                    labels. the default value is
+                                                                                    semicolon
+  -u, --updates                                                                     whether update existing xml files in
+                                                                                    outputdir or not
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+
+EXAMPLES
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/field/generate.ts)_
+
+## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Creates a template input-csv-file.
+
+```
+USAGE
+  $ sfdx metadata:field:template [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           directory where a template csv file
+                                                                                    is saved.
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Creates a template input-csv-file.
+
+EXAMPLES
+  $ sfdx metadata:field:template --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/field/template.ts)_
+
+## `sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Converts custom-object-xml-files to a file used to create or update the metadata.
+
+```
+USAGE
+  $ sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --sourcedir=<value>                                                           directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Converts custom-object-xml-files to a file used to create or update the metadata.
+
+EXAMPLES
+  $ sfdx metadata:object:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/object/convert.ts)_
+
+## `sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+
+```
+USAGE
+  $ sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -d, --delimiter=<value>                                                           delimiter for the input file. the
+                                                                                    default value is comma
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -u, --updates                                                                     whether update existing xml files in
+                                                                                    outputdir or not
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+
+EXAMPLES
+  $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/object/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/object/generate.ts)_
+
+## `sfdx metadata:object:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Creates a template input-csv-file.
+
+```
+USAGE
+  $ sfdx metadata:object:template [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           directory where a template csv file
+                                                                                    is saved.
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Creates a template input-csv-file.
+
+EXAMPLES
+  $ sfdx metadata:object:template --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/object/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/object/template.ts)_
+
+## `sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Converts custom-profile-xml-files to a file used to update the metadata.
+
+```
+USAGE
+  $ sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --source=<value>                                                              directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Converts custom-profile-xml-files to a file used to update the metadata.
+
+EXAMPLES
+  $ sfdx metadata:profile:convert --source ./source --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/profile/convert.ts)_
+
+## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+
+```
+USAGE
+  $ sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel
+    trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+FLAGS
+  -d, --delimiter=<value>                                                           delimiter for the input file. the
+                                                                                    default value is comma
+  -i, --input=<value>                                                               input file to be converted to xml
+                                                                                    files
+  -o, --outputdir=<value>                                                           output directory where metadata are
+                                                                                    saved
+  -s, --source=<value>                                                              directory where source files you
+                                                                                    convert are stored
+  --json                                                                            format output as json
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+DESCRIPTION
+  Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+
+EXAMPLES
+  $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
+```
+
+_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.5.0/src/commands/metadata/profile/generate.ts)_
+<!-- commandsstop -->
 
 - [`sfdx metadata:field:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldconvert--s-string--o-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 - [`sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-metadatafieldgenerate--i-string--o-string--u--d-string--p-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
