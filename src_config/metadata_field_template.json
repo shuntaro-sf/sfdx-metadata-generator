@@ -29,7 +29,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowCurrency": {
       "fullName": "currency__c",
@@ -60,7 +66,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowDate": {
       "fullName": "date__c",
@@ -91,7 +103,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowDatetime": {
       "fullName": "datetime__c",
@@ -122,7 +140,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowEmail": {
       "fullName": "email__c",
@@ -153,7 +177,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowLocation": {
       "fullName": "location__c",
@@ -184,7 +214,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowNumber": {
       "fullName": "number__c",
@@ -215,7 +251,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowPercent": {
       "fullName": "percent__c",
@@ -246,7 +288,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowPhone": {
       "fullName": "phone__c",
@@ -277,7 +325,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowPicklist": {
       "fullName": "picklist__c",
@@ -308,7 +362,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowMultiselectPicklist": {
       "fullName": "multiselectPicklist__c",
@@ -339,7 +399,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowText": {
       "fullName": "text__c",
@@ -370,7 +436,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowTextArea": {
       "fullName": "textArea__c",
@@ -401,7 +473,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowLongTextArea": {
       "fullName": "longTextArea__c",
@@ -432,7 +510,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowHtml": {
       "fullName": "html__c",
@@ -463,7 +547,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowEncryptedText": {
       "fullName": "encryptedText__c",
@@ -494,7 +584,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowTime": {
       "fullName": "time__c",
@@ -525,7 +621,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowUrl": {
       "fullName": "url__c",
@@ -556,7 +658,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowLookup": {
       "fullName": "lookup__c",
@@ -587,7 +695,13 @@
       "relationshipOrder": "",
       "deleteConstraint": "SetNull",
       "reparentableMasterDetail": "",
-      "writeRequiresMasterRead": ""
+      "writeRequiresMasterRead": "",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowMasterDetail": {
       "fullName": "masterDetail__c",
@@ -618,7 +732,13 @@
       "relationshipOrder": "0",
       "deleteConstraint": "",
       "reparentableMasterDetail": "false",
-      "writeRequiresMasterRead": "false"
+      "writeRequiresMasterRead": "false",
+      "summaryForeignKey": "",
+      "summaryOperation": "",
+      "summarizedField": "",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     },
     "rowSummary": {
       "fullName": "summary__c",
@@ -652,7 +772,10 @@
       "writeRequiresMasterRead": "",
       "summaryForeignKey": "Account",
       "summaryOperation": "sum",
-      "summarizedField": "Account.Employees"
+      "summarizedField": "Account.Employees",
+      "summaryFilterItemsField": "",
+      "summaryFilterItemsOperation": "",
+      "summaryFilterItemsValue": ""
     }
   }
 }

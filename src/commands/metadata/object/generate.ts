@@ -167,7 +167,7 @@ export default class generate extends SfdxCommand {
         this.formatBoolean(tag, row, indexOfTag);
       }
 
-      let tagStr = "";
+      let tagStr = null;
       if (row[indexOfTag] != "") {
         tagStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
       } else {
@@ -179,6 +179,10 @@ export default class generate extends SfdxCommand {
     this.pushNameFieldMetaStr(tagStrs, row, header, rowIndex);
     // metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
     this.pushMetaStrSettings(tagStrs);
+
+    tagStrs = tagStrs.filter((e) => {
+      return e !== null;
+    });
     tagStrs.sort();
     metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
     //   metaStr += this.getMetaStrSettings(tagStrs);
@@ -244,8 +248,6 @@ export default class generate extends SfdxCommand {
 
   private isValidInputs(tag: string, row: string[], header: string[], rowIndex: number): boolean {
     const indexOfTag = header.indexOf(tag);
-
-    const regExpForOneChar = /^[a-zA-Z]/;
     const regExpForSnakeCase = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
     const validationResLenBefore = generate.validationResults.length;
     const errorIndex = "Row" + (rowIndex + 1) + "Col" + (indexOfTag + 1);
@@ -256,10 +258,7 @@ export default class generate extends SfdxCommand {
 
     switch (tag) {
       case "fullName":
-        if (
-          (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
-          (row[indexOfTag].length == 1 && !regExpForOneChar.test(row[indexOfTag]))
-        ) {
+        if (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
         }
         if (row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) !== "__c") {

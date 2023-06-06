@@ -31,6 +31,9 @@
     "writeRequiresMasterRead",
     "summarizedField",
     "summaryForeignKey",
-    "summaryOperation"
+    "summaryOperation",
+    "summaryFilterItemsField",
+    "summaryFilterItemsOperation",
+    "summaryFilterItemsValue"
   ]
 }

@@ -177,7 +177,7 @@ export default class generate extends SfdxCommand {
         this.formatBoolean(tag, row, indexOfTag);
       }
 
-      let tagStr = "";
+      let tagStr = null;
       if (row[indexOfTag] != "") {
         tagStr = "<" + tag + ">" + row[indexOfTag] + "</" + tag + ">";
       } else if (generate.defaultValues[type][tag] !== null) {
@@ -187,16 +187,25 @@ export default class generate extends SfdxCommand {
     }
 
     if (row[indexOfType] === "Picklist" || row[indexOfType] === "MultiselectPicklist") {
-      const idxOfPicklistFullName = header.indexOf("picklistFullName");
-      const idxOfPicklistLabel = header.indexOf("picklistLabel");
-      tagStrs.push(this.getPicklistMetaStr(row[idxOfPicklistFullName], row[idxOfPicklistLabel], header, rowIndex));
+      tagStrs.push(this.getPicklistMetaStr(row, header, rowIndex));
+    } else if (row[indexOfType] === "Summary") {
+      tagStrs.push(this.getSummaryFilterItemsMetaStr(row, header, rowIndex));
     }
+
+    tagStrs = tagStrs.filter((e) => {
+      return e !== null;
+    });
+    tagStrs.sort();
     metaStr += "\n" + this.getIndentation(generate.indentationLength) + tagStrs.join("\n" + this.getIndentation(generate.indentationLength));
     metaStr += "\n</CustomField>";
     return metaStr;
   }
 
-  private getPicklistMetaStr(inputPicklistFullName: string, inputPicklistLabel: string, header: string[], rowIndex: number) {
+  private getPicklistMetaStr(row: string[], header: string[], rowIndex: number): string {
+    const idxOfPicklistFullName = header.indexOf("picklistFullName");
+    const idxOfPicklistLabel = header.indexOf("picklistLabel");
+    const inputPicklistFullName = row[idxOfPicklistFullName];
+    const inputPicklistLabel = row[idxOfPicklistLabel];
     let picklistValueStr = "";
     let picklistMetaStr =
       "<valueSet>\n" +
@@ -238,6 +247,32 @@ export default class generate extends SfdxCommand {
     return picklistMetaStr;
   }
 
+  private getSummaryFilterItemsMetaStr(row: string[], header: string[], rowIndex: number): string {
+    const idxOfField = header.indexOf("summaryFilterItemsField");
+    const idxOfOperation = header.indexOf("summaryFilterItemsOperation");
+    const idxOfValue = header.indexOf("summaryFilterItemsValue");
+    const inputField = row[idxOfField];
+    const inputOperation = row[idxOfOperation];
+    const inputValue = row[idxOfValue];
+
+    let summaryFilterItemsMetaStr = "<summaryFilterItems>\n" + this.getIndentation(2 * generate.indentationLength);
+
+    // when there are no summaryFilterItems columns
+    if ((idxOfField === -1 && idxOfOperation === -1 && idxOfValue === -1) || (inputField === "" && inputField === "" && inputValue === "")) {
+      return null;
+    }
+    if (!this.isValidInputsForSummaryFilterItems(inputField, inputOperation, inputValue, header, rowIndex)) {
+      return null;
+    }
+
+    summaryFilterItemsMetaStr += "<field>" + inputField + "</field>" + this.getIndentation(2 * generate.indentationLength);
+    summaryFilterItemsMetaStr += "<operation>" + inputOperation + "</operation>" + this.getIndentation(2 * generate.indentationLength);
+    summaryFilterItemsMetaStr += "<value>" + inputValue + "</value>" + this.getIndentation(generate.indentationLength);
+
+    summaryFilterItemsMetaStr += "</summaryFilterItems>";
+    return summaryFilterItemsMetaStr;
+  }
+
   private isValidInputs(tag: string, row: string[], header: string[], rowIndex: number): boolean {
     const indexOfType = header.indexOf("type");
     const type = row[indexOfType];
@@ -254,10 +289,7 @@ export default class generate extends SfdxCommand {
 
     switch (tag) {
       case "fullName":
-        if (
-          (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
-          (row[indexOfTag].length == 1 && !regExpForOneChar.test(row[indexOfTag]))
-        ) {
+        if (!regExpForSnakeCase.test(row[indexOfTag])) {
           this.pushValidationResult(errorIndex, messages.getMessage("validationFullNameFormat"));
         }
         if (row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) !== "__c") {
@@ -499,7 +531,17 @@ export default class generate extends SfdxCommand {
         break;
       case "formulaTreatBlanksAs":
         const indexOfFormula = header.indexOf("formula");
-        if ((type === "Checkbox" || type === "Currency") && row[indexOfTag] !== "") {
+        if (
+          (type === "Checkbox" ||
+            type === "Currency" ||
+            type === "Date" ||
+            type === "DateTime" ||
+            type === "Number" ||
+            type === "Percent" ||
+            type === "Text" ||
+            type === "Time") &&
+          row[indexOfTag] !== ""
+        ) {
           if (indexOfFormula === -1) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationNoFormula"));
           } else if (!generate.options.formulaTreatBlanksAs.includes(row[indexOfTag])) {
@@ -592,9 +634,19 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "summarizedField":
-        if (type === "Summary" && row[indexOfTag] !== "") {
+        const indexOfSummaryOperation = header.indexOf("summaryOperation");
+        if (type === "Summary" && indexOfSummaryOperation !== -1 && row[indexOfSummaryOperation] !== "") {
           const fullNameSplit = row[indexOfTag].split(".");
+          if (
+            row[indexOfTag] === "" &&
+            row[indexOfSummaryOperation] !== "count" &&
+            generate.options.summaryOperation.includes(row[indexOfSummaryOperation])
+          ) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldNoSummaryOperation"));
+          }
           if (fullNameSplit.length !== 2) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldInvalidReference"));
+            break;
           }
           if (!regExpForSnakeCase.test(fullNameSplit[0]) || !regExpForSnakeCase.test(fullNameSplit[1])) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationSummarizedFieldFormat"));
@@ -611,9 +663,11 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "summaryForeignKey":
-        if (type === "Summary" && row[indexOfTag] !== "") {
+        if (type === "Summary") {
           const fullNameSplit = row[indexOfTag].split(".");
           if (fullNameSplit.length !== 2) {
+            this.pushValidationResult(errorIndex, messages.getMessage("validationSummaryForeignKeyInvalidReference"));
+            break;
           }
           if (!regExpForSnakeCase.test(fullNameSplit[0]) || !regExpForSnakeCase.test(fullNameSplit[1])) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationSummaryForeignKeyFormat"));
@@ -683,6 +737,57 @@ export default class generate extends SfdxCommand {
         this.pushValidationResult(errorIndexForLabel, messages.getMessage("validationPicklistLabelMax"));
       }
     }
+    return validationResLenBefore == generate.validationResults.length;
+  }
+
+  private isValidInputsForSummaryFilterItems(field: string, operation: string, value: string, header: string[], rowIndex: number): boolean {
+    const validationResLenBefore = generate.validationResults.length;
+    const fieldColIndex = header.indexOf("summaryFilterItemsField");
+    const operationColIndex = header.indexOf("summaryFilterItemsOperation");
+    const valueColIndex = header.indexOf("summaryFilterItemsValue");
+    const errorIndexForField = "Row" + (rowIndex + 1) + "Col" + (fieldColIndex + 1);
+    const errorIndexForOperation = "Row" + (rowIndex + 1) + "Col" + (operationColIndex + 1);
+    const errorIndexForValue = "Row" + (rowIndex + 1) + "Col" + (valueColIndex + 1);
+
+    // when tags of summaryFilterItems are not found
+    if (field === null) {
+      this.pushValidationResult(errorIndexForField, messages.getMessage("validationNoSummaryFilterItemsField"));
+    }
+    if (operation === null) {
+      this.pushValidationResult(errorIndexForOperation, messages.getMessage("validationNoSummaryFilterItemsOperation"));
+    }
+    if (value === null) {
+      this.pushValidationResult(errorIndexForValue, messages.getMessage("validationNoSummaryFilterItemsValue"));
+    }
+
+    // for field tag
+    const isCustomField = field.substring(field.length - 3, field.length) == "__c";
+    const regExpForOneChar = /^[a-zA-Z]/;
+    const regExpForSnakeCase = /^[a-zA-Z][0-9a-zA-Z_]+[a-zA-Z]$/;
+    if ((field.length > 1 && !regExpForSnakeCase.test(field)) || (field.length == 1 && !regExpForOneChar.test(field))) {
+      this.pushValidationResult(errorIndexForField, messages.getMessage("validationSummaryFilterItemsFieldFormat"));
+    }
+    if ((!isCustomField && field.split("__").length > 1) || (isCustomField && field.split("__").length > 2)) {
+      this.pushValidationResult(errorIndexForField, messages.getMessage("validationSummaryFilterItemsFieldUnderscore"));
+    }
+    if (field.length === 0) {
+      this.pushValidationResult(errorIndexForField, messages.getMessage("validationSummaryFilterItemsFieldBlank"));
+    }
+    if ((!isCustomField && field.length > 40) || (isCustomField && field.length > 43)) {
+      this.pushValidationResult(errorIndexForField, messages.getMessage("validationSummaryFilterItemsFieldLength"));
+    }
+    //for operation tag
+    if (!generate.options.summaryFilterItemsOperation.includes(operation)) {
+      this.pushValidationResult(
+        errorIndexForOperation,
+        messages.getMessage("validationSummaryFilterItemsOperationOptions") + generate.options.summaryFilterItemsOperation.toString()
+      );
+    }
+    //for value tag
+    if (value.length > 255) {
+      this.pushValidationResult(errorIndexForValue, messages.getMessage("validationSummaryFilterItemsValueLength"));
+    }
+
     return validationResLenBefore == generate.validationResults.length;
   }
 

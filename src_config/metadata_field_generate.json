@@ -36,6 +36,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Checkbox": {
@@ -68,6 +71,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Currency": {
@@ -100,6 +106,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Date": {
@@ -132,6 +141,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "DateTime": {
@@ -164,6 +176,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Email": {
@@ -196,6 +211,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Location": {
@@ -228,6 +246,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Number": {
@@ -260,6 +281,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Percent": {
@@ -292,6 +316,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Phone": {
@@ -324,6 +351,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Picklist": {
@@ -356,6 +386,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "MultiselectPicklist": {
@@ -388,6 +421,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Text": {
@@ -420,6 +456,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "TextArea": {
@@ -452,6 +491,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "LongTextArea": {
@@ -484,6 +526,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Html": {
@@ -516,6 +561,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "EncryptedText": {
@@ -548,6 +596,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Time": {
@@ -580,6 +631,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Url": {
@@ -612,6 +666,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Lookup": {
@@ -638,12 +695,15 @@
       "relationshipLabel": null,
       "relationshipName": null,
       "relationshipOrder": null,
-      "deleteConstraint": null,
+      "deleteConstraint": "SetNull",
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "MasterDetail": {
@@ -676,6 +736,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Summary": {
@@ -708,6 +771,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     }
   },
@@ -740,6 +806,12 @@
       "deleteConstraint": null,
       "reparentableMasterDetail": null,
       "writeRequiresMasterRead": null,
+      "summarizedField": null,
+      "summaryForeignKey": null,
+      "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": null
     },
     "Checkbox": {
@@ -772,6 +844,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Currency": {
@@ -804,6 +879,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Date": {
@@ -836,6 +914,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "DateTime": {
@@ -868,6 +949,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Email": {
@@ -900,6 +984,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Location": {
@@ -932,6 +1019,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Number": {
@@ -964,6 +1054,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Percent": {
@@ -996,6 +1089,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Phone": {
@@ -1028,6 +1124,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Picklist": {
@@ -1060,6 +1159,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "MultiselectPicklist": {
@@ -1092,6 +1194,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Text": {
@@ -1124,6 +1229,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "TextArea": {
@@ -1156,6 +1264,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "LongTextArea": {
@@ -1188,6 +1299,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Html": {
@@ -1220,6 +1334,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "EncryptedText": {
@@ -1250,6 +1367,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Time": {
@@ -1282,6 +1402,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Url": {
@@ -1314,6 +1437,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Lookup": {
@@ -1346,6 +1472,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "MasterDetail": {
@@ -1378,6 +1507,9 @@
       "summarizedField": null,
       "summaryForeignKey": null,
       "summaryOperation": null,
+      "summaryFilterItemsField": null,
+      "summaryFilterItemsOperation": null,
+      "summaryFilterItemsValue": null,
       "description": false
     },
     "Summary": {
@@ -1453,7 +1585,21 @@
     "relationshipOrder": ["0", "1"],
     "reparentableMasterDetail": ["true", "false"],
     "writeRequiresMasterRead": ["true", "false"],
-    "summaryOperation": ["count", "sum", "min", "max"]
+    "summaryOperation": ["count", "sum", "min", "max"],
+    "summaryFilterItemsOperation": [
+      "equals",
+      "notEqual",
+      "lessThan",
+      "greaterThan",
+      "lessOrEqual",
+      "greaterOrEqual",
+      "contains",
+      "notContain",
+      "startsWith",
+      "includes",
+      "excludes",
+      "within"
+    ]
   },
   "indentationLength": 4,
   "fieldExtension": "field-meta.xml",
@@ -1491,7 +1637,10 @@
     "writeRequiresMasterRead",
     "summaryForeignKey",
     "summaryOperation",
-    "summarizedField"
+    "summarizedField",
+    "summaryFilterItemsField",
+    "summaryFilterItemsOperation",
+    "summaryFilterItemsValue"
   ],
   "resolveJsonModule": true
 }
