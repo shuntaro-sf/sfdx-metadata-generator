@@ -2,13 +2,13 @@
 
 SFDX plugin to generate metadata
 
-[![Version](https://img.shields.io/npm/v/sfdx-metadata-generator.svg)](https://npmjs.generate/package/@shuntaro/sfdx-metadata-generator)
-[![CircleCI](https://circleci.com/gh/C:/sfdx-metadata-generator/tree/master.svg?style=shield)](https://circleci.com/gh/C:/sfdx-metadata-generator/tree/master)
-[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/C:/sfdx-metadata-generator?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/sfdx-metadata-generator/branch/master)
-[![Greenkeeper](https://badges.greenkeeper.io/C:/sfdx-metadata-generator.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/C:/sfdx-metadata-generator/badge.svg)](https://snyk.io/test/github/C:/sfdx-metadata-generator)
-[![Downloads/week](https://img.shields.io/npm/dw/sfdx-metadata-generator.svg)](https://npmjs.generate/package/sfdx-metadata-generator)
-[![License](https://img.shields.io/npm/l/sfdx-metadata-generator.svg)](https://github.com/C:/sfdx-metadata-generator/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@shuntaro/sfdx-metadata-generator.svg)](https://npmjs.com/package/@shuntaro/sfdx-metadata-generator)
+[![CircleCI](https://circleci.com/gh/C:/@shuntaro/sfdx-metadata-generator/tree/master.svg?style=shield)](https://circleci.com/gh/C:/@shuntaro/sfdx-metadata-generator/tree/master)
+[![Appveyor CI](https://ci.appveyor.com/api/projects/status/github/C:/@shuntaro/sfdx-metadata-generator?branch=master&svg=true)](https://ci.appveyor.com/project/heroku/@shuntaro/sfdx-metadata-generator/branch/master)
+[![Greenkeeper](https://badges.greenkeeper.io/C:/@shuntaro/sfdx-metadata-generator.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/C:/@shuntaro/sfdx-metadata-generator/badge.svg)](https://snyk.io/test/github/C:/@shuntaro/sfdx-metadata-generator)
+[![Downloads/week](https://img.shields.io/npm/dw//@shuntaro/sfdx-metadata-generator.svg)](https://npmjs.generate/package/@shuntaro/sfdx-metadata-generator)
+[![License](https://img.shields.io/npm/l/@shuntaro/sfdx-metadata-generator.svg)](https://github.com/C:/@shuntaro/sfdx-metadata-generator/blob/master/package.json)
 
  <!-- toctoc -->
 
@@ -24,7 +24,7 @@ $ npm install -g @shuntaro/sfdx-metadata-generator
 $ sfdx COMMAND
 running command...
 $ sfdx (--version)
-@shuntaro/sfdx-metadata-generator/3.6.0 win32-x64 node-v18.16.0
+@shuntaro/sfdx-metadata-generator/3.6.1 win32-x64 node-v18.16.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -69,7 +69,7 @@ EXAMPLES
   $ sfdx metadata:field:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/field/convert.ts)_
+_See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/field/convert.ts)_
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -103,7 +103,7 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/field/generate.ts)_
+_See code: [src/commands/metadata/field/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/field/generate.ts)_
 
 ## `sfdx metadata:field:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -128,7 +128,7 @@ EXAMPLES
   $ sfdx metadata:field:template --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/field/template.ts)_
+_See code: [src/commands/metadata/field/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/field/template.ts)_
 
 ## `sfdx metadata:object:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -155,7 +155,7 @@ EXAMPLES
   $ sfdx metadata:object:convert --sourcedir ./sourcedir/ --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/object/convert.ts)_
+_See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/object/convert.ts)_
 
 ## `sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -186,7 +186,7 @@ EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/object/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/object/generate.ts)_
+_See code: [src/commands/metadata/object/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/object/generate.ts)_
 
 ## `sfdx metadata:object:template [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -211,7 +211,7 @@ EXAMPLES
   $ sfdx metadata:object:template --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/object/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/object/template.ts)_
+_See code: [src/commands/metadata/object/template.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/object/template.ts)_
 
 ## `sfdx metadata:profile:convert [-s <string>] [-o <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -238,7 +238,7 @@ EXAMPLES
   $ sfdx metadata:profile:convert --source ./source --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/profile/convert.ts)_
+_See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/profile/convert.ts)_
 
 ## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -269,7 +269,7 @@ EXAMPLES
   $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
 ```
 
-_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.0/src/commands/metadata/profile/generate.ts)_
+_See code: [src/commands/metadata/profile/generate.ts](https://github.com/shuntaro-sfdx/sfdx-metadata-generator/blob/v3.6.1/src/commands/metadata/profile/generate.ts)_
 
 <!-- commandsstop -->
 
@@ -292,6 +292,7 @@ The description of each tag is as follows. For further details of custrom-field-
 | fullName                    | Custom field API name.                                                                                                                                                                                                                                       |
 | label                       | Field label name.                                                                                                                                                                                                                                            |
 | description                 | Field descritpion.                                                                                                                                                                                                                                           |
+| inlineHelpText              | Field-level help text.                                                                                                                                                                                                                                       |
 | type                        | Data type. Options are listed below:<br>AutoNumber, Checkbox, Currency, Date, DateTime, Email, Location, Number, Percent, Phone, Picklist, MultiselectPicklist, Text, TextArea, LongTextArea, Html, EncryptedText, Time, Url, Lookup, MasterDetail, Summary. |
 | required                    | Whether it is required. Options are listed below:<br>true, false.                                                                                                                                                                                            |
 | externalId                  | Whether it is an external ID. Options are listed below:<br>true, false.                                                                                                                                                                                      |
