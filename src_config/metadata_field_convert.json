@@ -3,6 +3,7 @@
     "fullName",
     "label",
     "description",
+    "inlineHelpText",
     "type",
     "externalId",
     "required",

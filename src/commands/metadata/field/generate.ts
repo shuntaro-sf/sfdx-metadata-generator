@@ -322,7 +322,12 @@ export default class generate extends SfdxCommand {
         break;
       case "description":
         if (row[indexOfTag].length > 1000) {
-          this.pushValidationResult(errorIndex, messages.getMessage("validationDescriptionMax"));
+          this.pushValidationResult(errorIndex, messages.getMessage("validationDescriptionLength"));
+        }
+        break;
+      case "inlineHelpText":
+        if (row[indexOfTag].length > 510) {
+          this.pushValidationResult(errorIndex, messages.getMessage("validationIinlineHelpTextLength"));
         }
         break;
       case "required":

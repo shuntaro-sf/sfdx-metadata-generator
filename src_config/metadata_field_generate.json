@@ -39,7 +39,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Checkbox": {
       "fullName": null,
@@ -74,7 +75,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Currency": {
       "fullName": null,
@@ -109,7 +111,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Date": {
       "fullName": null,
@@ -144,7 +147,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "DateTime": {
       "fullName": null,
@@ -179,7 +183,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Email": {
       "fullName": null,
@@ -214,7 +219,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Location": {
       "fullName": null,
@@ -249,7 +255,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Number": {
       "fullName": null,
@@ -284,7 +291,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Percent": {
       "fullName": null,
@@ -319,7 +327,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Phone": {
       "fullName": null,
@@ -354,7 +363,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Picklist": {
       "fullName": null,
@@ -389,7 +399,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "MultiselectPicklist": {
       "fullName": null,
@@ -424,7 +435,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Text": {
       "fullName": null,
@@ -459,7 +471,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "TextArea": {
       "fullName": null,
@@ -494,7 +507,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "LongTextArea": {
       "fullName": null,
@@ -529,7 +543,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Html": {
       "fullName": null,
@@ -564,7 +579,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "EncryptedText": {
       "fullName": null,
@@ -599,7 +615,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Time": {
       "fullName": null,
@@ -634,7 +651,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Url": {
       "fullName": null,
@@ -669,7 +687,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Lookup": {
       "fullName": null,
@@ -704,7 +723,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "MasterDetail": {
       "fullName": null,
@@ -739,7 +759,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Summary": {
       "fullName": null,
@@ -774,7 +795,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     }
   },
   "isRequired": {
@@ -812,7 +834,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": null
+      "description": null,
+      "inlineHelpText": null
     },
     "Checkbox": {
       "fullName": true,
@@ -847,7 +870,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Currency": {
       "fullName": true,
@@ -882,7 +906,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Date": {
       "fullName": true,
@@ -917,7 +942,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "DateTime": {
       "fullName": true,
@@ -952,7 +978,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Email": {
       "fullName": true,
@@ -987,7 +1014,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Location": {
       "fullName": true,
@@ -1022,7 +1050,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Number": {
       "fullName": true,
@@ -1057,7 +1086,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Percent": {
       "fullName": true,
@@ -1092,7 +1122,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Phone": {
       "fullName": true,
@@ -1127,7 +1158,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Picklist": {
       "fullName": true,
@@ -1162,7 +1194,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "MultiselectPicklist": {
       "fullName": true,
@@ -1197,7 +1230,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Text": {
       "fullName": true,
@@ -1232,7 +1266,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "TextArea": {
       "fullName": true,
@@ -1267,7 +1302,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "LongTextArea": {
       "fullName": true,
@@ -1302,7 +1338,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Html": {
       "fullName": true,
@@ -1337,7 +1374,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "EncryptedText": {
       "fullName": true,
@@ -1370,7 +1408,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Time": {
       "fullName": true,
@@ -1405,7 +1444,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Url": {
       "fullName": true,
@@ -1440,7 +1480,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Lookup": {
       "fullName": true,
@@ -1475,7 +1516,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "MasterDetail": {
       "fullName": true,
@@ -1510,7 +1552,8 @@
       "summaryFilterItemsField": null,
       "summaryFilterItemsOperation": null,
       "summaryFilterItemsValue": null,
-      "description": false
+      "description": false,
+      "inlineHelpText": false
     },
     "Summary": {
       "fullName": true,
@@ -1542,7 +1585,8 @@
       "summarizedField": false,
       "summaryForeignKey": true,
       "summaryOperation": true,
-      "description": null
+      "description": false,
+      "inlineHelpText": false
     }
   },
   "options": {
@@ -1609,6 +1653,7 @@
     "fullName",
     "label",
     "description",
+    "inlineHelpText",
     "type",
     "externalId",
     "required",

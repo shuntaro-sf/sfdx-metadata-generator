@@ -36,6 +36,7 @@
   "validationNameFieldDisplayFormatFormat": "nameFieldDisplayFormat must include sequence number substitution variable. Example: A-{0000}.",
   "validationNameFieldDisplayFormatDigits": "Digits of nameFieldDisplayFormat must be less than or equal to 10.",
   "validationNameFieldDisplayFormatLength": "Length of nameFieldDisplayFormat must be less than or equal to 30.",
-  "validationDescriptionMax": "Length of description must be less than or equal to 1000.",
+  "validationDescriptionLength": "Length of description must be less than or equal to 1000.",
+  "validationIinlineHelpTextLength": "Length of inlineHelpText must be less than or equal to 510.",
   "failureSave": "To update exiting files, Add the flag --updates to this command."
 }
