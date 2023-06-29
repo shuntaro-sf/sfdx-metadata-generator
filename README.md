@@ -73,7 +73,7 @@ _See code: [src/commands/metadata/field/convert.ts](https://github.com/shuntaro-
 
 ## `sfdx metadata:field:generate [-i <string>] [-o <string>] [-u] [-d <string>] [-p <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and to xml files.
 
 ```
 USAGE
@@ -97,7 +97,7 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+  Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and  to xml files.
 
 EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
@@ -159,7 +159,7 @@ _See code: [src/commands/metadata/object/convert.ts](https://github.com/shuntaro
 
 ## `sfdx metadata:object:generate [-i <string>] [-o <string>] [-u] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and to xml files.
 
 ```
 USAGE
@@ -180,7 +180,7 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+  Generates custom field metadata converting values in any sort of spreadsheets, e.g., csv and  to xml files.
 
 EXAMPLES
   $ sfdx metadata:field:generate --input ./input.csv --outputdir ./outputdir/
@@ -242,7 +242,7 @@ _See code: [src/commands/metadata/profile/convert.ts](https://github.com/shuntar
 
 ## `sfdx metadata:profile:generate [-i <string>] [-o <string>] [-s <string>] [-d <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and to xml files.
 
 ```
 USAGE
@@ -263,7 +263,7 @@ FLAGS
                                                                                     this command invocation
 
 DESCRIPTION
-  Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and excel to xml files.
+  Updates profile metadata converting values in any sort of spreadsheets, e.g., csv and  to xml files.
 
 EXAMPLES
   $ sfdx metadata:profile:generate --input ./input.csv --source ./source.profile-meta.xml --outputdir ./outputdir/
@@ -287,43 +287,43 @@ Other spreadsheet files are also supported as delimiter flag on the generator co
 
 The description of each tag is as follows. For further details of custrom-field-metadata, see [https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm](https://developer.salesforce.com/docs/atlas.en-us.242.0.api_meta.meta/api_meta/customfield.htm)
 
-| Tag                         | Description                                                                                                                                                                                                                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fullName                    | Custom field API name.                                                                                                                                                                                                                                       |
-| label                       | Field label name.                                                                                                                                                                                                                                            |
-| description                 | Field descritpion.                                                                                                                                                                                                                                           |
-| inlineHelpText              | Field-level help text.                                                                                                                                                                                                                                       |
-| type                        | Data type. Options are listed below:<br>AutoNumber, Checkbox, Currency, Date, DateTime, Email, Location, Number, Percent, Phone, Picklist, MultiselectPicklist, Text, TextArea, LongTextArea, Html, EncryptedText, Time, Url, Lookup, MasterDetail, Summary. |
-| required                    | Whether it is required. Options are listed below:<br>true, false.                                                                                                                                                                                            |
-| externalId                  | Whether it is an external ID. Options are listed below:<br>true, false.                                                                                                                                                                                      |
-| trackHistory                | Whether to enableck history tracking. Options are listed below:<br>true, false.                                                                                                                                                                              |
-| trackTrending               | Whether to track historical trending. Options are listed below:<br>true, false.                                                                                                                                                                              |
-| unique                      | Whether it is unique. Options are listed below:<br>true, false.                                                                                                                                                                                              |
-| defaultValue                | Default value. For Checkbox data type. Options are listed below:<br>true, false.                                                                                                                                                                             |
-| displayFormat               | Display format for AutoNumber. Example: A-{0000}.                                                                                                                                                                                                            |
-| displayLocationInDecimal    | Whether to display location in decimal. Options are listed below:<br>true, false.                                                                                                                                                                            |
-| scale                       | Number of decimal places.                                                                                                                                                                                                                                    |
-| precision                   | Number of digits.                                                                                                                                                                                                                                            |
-| visibleLines                | Number of visible lines applied to MultiselectPicklist, LongTextArea, and Html.                                                                                                                                                                              |
-| length                      | Text length applied to Text, TextArea, LongTextArea, and Html.                                                                                                                                                                                               |
-| maskChar                    | Mask character applied to EncryptedText. Options are listed below:<br>asterisk, X.                                                                                                                                                                           |
-| maskType                    | Mask type applied to EncryptedText. Options are listed below:<br>all, lastFour, creditCard, nino, ssn, sin.                                                                                                                                                  |
-| picklistFullName            | Picklist API Names applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as the default delimiter to separate character string to multiple names. The delimiter can be chenged giving the picklistdelimiter.                          |
-| picklistLabel               | Picklist labels applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as the default delimiter to separate character string to multiple labels. The delimiter can be chenged giving the picklistdelimiter.                            |
-| caseSensitive               | Whether the field is case-sensitive. Applied only for Text. Options are listed below:<br>true, false.                                                                                                                                                        |
-| referenceTo                 | Object FullName that the object of this field references to.                                                                                                                                                                                                 |
-| relationshipLabel           | Label for relationship.                                                                                                                                                                                                                                      |
-| relationshipName            | Child relationship name applied for Lookup and MasterDetail.                                                                                                                                                                                                 |
-| relationshipOrder           | Order of master-detail relationship. Options are listed below:<br>0, 1.                                                                                                                                                                                      |
-| deleteConstraint            | Deletion options for lookup relationships. Options are listed below:<br>Cascade, Restrict, SetNull.                                                                                                                                                          |
-| reparentableMasterDetail    | Whether the child records in a master-detail relationship on a custom object can be reparented to different parent records. Options are listed below:<br>true, false.                                                                                        |
-| writeRequiresMasterRead     | Whether to allow users with Read access to the primary record permission to create, edit, or delete child records. Options are listed below:<br>true, false.                                                                                                 |
-| summaryForeignKey           | Represents the master-detail field on the child that defines the relationship between the parent and the child. Example: ChildObject.ParentObject.                                                                                                           |
-| summaryOperation            | Type of operation for roll-up summary field. Options are listed below:<br>count, sum, min, max.                                                                                                                                                              |
-| summarizedField             | Represents the field on the detail row that is being summarized. Example: ChildObject.Field.                                                                                                                                                                 |
-| summaryFilterItemsField     | Represents the field to filter items.                                                                                                                                                                                                                        |
-| summaryFilterItemsOperation | Type of comparison operation to filter items. Options are listed below:<br>equals,notEqual,lessThan,greaterThan,lessOrEqual,greaterOrEqual,contains,notContain,startsWith,includes,excludes,within.                                                          |
-| summaryFilterItemsValue     | Value to compare with summaryFilterItemsField.                                                                                                                                                                                                               |
+| Tag                         | Description                                                                                                                                                                                                                                                                  |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fullName                    | Custom field API name.                                                                                                                                                                                                                                                       |
+| label                       | Field label name.                                                                                                                                                                                                                                                            |
+| description                 | Field descritpion.                                                                                                                                                                                                                                                           |
+| inlineHelpText              | Field-level help text.                                                                                                                                                                                                                                                       |
+| type                        | Data type. Options are listed below:<br>AutoNumber, Checkbox, Currency, Date, DateTime, Email, Location, Number, Percent, Phone, Picklist, MultiselectPicklist, Text, TextArea, LongTextArea, Html, EncryptedText, Time, Url, Lookup, MasterDetail, ExternalLookup, Summary. |
+| required                    | Whether it is required. Options are listed below:<br>true, false.                                                                                                                                                                                                            |
+| externalId                  | Whether it is an external ID. Options are listed below:<br>true, false.                                                                                                                                                                                                      |
+| trackHistory                | Whether to enableck history tracking. Options are listed below:<br>true, false.                                                                                                                                                                                              |
+| trackTrending               | Whether to track historical trending. Options are listed below:<br>true, false.                                                                                                                                                                                              |
+| unique                      | Whether it is unique. Options are listed below:<br>true, false.                                                                                                                                                                                                              |
+| defaultValue                | Default value. For Checkbox data type. Options are listed below:<br>true, false.                                                                                                                                                                                             |
+| displayFormat               | Display format for AutoNumber. Example: A-{0000}.                                                                                                                                                                                                                            |
+| displayLocationInDecimal    | Whether to display location in decimal. Options are listed below:<br>true, false.                                                                                                                                                                                            |
+| scale                       | Number of decimal places.                                                                                                                                                                                                                                                    |
+| precision                   | Number of digits.                                                                                                                                                                                                                                                            |
+| visibleLines                | Number of visible lines applied to MultiselectPicklist, LongTextArea, and Html.                                                                                                                                                                                              |
+| length                      | Text length applied to Text, TextArea, LongTextArea, and Html.                                                                                                                                                                                                               |
+| maskChar                    | Mask character applied to EncryptedText. Options are listed below:<br>asterisk, X.                                                                                                                                                                                           |
+| maskType                    | Mask type applied to EncryptedText. Options are listed below:<br>all, lastFour, creditCard, nino, ssn, sin.                                                                                                                                                                  |
+| picklistFullName            | Picklist API Names applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as the default delimiter to separate character string to multiple names. The delimiter can be chenged giving the picklistdelimiter.                                          |
+| picklistLabel               | Picklist labels applied to Picklist and MultiselectPicklist. Note that semicolon ';' is used as the default delimiter to separate character string to multiple labels. The delimiter can be chenged giving the picklistdelimiter.                                            |
+| caseSensitive               | Whether the field is case-sensitive. Applied only for Text. Options are listed below:<br>true, false.                                                                                                                                                                        |
+| referenceTo                 | Object FullName that the object of this field references to.                                                                                                                                                                                                                 |
+| relationshipLabel           | Label for relationship.                                                                                                                                                                                                                                                      |
+| relationshipName            | Child relationship name applied for Lookup, MasterDetail, and ExternalLookup.                                                                                                                                                                                                |
+| relationshipOrder           | Order of master-detail relationship. Options are listed below:<br>0, 1.                                                                                                                                                                                                      |
+| deleteConstraint            | Deletion options for lookup relationships. Options are listed below:<br>Cascade, Restrict, SetNull.                                                                                                                                                                          |
+| reparentableMasterDetail    | Whether the child records in a master-detail relationship on a custom object can be reparented to different parent records. Options are listed below:<br>true, false.                                                                                                        |
+| writeRequiresMasterRead     | Whether to allow users with Read access to the primary record permission to create, edit, or delete child records. Options are listed below:<br>true, false.                                                                                                                 |
+| summaryForeignKey           | Represents the master-detail field on the child that defines the relationship between the parent and the child. Example: ChildObject.ParentObject.                                                                                                                           |
+| summaryOperation            | Type of operation for roll-up summary field. Options are listed below:<br>count, sum, min, max.                                                                                                                                                                              |
+| summarizedField             | Represents the field on the detail row that is being summarized. Example: ChildObject.Field.                                                                                                                                                                                 |
+| summaryFilterItemsField     | Represents the field to filter items.                                                                                                                                                                                                                                        |
+| summaryFilterItemsOperation | Type of comparison operation to filter items. Options are listed below:<br>equals,notEqual,lessThan,greaterThan,lessOrEqual,greaterOrEqual,contains,notContain,startsWith,includes,excludes,within.                                                                          |
+| summaryFilterItemsValue     | Value to compare with summaryFilterItemsField.                                                                                                                                                                                                                               |
 
 Or you can create a template file running the following commnad:
 

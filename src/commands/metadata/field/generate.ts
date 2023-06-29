@@ -480,12 +480,15 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "length":
-        if ((type === "Text" || type === "LongTextArea" || type === "Html" || type === "EncryptedText") && row[indexOfTag] !== "") {
+        if (
+          (type === "Text" || type === "LongTextArea" || type === "Html" || type === "EncryptedText" || type === "ExternalLookup") &&
+          row[indexOfTag] !== ""
+        ) {
           if (!Number.isInteger(Number(row[indexOfTag]))) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLengthType"));
           }
         }
-        if (type === "Text" && row[indexOfTag] !== "") {
+        if ((type === "Text" || type === "ExternalLookup") && row[indexOfTag] !== "") {
           if (Number(row[indexOfTag]) < 1) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationLengthTextMin"));
           }
@@ -558,7 +561,7 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "referenceTo":
-        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+        if ((type === "Lookup" || type === "MasterDetail" || type === "ExternalLookup") && row[indexOfTag] !== "") {
           const isCustomField = row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) == "__c";
           if (
             (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
@@ -578,7 +581,7 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "relationshipName":
-        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+        if ((type === "Lookup" || type === "MasterDetail" || type === "ExternalLookup") && row[indexOfTag] !== "") {
           const isCustomField = row[indexOfTag].substring(row[indexOfTag].length - 3, row[indexOfTag].length) == "__c";
           if (
             (row[indexOfTag].length > 1 && !regExpForSnakeCase.test(row[indexOfTag])) ||
@@ -598,7 +601,7 @@ export default class generate extends SfdxCommand {
         }
         break;
       case "relationshipLabel":
-        if ((type === "Lookup" || type === "MasterDetail") && row[indexOfTag] !== "") {
+        if ((type === "Lookup" || type === "MasterDetail" || type === "ExternalLookup") && row[indexOfTag] !== "") {
           if (row[indexOfTag].length > 80) {
             this.pushValidationResult(errorIndex, messages.getMessage("validationRelationshipLabelLength"));
           }
