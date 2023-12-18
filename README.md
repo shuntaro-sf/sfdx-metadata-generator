@@ -1,4 +1,9 @@
 # sfdx-metadata-generator
+The plugin is deplicated and moved to the new sf repository
+
+[sf-metadata-generator](https://github.com/shuntaro-sf/sf-metadata-generator)
+
+# sfdx-metadata-generator
 
 SFDX plugin to generate metadata
 
